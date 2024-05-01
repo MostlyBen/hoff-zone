@@ -111,7 +111,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
         }
       }
     }
-  }, [command, setTheme, setHistory, clearHistory]);
+  }, [command, setHistory, clearHistory]);
 
   useEffect(() => {
     setCommand('banner');
