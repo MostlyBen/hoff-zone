@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const [consoleOpen, setConsoleOpen] = useState(false);
+  const [consoleOpen, setConsoleOpen] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
 
