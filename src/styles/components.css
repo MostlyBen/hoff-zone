@@ -1,0 +1,36 @@
+.console-container {
+  min-width: 420px;
+  max-width: 420px;
+}
+
+.main-container {
+  max-width: 100vw;
+}
+
+.btn {
+  padding: 12px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .console-container {
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+  .console-container.minimized {
+    max-height: 120px;
+  }
+
+  .flex-col-sm {
+    flex-direction: column;
+  }
+
+  .block-md {
+    display: block;
+  }
+}

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url("./animations.css");
+@import url("./elements.css");
+@import url("./components.css");
 
 @font-face {
   font-family: 'CascadiaCode';
@@ -23,43 +25,6 @@ div#__next > div {
   overflow: auto;
 }
 
-h1 {
-  font-size: 3em;
-  line-height: 1.2;
-}
-h2 {
-  font-size: 2.25em;
-  line-height: 1.2;
-}
-h3 {
-  font-size: 1.5em;
-  line-height: 1.2;
-}
-h4 {
-  font-size: 1.125em;
-  line-height: 1.2;
-}
-h5 {
-  font-size: 1em;
-  line-height: 1.2;
-}
-hr {
-  margin: 2rem 0;
-}
-p {
-  margin: 1rem 0;
-}
-code {
-  background-color: black;
-  color: white;
-  padding: 0 4px;
-}
-
-button {
-  border: 1px solid var(--cursorColor);
-  padding: 12px;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -67,45 +32,4 @@ button {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-}
-
-a {
-  text-decoration: underline;
-}
-
-.console-container {
-  min-width: 420px;
-  max-width: 420px;
-}
-
-.main-container {
-  max-width: 100vw;
-}
-
-.btn {
-  padding: 12px;
-  border-width: 1px;
-  border-style: solid;
-}
-
-.hide {
-  display: none;
-}
-
-@media screen and (max-width: 768px) {
-  .console-container {
-    min-width: 100vw;
-    max-width: 100vw;
-  }
-  .console-container.minimized {
-    max-height: 120px;
-  }
-
-  .flex-col-sm {
-    flex-direction: column;
-  }
-
-  .block-md {
-    display: block;
-  }
 }
