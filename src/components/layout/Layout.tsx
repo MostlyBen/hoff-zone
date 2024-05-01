@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../utils/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
@@ -11,6 +11,12 @@ const Layout: React.FC<Props> = ({ children }) => {
   const [consoleOpen, setConsoleOpen] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [consoleOpen]);
 
   return (
     <div
