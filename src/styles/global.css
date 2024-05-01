@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'CascadiaCode';
+  src: url(/assets/fonts/CascadiaCode.ttf);
+  display: swap;
+}
+
+* {
+  font-family: 'CascadiaCode', monospace;
+}
+
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: 100%;
+  overflow: auto;
+}
+
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.17em;
+}
+h4 {
+  font-size: 1em;
+}
+hr {
+  margin: 2rem 0;
+}
+p {
+  margin: 1rem 0;
+}
+code {
+  background-color: black;
+  color: white;
+  padding: 0 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.console-container {
+  min-width: 500px;
+  max-width: 500px;
+}
