@@ -111,6 +111,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
         }
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [command, setHistory, clearHistory]);
 
   useEffect(() => {
