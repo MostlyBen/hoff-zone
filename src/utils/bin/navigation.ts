@@ -44,6 +44,13 @@ export const sci = (_args: string[]) => {
       } else {
         return 'cancel';
       }
+    case '20':
+      if (!window.location.href.includes('/sci/20')) {
+        Router.push('/sci/20');
+        return 'Going to Sci 20';
+      } else {
+        return 'cancel';
+      }
     default:
       return sciHelp;
   }
