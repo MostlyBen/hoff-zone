@@ -7,7 +7,7 @@ const Anchor = ( props: JSX.IntrinsicElements["a"]) => {
   const internal = props.href?.startsWith('/') || props.href?.startsWith('#');
 
     return (
-      <Link href={props.href} replace target={!internal && '_blank'}>
+      <Link href={props.href} replace target={internal ? '' : '_blank'}>
         {props.children}
         {!internal &&
           <span
