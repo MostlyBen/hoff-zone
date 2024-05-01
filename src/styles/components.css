@@ -1,6 +1,7 @@
 .console-container {
   min-width: 420px;
   max-width: 420px;
+  max-height: 100vh;
 }
 
 .main-container {
@@ -44,7 +45,7 @@
   }
 
   .flex-col-sm {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .block-md {
