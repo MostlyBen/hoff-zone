@@ -10,7 +10,12 @@ export const Ps1 = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+    }}>
       <span
         style={{
           color: theme.yellow,
