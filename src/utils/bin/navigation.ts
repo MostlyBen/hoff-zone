@@ -25,7 +25,9 @@ export const home = () => {
 export const goto = (_args: string[]) => {
   if (_args.length === 0) return gotoHelp;
 
-  const pathname = '/' + _args.join('/');
+  let pathname = _args.join('/');
+  if (!pathname.startsWith('/')) pathname = '/' + pathname;
+  
   if (window.location.pathname !== pathname) {
     Router.push(pathname);
     return `Going to ${pathname}`;
