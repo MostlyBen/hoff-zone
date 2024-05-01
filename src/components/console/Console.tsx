@@ -17,14 +17,11 @@ const Console: React.FC<ConsoleProps> = ({ inputRef }) => {
   const containerRef = React.useRef(null);
 
   React.useEffect(() => {
-    focusInput();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    inputRef.current?.scrollIntoView();
   }, [history, inputRef]);
 
   const focusInput = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+    inputRef.current?.focus();
   }
 
   return (
