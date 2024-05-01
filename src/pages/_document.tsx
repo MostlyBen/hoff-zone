@@ -19,6 +19,17 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <link rel="manifest" href="/manifest.json" />
+
+          <meta name="theme-color" content="#D79921" />
+          <meta name="description" content="The Hoff Zone" />
+
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+          <meta name="msapplication-TileColor" content="#262626" />
+          <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+
           <link
             rel="apple-touch-icon"
             sizes="57x57"
@@ -88,11 +99,6 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <link rel="manifest" href="/manifest.json" />
-          <meta name="msapplication-TileColor" content="#262626" />
-          <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-          <meta name="theme-color" content="#D79921" />
-          <meta name="description" content="The Hoff Zone" />
         </Head>
 
         <body>

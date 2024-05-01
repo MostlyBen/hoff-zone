@@ -6,6 +6,8 @@ import '../styles/global.css';
 import { ShellProvider } from '../utils/shellProvider';
 import { ThemeProvider } from '../utils/themeProvider';
 
+import { A } from '../mdx';
+
 const isTrackingEnabled = process.env.NEXT_PUBLIC_ENABLE_TRACKING === 'true';
 const trackingUrl = process.env.NEXT_PUBLIC_TRACKING_URL;
 const trackingWebsiteId = process.env.NEXT_PUBLIC_TRACKING_SITE_ID;
@@ -17,7 +19,11 @@ const App = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <MDXProvider>
+    <MDXProvider
+      components={{
+        a: A,
+      }}
+    >
       <ThemeProvider>
         <ShellProvider>
           <Head>
