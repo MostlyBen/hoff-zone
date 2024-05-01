@@ -1,7 +1,11 @@
 import Router from "next/router";
 // import { redirect } from 'next/navigation';
 
-const help = `Usage: sci [module]
+const gotoHelp = `Usage: goto [path]
+Example:
+  goto sci 11 to go to /sci/11`
+
+const sciHelp = `Usage: sci [module]
 Modules:
   - 11
 
@@ -19,6 +23,18 @@ export const home = () => {
 }
 
 export const goto = (_args: string[]) => {
+  if (_args.length === 0) return gotoHelp;
+
+  const pathname = '/' + _args.join('/');
+  if (window.location.pathname !== pathname) {
+    Router.push(pathname);
+    return `Going to ${pathname}`;
+  } else {
+    return 'cancel';
+  }
+}
+
+export const sci = (_args: string[]) => {
 
   switch (_args[0]) {
     case '11':
@@ -29,11 +45,6 @@ export const goto = (_args: string[]) => {
         return 'cancel';
       }
     default:
-      if (window.location.pathname !== _args[0]) {
-        Router.push(_args[0]);
-        return `Going to ${_args[0]}`;
-      } else {
-      return help;
-      }
+      return sciHelp;
   }
 };
