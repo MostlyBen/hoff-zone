@@ -4,11 +4,12 @@ import { useTheme } from "../utils/themeProvider";
 
 const Anchor = ( props: JSX.IntrinsicElements["a"]) => {
   const { theme } = useTheme();
+  const internal = props.href?.startsWith('/') || props.href?.startsWith('#');
 
     return (
-      <Link href={props.href} replace>
+      <Link href={props.href} replace target={!internal && '_blank'}>
         {props.children}
-        {!props.href?.startsWith('/') &&
+        {!internal &&
           <span
             className="material-icons"
             style={{
