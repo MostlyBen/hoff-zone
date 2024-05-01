@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { History } from '../interfaces/history';
 import * as bin from './bin';
+import * as hidden from './hidden';
 import { useTheme } from './themeProvider';
 
 const isTrackingEnabled = process.env.NEXT_PUBLIC_ENABLE_TRACKING === 'true';
@@ -95,11 +96,12 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
         setHistory('');
         break;
       default: {
-        if (Object.keys(bin).indexOf(cmd) === -1) {
+        const allCommands = {...bin, ...hidden};
+        if (Object.keys(allCommands).indexOf(cmd) === -1) {
           setHistory(`Command not found: ${cmd}. Try 'help' to get started.`);
         } else {
           try {
-            const output = await bin[cmd](args, {router: router});
+            const output = await allCommands[cmd](args, {router: router});
 
             if (output !== 'cancel') {
               setHistory(output);
