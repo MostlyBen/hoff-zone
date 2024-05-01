@@ -10,6 +10,7 @@ const ThemeButton = ({ themeName, onClick }) => {
       onClick={() => onClick(themeName)}
       style={{
         padding: '12px',
+        border: 'none',
       }}
     >{themeName}</button>
   )
