@@ -1,31 +1,43 @@
-import React from 'react';
+import { useState, useRef } from 'react';
 import { useTheme } from '../../utils/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
-
 
 interface Props {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<Props> = ({ children }) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const [consoleOpen, setConsoleOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
 
   return (
     <div
-      className="min-w-max text-xs md:min-w-full md:text-base flex flex-row"
+      className={`min-w-max text-xs md:min-w-full md:text-base flex flex-row flex-col-sm`}
       style={{
         color: theme.foreground,
       }}
     >
       <div
-        className="p-2 console-container relative"
+        className={`p-2 console-container h-100p relative${consoleOpen ? '' : ' minimized'}`}
         style={{
           background: theme.background,
         }}
       >
         <Console inputRef={inputRef} />
+        {consoleOpen
+        ? <button
+            className="absolute btn hide block-md"
+            onClick={() => setConsoleOpen(false)}
+            style={{bottom: '16px', right: '16px', borderColor: theme.cursorColor}}
+          >/\</button>
+        :<button
+        className="absolute btn hide block-md"
+        onClick={() => setConsoleOpen(true)}
+        style={{bottom: '16px', right: '16px', borderColor: theme.cursorColor}}
+      >\/</button>
+        }
       </div>
 
       <main
