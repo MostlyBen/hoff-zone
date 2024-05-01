@@ -64,6 +64,9 @@ a {
   max-width: 420px;
 }
 
+.main-container {
+  max-width: 100vw;
+}
 
 .btn {
   padding: 12px;
