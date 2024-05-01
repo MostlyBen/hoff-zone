@@ -80,3 +80,17 @@ button {
 a {
   text-decoration: underline;
 }
+
+ol {
+  list-style-type: decimal;
+}
+
+ol > li {
+  margin-left: 2.33em;
+}
+
+ul > li.bullet-list-item::before {
+  content: "-";
+  margin-left: 0.5em;
+  margin-right: 1.25em;
+}
