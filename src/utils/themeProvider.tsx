@@ -64,6 +64,8 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 
     setStyles( constructThemeStyles(Themes[index]) );
 
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', Themes[index].yellow);
+
     localStorage.setItem('theme', name);
 
     return `Theme ${Themes[index].name} set successfully!`;
