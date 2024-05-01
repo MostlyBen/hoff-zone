@@ -20,7 +20,7 @@ export const History: React.FC<Props> = ({ history }) => {
           </div>
 
           <p
-            className="whitespace-pre-wrap mb-2"
+            className="whitespace-pre-wrap mb-2 mt-0"
             style={{ lineHeight: 'normal' }}
             dangerouslySetInnerHTML={{ __html: entry.output }}
           />
