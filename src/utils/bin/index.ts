@@ -1,4 +1,4 @@
 export * from './theme';
 export * from './utils';
-export * from './cowsay';
+export * from './cowquote';
 export * from './navigation';
