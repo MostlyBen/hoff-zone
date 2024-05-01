@@ -55,6 +55,11 @@ code {
   padding: 0 4px;
 }
 
+button {
+  border: 1px solid var(--cursorColor);
+  padding: 12px;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
