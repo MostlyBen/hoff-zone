@@ -4400,6 +4400,28 @@
     "cursorColor": "#ffffff"
   },
   {
+    "name": "Toast",
+    "foreground": "#f5f2f0",
+    "background": "#000000",
+    "cursorColor": "#f5f2f0",
+    "black": "#414868",
+    "white": "#a9b1d6",
+    "red": "#f7768e",
+    "green": "#9ece6a",
+    "yellow": "#87582b",
+    "blue": "#7aa2f7",
+    "purple": "#bb9af7",
+    "cyan": "#7dcfff",
+    "brightBlack": "#414868",
+    "brightRed": "#f7768e",
+    "brightGreen": "#9ece6a",
+    "brightYellow": "#e0af68",
+    "brightBlue": "#7aa2f7",
+    "brightPurple": "#bb9af7",
+    "brightCyan": "#7dcfff",
+    "brightWhite": "#c0caf5"
+  },
+  {
     "name": "TokyoNightLight",
     "black": "#0f0f14",
     "red": "#8c4351",
