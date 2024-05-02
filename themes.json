@@ -47,7 +47,7 @@
     "red": "#bd0013",
     "green": "#4ab118",
     "yellow": "#e7741e",
-    "blue": "#0f4ac6",
+    "blue": "#5884e0",
     "purple": "#665993",
     "cyan": "#70a598",
     "white": "#f8dcc0",
@@ -182,34 +182,6 @@
     "cursorColor": "#d9e6f2"
   },
   {
-    "name": "BelafonteDay",
-    "black": "#20111b",
-    "red": "#be100e",
-    "green": "#858162",
-    "yellow": "#eaa549",
-    "blue": "#426a79",
-    "purple": "#97522c",
-    "cyan": "#989a9c",
-    "white": "#968c83",
-    "foreground": "#45373c",
-    "background": "#d5ccba",
-    "cursorColor": "#45373c"
-  },
-  {
-    "name": "BelafonteNight",
-    "black": "#20111b",
-    "red": "#be100e",
-    "green": "#858162",
-    "yellow": "#eaa549",
-    "blue": "#426a79",
-    "purple": "#97522c",
-    "cyan": "#989a9c",
-    "white": "#968c83",
-    "foreground": "#968c83",
-    "background": "#20111b",
-    "cursorColor": "#968c83"
-  },
-  {
     "name": "Bim",
     "black": "#2c2423",
     "red": "#f557a0",
@@ -292,20 +264,6 @@
     "foreground": "#d6dbe5",
     "background": "#131313",
     "cursorColor": "#d6dbe5"
-  },
-  {
-    "name": "Cai",
-    "black": "#000000",
-    "red": "#ca274d",
-    "green": "#4dca27",
-    "yellow": "#caa427",
-    "blue": "#274dca",
-    "purple": "#a427ca",
-    "cyan": "#27caa4",
-    "white": "#808080",
-    "foreground": "#d9e6f2",
-    "background": "#09111a",
-    "cursorColor": "#d9e6f2"
   },
   {
     "name": "Chalk",
@@ -742,20 +700,6 @@
     "cursorColor": "#98d1ce"
   },
   {
-    "name": "Grape",
-    "black": "#2d283f",
-    "red": "#ed2261",
-    "green": "#1fa91b",
-    "yellow": "#8ddc20",
-    "blue": "#487df4",
-    "purple": "#8d35c9",
-    "cyan": "#3bdeed",
-    "white": "#9e9ea0",
-    "foreground": "#9f9fa1",
-    "background": "#171423",
-    "cursorColor": "#9f9fa1"
-  },
-  {
     "name": "Grass",
     "black": "#000000",
     "red": "#bb0000",
@@ -1008,20 +952,6 @@
     "cursorColor": "#dedede"
   },
   {
-    "name": "kokuban",
-    "black": "#2E8744",
-    "red": "#D84E4C",
-    "green": "#95DA5A",
-    "yellow": "#D6E264",
-    "blue": "#4B9ED7",
-    "purple": "#945FC5",
-    "cyan": "#D89B25",
-    "white": "#D8E2D7",
-    "foreground": "#D8E2D7",
-    "background": "#0D4A08",
-    "cursorColor": "#D8E2D7"
-  },
-  {
     "name": "laserwave",
     "black": "#39243A",
     "red": "#EB64B9",
@@ -1034,20 +964,6 @@
     "foreground": "#E0E0E0",
     "background": "#1F1926",
     "cursorColor": "#C7C7C7"
-  },
-  {
-    "name": "LiquidCarbonTransparent",
-    "black": "#000000",
-    "red": "#ff3030",
-    "green": "#559a70",
-    "yellow": "#ccac00",
-    "blue": "#0099cc",
-    "purple": "#cc69c8",
-    "cyan": "#7ac4cc",
-    "white": "#bccccc",
-    "foreground": "#afc2c2",
-    "background": "#000000",
-    "cursorColor": "#afc2c2"
   },
   {
     "name": "LiquidCarbon",
@@ -1246,20 +1162,6 @@
     "cursorColor": "#FFD300"
   },
   {
-    "name": "MonokaiDark",
-    "black": "#75715e",
-    "red": "#f92672",
-    "green": "#a6e22e",
-    "yellow": "#f4bf75",
-    "blue": "#66d9ef",
-    "purple": "#ae81ff",
-    "cyan": "#2AA198",
-    "white": "#f9f8f5",
-    "foreground": "#f8f8f2",
-    "background": "#272822",
-    "cursorColor": "#f8f8f2"
-  },
-  {
     "name": "MonokaiPro",
     "black": "#363537",
     "red": "#FF6188",
@@ -1344,21 +1246,7 @@
     "cursorColor": "#d6deeb"
   },
   {
-    "name": "NightlionV1",
-    "black": "#4c4c4c",
-    "red": "#bb0000",
-    "green": "#5fde8f",
-    "yellow": "#f3f167",
-    "blue": "#276bd8",
-    "purple": "#bb00bb",
-    "cyan": "#00dadf",
-    "white": "#bbbbbb",
-    "foreground": "#bbbbbb",
-    "background": "#000000",
-    "cursorColor": "#bbbbbb"
-  },
-  {
-    "name": "NightlionV2",
+    "name": "Nightlion",
     "black": "#4c4c4c",
     "red": "#bb0000",
     "green": "#04f623",
