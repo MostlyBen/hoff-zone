@@ -11,12 +11,4 @@ export interface Theme {
   blue: string;
   purple: string;
   cyan: string;
-  brightBlack: string;
-  brightRed: string;
-  brightGreen: string;
-  brightYellow: string;
-  brightBlue: string;
-  brightPurple: string;
-  brightCyan: string;
-  brightWhite: string;
 }
