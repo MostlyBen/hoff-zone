@@ -1,13 +1,16 @@
 export interface Theme {
   name: string;
+  foreground: string;
+  background: string;
+  cursorColor: string;
   black: string;
+  white: string;
   red: string;
   green: string;
   yellow: string;
   blue: string;
   purple: string;
   cyan: string;
-  white: string;
   brightBlack: string;
   brightRed: string;
   brightGreen: string;
@@ -16,7 +19,4 @@ export interface Theme {
   brightPurple: string;
   brightCyan: string;
   brightWhite: string;
-  foreground: string;
-  background: string;
-  cursorColor: string;
 }
