@@ -2087,6 +2087,21 @@
     "cursorColor": "#CCCCCC"
   },
   {
+    "name": "Weezer",
+    "student": true,
+    "black": "#0D0D0D",
+    "red": "#EA213A",
+    "green": "#BECC41",
+    "yellow": "#d5de57",
+    "blue": "#189bcc",
+    "purple": "#c757de",
+    "cyan": "#2BBCBB",
+    "white": "#F3F3F3",
+    "foreground": "#BECC41",
+    "background": "#189bcc",
+    "cursorColor": "#F3F3F3"
+  },
+  {
     "name": "WildCherry",
     "black": "#000507",
     "red": "#d94085",
