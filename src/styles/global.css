@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url("./animations.css");
 @import url("./components.css");
 
@@ -65,6 +66,11 @@ hr {
 
 p {
   margin: 1rem 0;
+  line-height: 1.2;
+}
+
+li {
+  line-height: 1.2;
 }
 
 code {
