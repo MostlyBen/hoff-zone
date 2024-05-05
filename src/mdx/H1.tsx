@@ -5,9 +5,13 @@ const H1 = ( { children }: JSX.IntrinsicElements["h1"] ) => {
 
   return (
     <h1
+      id={typeof children === 'string'
+          ? children.replace(/\s+/g, '-').toLowerCase()
+          : `h1-${Math.floor(1000 * Math.random())}`}
+
+      className={glitch ? 'glitch' : ''}
       onPointerOver={() => setGlitch(true)}
       onPointerOut={() => setGlitch(false)}
-      className={glitch ? 'glitch' : ''}
     >{children}</h1>
   )
 }

@@ -6,7 +6,7 @@ import '../styles/global.css';
 import { ShellProvider } from '../utils/shellProvider';
 import { ThemeProvider } from '../utils/themeProvider';
 
-import { A, H1, HR, LI, P } from '../mdx';
+import { a, h1, h2, h3, hr, li, p } from '../mdx';
 
 const isTrackingEnabled = process.env.NEXT_PUBLIC_ENABLE_TRACKING === 'true';
 const trackingUrl = process.env.NEXT_PUBLIC_TRACKING_URL;
@@ -20,13 +20,7 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <MDXProvider
-      components={{
-        a: A,
-        h1: H1,
-        hr: HR,
-        li: LI,
-        p: P,
-      }}
+      components={{ a, h1, h2, h3, hr, li, p }}
     >
       <ThemeProvider>
         <ShellProvider>
