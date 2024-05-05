@@ -67,7 +67,7 @@ const ChecklistItem = ({ children }) => {
     setIsChecked(checked);
   }
 
-  return (<li>
+  return (<li style={{margin: "0.5rem 0"}}>
     <button
       className="inline-block"
       style={{padding: 0, border: 'none'}}
@@ -107,6 +107,7 @@ const LI = ({ children }) => {
   return (
     <li
       className="bullet-list-item"
+      style={{margin: "0.5rem 0"}}
     >{children}</li>
   )
 }
