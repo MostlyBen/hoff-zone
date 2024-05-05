@@ -83,7 +83,9 @@ const ChecklistItem = ({ children }) => {
       typeof children == 'string'
       ? children.slice(3)
       : children.map((child, index) => {
-          return (index === 0) ? ' ' : child
+          return (index === 0)
+          ? child.length > 4 ? child.slice(3) : ' '
+          : child
         })
     }</span>
   </li>)
