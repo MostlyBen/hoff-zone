@@ -45,6 +45,8 @@ const ThemeSwitcher = () => {
         bottom: '12px',
         flexDirection: 'column',
         background: theme.background,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         maxHeight: '420px',
         overflowY: 'auto',
         border: `1px solid ${theme.green}`,

@@ -393,6 +393,20 @@
     "cursorColor": "#ffffff"
   },
   {
+    "name": "Cow",
+    "black": "#4f4f4f",
+    "red": "#ff6c60",
+    "green": "#a8ff60",
+    "yellow": "#ffffb6",
+    "blue": "#96cbfe",
+    "purple": "#ff73fd",
+    "cyan": "#c6c5fe",
+    "white": "#eeeeee",
+    "foreground": "#ffff4e",
+    "background": "url(https://media0.giphy.com/media/h55EUEsTG9224/giphy.webp?cid=2d6378eblxpyc43h354bwksaqw1ebgpnau4f0kstz6psp5p7&ep=v1_gifs_search&rid=giphy.webp&ct=g)",
+    "cursorColor": "#ffff4e"
+  },
+  {
     "name": "DarkPastel",
     "black": "#000000",
     "red": "#ff5555",

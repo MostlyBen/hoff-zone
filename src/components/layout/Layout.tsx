@@ -20,15 +20,16 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <div
-      className={`min-w-max text-xs md:min-w-full md:text-base flex flex-row flex-col-sm`}
+      className={`min-w-max text-xs md:min-w-full md:text-base flex flex-row flex-col-sm bg-cover`}
       style={{
         color: theme.foreground,
+        background: theme.background,
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <div
         className={`p-2 console-container h-100p relative${consoleOpen ? '' : ' minimized'}`}
         style={{
-          background: theme.background,
         }}
       >
         <Console inputRef={inputRef} />
@@ -48,9 +49,6 @@ const Layout: React.FC<Props> = ({ children }) => {
 
       <main
         className="main-container py-8 px-4 flex-grow relative"
-        style={{
-          background: theme.background,
-        }}
         >
         {children}
       </main>

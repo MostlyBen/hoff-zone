@@ -23,8 +23,6 @@ div#__next,
 div#__next > div {
   height: 100%;
   overflow: auto;
-  background: var(--background);
-  background-size: cover;
 }
 
 ::-webkit-scrollbar {
@@ -34,6 +32,10 @@ div#__next > div {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
+}
+
+.bg-cover {
+  background-size: cover !important;
 }
 
 h1 {
