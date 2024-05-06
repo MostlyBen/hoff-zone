@@ -308,6 +308,21 @@
     "cursorColor": "#DEDEDE"
   },
   {
+    "name": "chipmin",
+    "student": true,
+    "foreground": "#fcfc03",
+    "background": "#080808",
+    "cursorColor": "#fcfc03",
+    "black": "#fcfc03",
+    "white": "#080808",
+    "red": "#f74f4f",
+    "green": "#77fa70",
+    "yellow": "#fcfc03",
+    "blue": "#0585fc",
+    "purple": "#c305fc",
+    "cyan": "#05d7fc"
+  },
+  {
     "name": "Ciapre",
     "black": "#181818",
     "red": "#810009",
@@ -446,6 +461,21 @@
     "foreground": "#94A3A5",
     "background": "#282a36",
     "cursorColor": "#94A3A5"
+  },
+  {
+    "name": "Dwayne",
+    "student": true,
+    "foreground": "#00FFF3",
+    "background": "#5F0000",
+    "cursorColor": "#03FFDD",
+    "black": "#000000",
+    "white": "#A2B289",
+    "red": "#0013FF",
+    "green": "#B0A189",
+    "yellow": "#8f0e65",
+    "blue": "#D7FEE2",
+    "purple": "#FF0051",
+    "cyan": "#47472B"
   },
   {
     "name": "Earthsong",
