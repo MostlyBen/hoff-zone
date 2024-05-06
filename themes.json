@@ -1654,6 +1654,21 @@
     "cursorColor": "#ffffff"
   },
   {
+    "name": "SapphireDark",
+    "student": true,
+    "foreground": "#F2F2F2",
+    "background": "#13181F",
+    "cursorColor": "#FFFFFF",
+    "black": "#0000CD",
+    "white": "#F2f2f2",
+    "red": "#1EF4FF",
+    "green": "#35E1D9",
+    "yellow": "#3EB2FF",
+    "blue": "#5555FF",
+    "purple": "#0F6AF6",
+    "cyan": "#5E72E4"
+  },
+  {
     "name": "SeaShells",
     "black": "#17384c",
     "red": "#d15123",
