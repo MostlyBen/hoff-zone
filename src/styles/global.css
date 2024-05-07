@@ -16,6 +16,10 @@
   font-size: 0.9375rem;
 }
 
+a {
+  font-size: inherit;
+}
+
 html,
 body,
 body > div:first-child,
@@ -85,6 +89,7 @@ code {
   background-color: black;
   color: white;
   padding: 0 4px;
+  border-radius: 4px;
 }
 
 button {
