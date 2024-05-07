@@ -1350,14 +1350,14 @@
     "student": true,
     "black": "#000000",
     "white": "#ffffff",
-    "cursorColor": "#86cecb",
+    "cursorColor": "#137a7f",
     "background": "#373b3e",
     "foreground": "#bec8d1",
     "red": "#e12885",
     "purple": "#e12885",
     "yellow": "#86cecb",
     "cyan": "#86cecb",
-    "green": "#e12885",
+    "green": "#137a7f",
     "blue": "#137a7f"
 
   },
