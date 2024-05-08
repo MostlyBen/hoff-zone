@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../utils/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
+import { default as Lofi } from './Lofi';
 
 interface Props {
   children: React.ReactNode;
@@ -9,8 +10,14 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const [consoleOpen, setConsoleOpen] = useState(true);
+  const [lofiOpen, setLofiOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    document.addEventListener('onLofiOpen', () => setLofiOpen(true));
+    return () => document.removeEventListener('onLofiOpen', () => setLofiOpen(false));
+  }, []);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -48,10 +55,12 @@ const Layout: React.FC<Props> = ({ children }) => {
       </div>
 
       <main
-        className="main-container py-8 px-4 flex-grow relative"
-        >
+        className="main-container pt-8 px-4 flex-grow relative"
+        style={{paddingBottom: "300px"}}
+      >
         {children}
       </main>
+      {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
       <ThemeSwitcher />
     </div>
   );
