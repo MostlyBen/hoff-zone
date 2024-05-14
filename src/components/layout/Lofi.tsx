@@ -24,7 +24,7 @@ const Lofi = ({ onClose }) => {
       <iframe
         width="420"
         height="236"
-        src="https://www.youtube.com/embed/jfKfPfyJRdk?si=yhEE28Z2C_QqzOVH"
+        src="https://www.youtube.com/watch?v=zuCRSwWssVk"
         title="LoFi"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
