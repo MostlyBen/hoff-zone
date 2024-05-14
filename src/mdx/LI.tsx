@@ -99,7 +99,7 @@ const LI = ({ children }) => {
     isChecklistItem = children.startsWith("[ ]") || children.startsWith("[x]");
   }
   if (Array.isArray(children)) {
-    isChecklistItem = children[0].startsWith("[ ]") || children[0].startsWith("[x]");
+    isChecklistItem = getChildText(children).startsWith("[ ]") || getChildText(children).startsWith("[x]");
   }
 
   if (isChecklistItem) {
@@ -108,7 +108,7 @@ const LI = ({ children }) => {
 
   return (
     <li
-      className="bullet-list-item"
+      className="bullet-list-item list-decimal"
       style={{margin: "0.5rem 0"}}
     >{children}</li>
   )
