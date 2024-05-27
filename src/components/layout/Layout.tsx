@@ -60,7 +60,7 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
       >
         {frontmatter
         ? Object.keys(frontmatter).length
-          ? <div>Frontmatter: {JSON.stringify(frontmatter)}</div>
+          ? <div>page data (better view coming soon): {JSON.stringify(frontmatter)}</div>
           : <></>
         : <></>}
         {children}

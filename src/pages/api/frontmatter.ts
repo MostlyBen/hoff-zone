@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import getFrontMatter from '../../utils/getFrontMatter';
+import splitFrontmatterFromContent from '../../utils/splitFrontmatterFromContent';
 import path from 'path';
 
-const handler = (req:NextApiRequest, res:NextApiResponse) => {
+const handler = async (req:NextApiRequest, res:NextApiResponse) => {
   const { path: filePath } = req.query;
   const mdxFilePath = path.join(process.cwd(), 'src', 'pages', `${filePath}.mdx`);
-  const frontmatter = getFrontMatter(mdxFilePath)
-  
-  res.status(200).json(frontmatter)
+  const pageData = await splitFrontmatterFromContent(mdxFilePath)
+  res.status(200).json(pageData);
+
 }
 
 export default handler
