@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { MDXProvider } from "@mdx-js/react";
-import React, { useEffect } from 'react';
 import { Layout } from '../components/layout';
 import '../styles/global.css';
 import { ShellProvider } from '../utils/shellProvider';
@@ -8,15 +7,7 @@ import { ThemeProvider } from '../utils/themeProvider';
 
 import { a, h1, h2, h3, hr, li, p } from '../mdx';
 
-const isTrackingEnabled = process.env.NEXT_PUBLIC_ENABLE_TRACKING === 'true';
-const trackingUrl = process.env.NEXT_PUBLIC_TRACKING_URL;
-const trackingWebsiteId = process.env.NEXT_PUBLIC_TRACKING_SITE_ID;
-
 const App = ({ Component, pageProps }) => {
-
-  useEffect(() => {
-    localStorage.setItem('visitedAt', new Date().toString());
-  }, []);
 
   return (
     <MDXProvider
@@ -30,14 +21,6 @@ const App = ({ Component, pageProps }) => {
               content="initial-scale=1.0, width=device-width"
               key="viewport"
             />
-
-            {isTrackingEnabled && (
-              <script
-                async
-                src={trackingUrl}
-                data-website-id={trackingWebsiteId}
-              ></script>
-            )}
           </Head>
 
           <Layout>
