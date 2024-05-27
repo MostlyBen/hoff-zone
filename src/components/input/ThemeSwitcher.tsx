@@ -73,7 +73,7 @@ const ThemeSwitcher = () => {
           padding: '12px',
           border: `1px solid ${theme.green}`,
           color: theme.yellow,
-          backgroundColor: theme.background,
+          background: theme.background,
         }}
         onClick={() => setShowThemes(!showThemes)}
       >{theme.name}</button>

@@ -105,7 +105,7 @@ export const Input = ({ inputRef, containerRef }) => {
         className="focus:outline-none flex-grow"
         aria-label="prompt"
         style={{
-          backgroundColor: theme.background,
+          background: theme.background,
           color: commandExists(value) || value === '' ? theme.green : theme.red,
         }}
         value={value}
