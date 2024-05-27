@@ -58,7 +58,11 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
         className="main-container pt-8 px-4 flex-grow relative"
         style={{paddingBottom: "300px"}}
       >
-        {frontmatter && <div>Frontmatter: {JSON.stringify(frontmatter)}</div>}
+        {frontmatter
+        ? Object.keys(frontmatter).length
+          ? <div>Frontmatter: {JSON.stringify(frontmatter)}</div>
+          : <></>
+        : <></>}
         {children}
       </main>
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
