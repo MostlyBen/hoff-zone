@@ -20,6 +20,10 @@ a {
   font-size: inherit;
 }
 
+blockquote > p {
+  margin: 0;
+}
+
 html,
 body,
 body > div:first-child,
@@ -45,23 +49,23 @@ div#__next > div {
 h1 {
   font-size: 3em;
   line-height: 1.2;
-  margin-top: 1.5rem;
+  margin-top: 1.5em;
 }
 
 h2 {
   font-size: 2.25em;
   line-height: 1.2;
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 1.75em;
   line-height: 1.2;
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 
 h4 {
-  font-size: 1.125em;
+  font-size: 1.25em;
   line-height: 1.2;
   margin-top: 1em;
 }
@@ -69,7 +73,7 @@ h4 {
 h5 {
   font-size: 1em;
   line-height: 1.2;
-  margin-top: 0.5rem;
+  margin-top: 0.5em;
 }
 
 hr {
@@ -108,6 +112,10 @@ ol {
 
 ol > li, li > span > ul {
   margin-left: 2.33em;
+}
+
+li > span > ul, li > span > ol {
+  margin-bottom: 1.25em;
 }
 
 ul > li.bullet-list-item::before {
