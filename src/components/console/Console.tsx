@@ -31,15 +31,15 @@ const Console: React.FC<ConsoleProps> = ({ inputRef }) => {
       </Head>
 
       <div
-        className="overflow-hidden h-full rounded"
+        className="overflow-hidden h-full rounded console-content"
         onClick={focusInput}
         style={{
           borderColor: theme.yellow,
-          padding: config.border ? 16 : 8,
+          padding: config.border ? 18 : 8,
           borderWidth: config.border ? 2 : 0,
         }}
       >
-        <div ref={containerRef} className="overflow-y-auto h-full">
+        <div ref={containerRef} className="overflow-y-auto fix-console-sm h-full">
           <History history={history} />
 
           <Input inputRef={inputRef} containerRef={containerRef} />

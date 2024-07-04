@@ -41,13 +41,20 @@
   background-color: var(--cyan);
 }
 
+.module-banner {
+  background-size: cover;
+  height: 240px;
+  width: 100%;
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 768px) {
   .console-container {
     min-width: 100vw;
     max-width: 100vw;
   }
   .console-container.minimized {
-    max-height: 120px;
+    max-height: 74px;
   }
 
   .flex-col-sm {
@@ -56,5 +63,11 @@
 
   .block-md {
     display: block;
+  }
+}
+
+@media screen and (max-width: 398px) {
+  .minimized > .console-content > div {
+    overflow-y: hidden !important;
   }
 }

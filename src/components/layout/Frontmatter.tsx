@@ -6,15 +6,12 @@ const Banner = ({ src, position }) => {
 
   return (
     <div
+      className="module-banner"
       aria-label="module banner"
       style={{
-        background: `url(${src})`,
-        height: "240px",
-        width: "100%",
-        backgroundSize: "cover",
+        backgroundImage: `url(${src})`,
         backgroundPosition: position,
         border: `2px solid ${theme.yellow}`,
-        borderRadius: '4px'
       }}
     />
   )
