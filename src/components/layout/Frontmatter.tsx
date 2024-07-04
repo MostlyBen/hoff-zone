@@ -33,15 +33,16 @@ const GeneralReadout = ({ title, content }) => {
 }
 
 const Frontmatter = ({ pageData }) => {
+  const { theme } = useTheme();
 
   return (
     <div className="module-frontmatter">
       {pageData.banner && <Banner src={pageData.banner} position={pageData['banner-position']} />}
 
-      <H1>{pageData.title}</H1>
+      <H1 style={{margin: '0.5em 0'}}>{pageData.title}</H1>
 
       {Array.isArray(pageData.tags) &&
-       pageData.tags.map((t, i) => <span className="tag" key={`tag-${i}`}>#{t}</span>)
+       pageData.tags.map((t: string, i: number) => <span className="tag" key={`tag-${i}`}>#{t}</span>)
       }
 
       {pageData['driving-question'] &&
@@ -52,7 +53,7 @@ const Frontmatter = ({ pageData }) => {
       {pageData.understand && <GeneralReadout title="Understand" content={pageData.understand} />}
       {pageData.do && <GeneralReadout title="Do" content={pageData.do} />}
 
-      <hr className='divider' />
+      <hr className='divider' style={{border: `1px solid ${theme.yellow}`}} />
     </div>
   )
 }
