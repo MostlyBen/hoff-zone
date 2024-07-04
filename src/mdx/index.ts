@@ -1,4 +1,5 @@
 export { default as a } from './A';
+export { default as blockquote } from './Blockquote';
 export { default as h1 } from './H1';
 export { default as h2 } from './H2';
 export { default as h3 } from './H3';

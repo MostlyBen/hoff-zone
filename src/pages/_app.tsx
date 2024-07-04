@@ -7,7 +7,7 @@ import { ThemeProvider } from '../utils/themeProvider';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-import { a, h1, h2, h3, h4, hr, li, p } from '../mdx';
+import { a, blockquote, h1, h2, h3, h4, hr, li, p } from '../mdx';
 import { useEffect, useState } from 'react';
 
 const App = ({ Component, pageProps }) => {
@@ -30,7 +30,7 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <MDXProvider
-      components={{ a, h1, h2, h3, h4, hr, li, p }}
+      components={{ a, blockquote, h1, h2, h3, h4, hr, li, p }}
     >
       <ThemeProvider>
         <ShellProvider>
