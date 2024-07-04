@@ -12,7 +12,6 @@ const Banner = ({ src, position }) => {
         background: `url(${src})`,
         height: "240px",
         width: "100%",
-        backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: position,
         border: `2px solid ${theme.yellow}`,
