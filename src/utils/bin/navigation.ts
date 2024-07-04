@@ -37,23 +37,13 @@ export const goto = (_args: string[]) => {
 }
 
 export const sci = (_args: string[]) => {
+  const moduleNum = _args[0]
+  if (!['11', '12', '13', '20'].includes(moduleNum)) {
+    return sciHelp
+  }
 
-  switch (_args[0]) {
-    case '11':
-      if (!window.location.href.includes('/sci/11')) {
-        Router.push('/sci/11');
-        return 'Going to Sci 11';
-      } else {
-        return 'cancel';
-      }
-    case '20':
-      if (!window.location.href.includes('/sci/20')) {
-        Router.push('/sci/20');
-        return 'Going to Sci 20';
-      } else {
-        return 'cancel';
-      }
-    default:
-      return sciHelp;
+  if (!window.location.href.includes(`/sci/${moduleNum}`)) {
+    Router.push(`/sci/${moduleNum}`);
+    return `Going to Sci ${moduleNum}`
   }
 };
