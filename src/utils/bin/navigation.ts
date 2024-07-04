@@ -6,8 +6,6 @@ Example:
   goto sci 11 to go to /sci/11`
 
 const sciHelp = `Usage: sci [module]
-Modules:
-  - 11
 
 Example:
   sci 11 # to go to module 11
