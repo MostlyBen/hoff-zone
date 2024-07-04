@@ -3,6 +3,7 @@ import { useTheme } from '../../utils/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
 import { default as Lofi } from './Lofi';
+import { Frontmatter } from '../layout';
 
 interface Props {
   children: React.ReactNode;
@@ -60,7 +61,7 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
       >
         {frontmatter
         ? Object.keys(frontmatter).length
-          ? <div>page data (better view coming soon): {JSON.stringify(frontmatter)}</div>
+          ? <Frontmatter pageData={frontmatter} />
           : <></>
         : <></>}
         {children}
