@@ -10,12 +10,12 @@ const Tag = ( { children }: JSX.IntrinsicElements["p"] ) => {
   )
 }
 
-const P = ( { children }: JSX.IntrinsicElements["p"] ) => {
+const P = ( { children, style }: JSX.IntrinsicElements["p"] ) => {
 
   if (typeof children === 'string') {
     const parts = children.split(/(#\S+)/g)
     return (
-      <p>
+      <p style={style}>
         {parts.map((part, index) => {
           if (part.match(/#\S+/)) {
             return <Tag key={index}>{part}</Tag>

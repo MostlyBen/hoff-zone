@@ -1,6 +1,6 @@
 import { JSX, useState } from "react";
 
-const H1 = ( { children }: JSX.IntrinsicElements["h1"] ) => {
+const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
   const [glitch, setGlitch] = useState(false);
 
   return (
@@ -12,6 +12,7 @@ const H1 = ( { children }: JSX.IntrinsicElements["h1"] ) => {
       className={glitch ? 'glitch' : ''}
       onPointerOver={() => setGlitch(true)}
       onPointerOut={() => setGlitch(false)}
+      style={style}
     >{children}</h1>
   )
 }

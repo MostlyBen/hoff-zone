@@ -92,7 +92,7 @@ const ChecklistItem = ({ children }) => {
 }
 
 
-const LI = ({ children }) => {
+const LI = ({ children, style }: JSX.IntrinsicElements["li"]) => {
   let isChecklistItem = false;
 
   if (typeof children === 'string')  {
@@ -109,7 +109,10 @@ const LI = ({ children }) => {
   return (
     <li
       className="bullet-list-item list-decimal"
-      style={{margin: "0.5rem 0"}}
+      style={
+        typeof style === 'object'
+        ? {margin: "0.5rem 0", ...style}
+        : {margin: "0.5rem 0"}}
     >{children}</li>
   )
 }
