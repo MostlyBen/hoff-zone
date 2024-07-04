@@ -84,20 +84,6 @@
     "cursorColor": "#fffaf4"
   },
   {
-    "name": "Arthur",
-    "black": "#3d352a",
-    "red": "#cd5c5c",
-    "green": "#86af80",
-    "yellow": "#e8ae5b",
-    "blue": "#6495ed",
-    "purple": "#deb887",
-    "cyan": "#b0c4de",
-    "white": "#bbaa99",
-    "foreground": "#ddeedd",
-    "background": "#1c1c1c",
-    "cursorColor": "#ddeedd"
-  },
-  {
     "name": "Atom",
     "black": "#000000",
     "red": "#fd5ff1",
@@ -138,20 +124,6 @@
     "foreground": "#B3B1AD",
     "background": "#0A0E14",
     "cursorColor": "#E6B450"
-  },
-  {
-    "name": "AyuLight",
-    "black": "#575F66",
-    "red": "#F51818",
-    "green": "#86B300",
-    "yellow": "#F2AE49",
-    "blue": "#399EE6",
-    "purple": "#A37ACC",
-    "cyan": "#4CBF99",
-    "white": "#FAFAFA",
-    "foreground": "#575F66",
-    "background": "#FAFAFA",
-    "cursorColor": "#FF9940"
   },
   {
     "name": "AyuMirage",
@@ -250,20 +222,6 @@
     "foreground": "#e6e1dc",
     "background": "#2b2b2b",
     "cursorColor": "#e6e1dc"
-  },
-  {
-    "name": "Brogrammer",
-    "black": "#1f1f1f",
-    "red": "#f81118",
-    "green": "#2dc55e",
-    "yellow": "#ecba0f",
-    "blue": "#2a84d2",
-    "purple": "#4e5ab7",
-    "cyan": "#1081d6",
-    "white": "#d6dbe5",
-    "foreground": "#d6dbe5",
-    "background": "#131313",
-    "cursorColor": "#d6dbe5"
   },
   {
     "name": "Chalk",
@@ -477,21 +435,6 @@
     "cursorColor": "#94A3A5"
   },
   {
-    "name": "Dwayne",
-    "student": true,
-    "foreground": "#00FFF3",
-    "background": "#5F0000",
-    "cursorColor": "#03FFDD",
-    "black": "#000000",
-    "white": "#A2B289",
-    "red": "#0013FF",
-    "green": "#B0A189",
-    "yellow": "#8f0e65",
-    "blue": "#D7FEE2",
-    "purple": "#FF0051",
-    "cyan": "#47472B"
-  },
-  {
     "name": "Earthsong",
     "black": "#121418",
     "red": "#c94234",
@@ -616,20 +559,6 @@
     "foreground": "#1abc9c",
     "background": "#1F2D3A",
     "cursorColor": "#1abc9c"
-  },
-  {
-    "name": "Flatland",
-    "black": "#1d1d19",
-    "red": "#f18339",
-    "green": "#9fd364",
-    "yellow": "#f4ef6d",
-    "blue": "#5096be",
-    "purple": "#695abc",
-    "cyan": "#d63865",
-    "white": "#ffffff",
-    "foreground": "#b8dbef",
-    "background": "#1d1f21",
-    "cursorColor": "#b8dbef"
   },
   {
     "name": "Foxnightly",
@@ -784,20 +713,6 @@
     "foreground": "#3c3836",
     "background": "#fbf1c7",
     "cursorColor": "#3c3836"
-  },
-  {
-    "name": "Harper",
-    "black": "#010101",
-    "red": "#f8b63f",
-    "green": "#7fb5e1",
-    "yellow": "#d6da25",
-    "blue": "#489e48",
-    "purple": "#b296c6",
-    "cyan": "#f5bfd7",
-    "white": "#a8a49d",
-    "foreground": "#a8a49d",
-    "background": "#010101",
-    "cursorColor": "#a8a49d"
   },
   {
     "name": "HemisuDark",
@@ -1050,20 +965,6 @@
     "foreground": "#C3C7D1",
     "background": "#1E282C",
     "cursorColor": "#657B83"
-  },
-  {
-    "name": "Mathias",
-    "black": "#000000",
-    "red": "#e52222",
-    "green": "#a6e32d",
-    "yellow": "#fc951e",
-    "blue": "#c48dff",
-    "purple": "#fa2573",
-    "cyan": "#67d9f0",
-    "white": "#f2f2f2",
-    "foreground": "#bbbbbb",
-    "background": "#000000",
-    "cursorColor": "#bbbbbb"
   },
   {
     "name": "Misterioso",
@@ -1375,20 +1276,6 @@
     "cursorColor": "#3b2322"
   },
   {
-    "name": "Obsidian",
-    "black": "#000000",
-    "red": "#a60001",
-    "green": "#00bb00",
-    "yellow": "#fecd22",
-    "blue": "#3a9bdb",
-    "purple": "#bb00bb",
-    "cyan": "#00bbbb",
-    "white": "#bbbbbb",
-    "foreground": "#cdcdcd",
-    "background": "#283033",
-    "cursorColor": "#cdcdcd"
-  },
-  {
     "name": "OceanDark",
     "black": "#4F4F4F",
     "red": "#AF4B57",
@@ -1445,20 +1332,6 @@
     "cursorColor": "#ABB2BF"
   },
   {
-    "name": "OneHalfBlack",
-    "black": "#282c34",
-    "red": "#e06c75",
-    "green": "#98c379",
-    "yellow": "#e5c07b",
-    "blue": "#61afef",
-    "purple": "#c678dd",
-    "cyan": "#56b6c2",
-    "white": "#dcdfe4",
-    "foreground": "#dcdfe4",
-    "background": "#000000",
-    "cursorColor": "#dcdfe4"
-  },
-  {
     "name": "OneLight",
     "black": "#000000",
     "red": "#DA3E39",
@@ -1513,34 +1386,6 @@
     "foreground": "#F0F0F0",
     "background": "#1D1E20",
     "cursorColor": "#F0F0F0"
-  },
-  {
-    "name": "PaperColorDark",
-    "black": "#1C1C1C",
-    "red": "#AF005F",
-    "green": "#5FAF00",
-    "yellow": "#D7AF5F",
-    "blue": "#5FAFD7",
-    "purple": "#808080",
-    "cyan": "#D7875F",
-    "white": "#D0D0D0",
-    "foreground": "#D0D0D0",
-    "background": "#1C1C1C",
-    "cursorColor": "#D0D0D0"
-  },
-  {
-    "name": "PaperColorLight",
-    "black": "#EEEEEE",
-    "red": "#AF0000",
-    "green": "#008700",
-    "yellow": "#5F8700",
-    "blue": "#0087AF",
-    "purple": "#878787",
-    "cyan": "#005F87",
-    "white": "#444444",
-    "foreground": "#444444",
-    "background": "#EEEEEE",
-    "cursorColor": "#444444"
   },
   {
     "name": "ParaisoDark",
@@ -1712,20 +1557,6 @@
     "cursorColor": "#d4e7d4"
   },
   {
-    "name": "Seti",
-    "black": "#323232",
-    "red": "#c22832",
-    "green": "#8ec43d",
-    "yellow": "#e0c64f",
-    "blue": "#43a5d5",
-    "purple": "#8b57b5",
-    "cyan": "#8ec43d",
-    "white": "#eeeeee",
-    "foreground": "#cacecd",
-    "background": "#111213",
-    "cursorColor": "#cacecd"
-  },
-  {
     "name": "Slate",
     "black": "#222222",
     "red": "#e2a8bf",
@@ -1738,20 +1569,6 @@
     "foreground": "#35b1d2",
     "background": "#222222",
     "cursorColor": "#35b1d2"
-  },
-  {
-    "name": "Smyck",
-    "black": "#000000",
-    "red": "#C75646",
-    "green": "#8EB33B",
-    "yellow": "#D0B03C",
-    "blue": "#72B3CC",
-    "purple": "#C8A0D1",
-    "cyan": "#218693",
-    "white": "#B0B0B0",
-    "foreground": "#F7F7F7",
-    "background": "#242424",
-    "cursorColor": "#F7F7F7"
   },
   {
     "name": "Snazzy",
@@ -1892,34 +1709,6 @@
     "foreground": "#FFFFFF",
     "background": "#272822",
     "cursorColor": "#FFFFFF"
-  },
-  {
-    "name": "Sundried",
-    "black": "#302b2a",
-    "red": "#a7463d",
-    "green": "#587744",
-    "yellow": "#9d602a",
-    "blue": "#485b98",
-    "purple": "#864651",
-    "cyan": "#9c814f",
-    "white": "#c9c9c9",
-    "foreground": "#c9c9c9",
-    "background": "#1a1818",
-    "cursorColor": "#c9c9c9"
-  },
-  {
-    "name": "sweet-eliverlara",
-    "black": "#282C34",
-    "red": "#ED254E",
-    "green": "#71F79F",
-    "yellow": "#F9DC5C",
-    "blue": "#7CB7FF",
-    "purple": "#C74DED",
-    "cyan": "#00C1E4",
-    "white": "#DCDFE4",
-    "foreground": "#C3C7D1",
-    "background": "#282C34",
-    "cursorColor": "#C3C7D1"
   },
   {
     "name": "SweetTerminal",
