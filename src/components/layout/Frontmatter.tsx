@@ -43,7 +43,7 @@ const Frontmatter = ({ pageData }) => {
       }
 
       {pageData['driving-question'] &&
-      <H2>{pageData['driving-question']}</H2>
+      <H2 style={{marginTop: '0.75em'}}>{pageData['driving-question']}</H2>
       }
 
       {pageData.know && <GeneralReadout title="Know" content={pageData.know} />}
