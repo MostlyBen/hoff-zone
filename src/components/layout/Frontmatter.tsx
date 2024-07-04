@@ -1,13 +1,12 @@
 import { useTheme } from '../../utils/themeProvider';
 import { h1 as H1, h2 as H2, h3 as H3 } from '../../mdx'
-// import Image from 'next/image'
 
 const Banner = ({ src, position }) => {
   const { theme } = useTheme();
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
     <div
+      aria-label="module banner"
       style={{
         background: `url(${src})`,
         height: "240px",
