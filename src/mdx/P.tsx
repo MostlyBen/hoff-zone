@@ -4,10 +4,6 @@ const Tag = ( { children }: JSX.IntrinsicElements["p"] ) => {
   return (
     <span
       className="tag"
-      style={{
-        borderRadius: '4px',
-        padding: '2px 4px',
-      }}
     >
       <span>{children}</span>
     </span>
