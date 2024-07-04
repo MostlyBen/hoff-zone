@@ -103,6 +103,7 @@ a {
 
 ol {
   list-style-type: decimal;
+  margin-left: 2em !important;
 }
 
 ol > li, li > span > ul {
