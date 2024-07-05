@@ -1,12 +1,12 @@
 import React from 'react';
 import { History as HistoryInterface } from '../../interfaces/history';
-import { Ps1 } from '../ps1';
+import { Ps1 } from './';
 
 interface Props {
   history: Array<HistoryInterface>;
 }
 
-export const History: React.FC<Props> = ({ history }) => {
+const History: React.FC<Props> = ({ history }) => {
   return (
     <>
       {history.map((entry: HistoryInterface, index: number) => (

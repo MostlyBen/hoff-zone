@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from '../../utils/themeProvider';
 
-export const Ps1 = () => {
+const Ps1 = () => {
   const [hostname, setHostname] = useState('');
   const { theme } = useTheme();
 

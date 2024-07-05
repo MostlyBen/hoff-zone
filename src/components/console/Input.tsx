@@ -3,9 +3,9 @@ import { commandExists } from '../../utils/commandExists';
 import { useShell } from '../../utils/shellProvider';
 import { handleTabCompletion } from '../../utils/tabCompletion';
 import { useTheme } from '../../utils/themeProvider';
-import { Ps1 } from '../ps1';
+import { Ps1 } from './';
 
-export const Input = ({ inputRef, containerRef }) => {
+const Input = ({ inputRef, containerRef }) => {
   const { theme } = useTheme();
   const [value, setValue] = useState('');
   const {

@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import { History } from '../history';
-import { Input } from '../input';
+import { History, Input } from './';
 import { useShell } from '../../utils/shellProvider';
 import { useTheme } from '../../utils/themeProvider';
 import config from '../../../config.json';
