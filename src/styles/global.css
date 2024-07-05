@@ -4,6 +4,7 @@
 
 @import url("./animations.css");
 @import url("./components.css");
+@import url("./utilities.css");
 
 @font-face {
   font-family: 'CascadiaCode';
