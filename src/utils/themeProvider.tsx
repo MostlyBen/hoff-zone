@@ -16,6 +16,7 @@ const constructThemeStyles = (theme: Theme) => {
       --foreground: ${theme.foreground};
       --background: ${theme.background};
       --cursorColor: ${theme.cursorColor};
+      --theme-font: ${theme.font ?? "'CascadiaCode', monospace"}
     }
   `;
 }

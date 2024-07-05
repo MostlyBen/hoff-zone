@@ -11,4 +11,5 @@ export interface Theme {
   blue: string;
   purple: string;
   cyan: string;
+  font?: string;
 }
