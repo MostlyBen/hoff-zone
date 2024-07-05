@@ -5,7 +5,7 @@ const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
   const id = useMemo(() => {
     return (
       typeof children === 'string'
-      ? 'h1-' + children.replace(/[ .|?&#:[\]~>+]+/g, '-').toLowerCase()
+      ? 'h1-' + children.replaceAll(/[ :[\]~<>+]+/g, '-').replaceAll(/[.|?!@#$%^&*()_=`'";]+/g, '').toLowerCase()
       : `h1-${Math.floor(1000 * Math.random())}`
     )
   }, [children]);
