@@ -43,6 +43,7 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     updateShownElements();
     document.addEventListener("onAnyCollapseOpen", updateShownElements);
     return () => document.removeEventListener("onAnyCollapseOpen", updateShownElements);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [collapsed, id])
 
   const handleClickExpand = () => {

@@ -13,7 +13,7 @@ const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
   const [collapsed, setCollapsed] = useStoredState(id, false);
   const [showToggle, setShowToggle] = useState(false);
 
-  const updateShownElements = () => {
+  useEffect(() => {
     const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
     
     for (const el of Array.from(siblings)) {
@@ -27,15 +27,11 @@ const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
         el.classList.remove("hidden");
       }
     }
-
+  
     if (!collapsed) {
       const toggleEvent = new CustomEvent("onAnyCollapseOpen", {detail: {headingLevel: 1}});
       document.dispatchEvent(toggleEvent);
     }
-  }
-
-  useEffect(() => {
-    updateShownElements();
   }, [collapsed, id])
 
   const handleClickExpand = () => {
