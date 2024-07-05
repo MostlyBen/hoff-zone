@@ -13,7 +13,7 @@ const Banner = ({ src, position }) => {
         backgroundImage: `url(${src})`,
         backgroundPosition: position,
         border: `2px solid ${theme.yellow}`,
-        marginBottom: '2em',
+        marginBottom: '1.5em',
       }}
     />
   )
