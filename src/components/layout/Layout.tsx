@@ -56,8 +56,7 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
       </div>
 
       <main
-        className="main-container pt-8 px-4 flex-grow relative"
-        style={{paddingBottom: "300px"}}
+        className="main-container flex-grow relative"
       >
         {frontmatter
         ? Object.keys(frontmatter).length
