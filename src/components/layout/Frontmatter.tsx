@@ -1,5 +1,6 @@
 import { useTheme } from '../../utils/themeProvider';
 import { h1 as H1, h2 as H2, h3 as H3 } from '../../mdx'
+import Link from 'next/link';
 
 const Banner = ({ src, position }) => {
   const { theme } = useTheme();
@@ -12,6 +13,7 @@ const Banner = ({ src, position }) => {
         backgroundImage: `url(${src})`,
         backgroundPosition: position,
         border: `2px solid ${theme.yellow}`,
+        marginBottom: '2em',
       }}
     />
   )
@@ -36,7 +38,9 @@ const Frontmatter = ({ pageData }) => {
     <div className="module-frontmatter">
       {pageData.banner && <Banner src={pageData.banner} position={pageData['banner-position']} />}
 
-      <H1 style={{margin: '0.5em 0'}}>{pageData.title}</H1>
+      <Link href="/" replace>{'<- Go Home'}</Link>
+
+      <H1 style={{margin: '0.25em 0'}}>{pageData.title}</H1>
 
       {Array.isArray(pageData.tags) &&
        pageData.tags.map((t: string, i: number) => <span className="tag" key={`tag-${i}`}>#{t}</span>)
