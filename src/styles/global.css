@@ -123,3 +123,9 @@ ul > li.bullet-list-item::before {
   margin-left: 0.5em;
   margin-right: 1.25em;
 }
+
+.remove-btn-styling {
+  border: inherit;
+  padding: inherit;
+  background: inherit;
+}
