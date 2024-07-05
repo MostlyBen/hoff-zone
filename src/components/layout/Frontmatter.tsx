@@ -35,7 +35,7 @@ const Frontmatter = ({ pageData }) => {
   const { theme } = useTheme();
 
   return (
-    <div className="module-frontmatter">
+    <div className="module-frontmatter" style={!pageData.banner ? {paddingTop: '2em'} : {}}>
       {pageData.banner && <Banner src={pageData.banner} position={pageData['banner-position']} />}
 
       <Link href="/" replace>{'<- Go Home'}</Link>
