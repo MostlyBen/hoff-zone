@@ -40,6 +40,7 @@ jspm_packages
 .DS_Store
 
 .env
+.env.local
 
 /bin/
 _static/

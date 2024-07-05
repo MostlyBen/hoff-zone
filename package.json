@@ -1,6 +1,6 @@
 {
   "name": "hoff-zone",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "author": {
     "name": "Ben Hoff",
@@ -16,15 +16,18 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.34",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.3",
+    "ai": "^3.2.16",
     "axios": "^1.6.2",
     "cowsay-browser": "^1.1.8",
     "date-fns": "^3.0.6",
     "gray-matter": "^4.0.3",
     "next": "^14.0.4",
     "next-mdx-remote": "^5.0.0",
+    "openai": "^4.52.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.12.0"
