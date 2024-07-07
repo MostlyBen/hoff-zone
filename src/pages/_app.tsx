@@ -5,14 +5,12 @@ import '../styles/global.css';
 import { ShellProvider } from '../utils/shellProvider';
 import { ThemeProvider } from '../utils/themeProvider';
 import { useRouter } from 'next/router';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 import { a, blockquote, h1, h2, h3, h4, hr, li, p } from '../mdx';
 import { useEffect, useState } from 'react';
 
 const App = ({ Component, pageProps }) => {
   const [frontmatter, setFrontmatter] = useState<object>({})
-  const [content, setContent] = useState<MDXRemoteSerializeResult | null>()
 
   const router = useRouter();
   const { asPath } = router;
@@ -22,7 +20,6 @@ const App = ({ Component, pageProps }) => {
       const res = await fetch(`/api/frontmatter?path=${asPath}`);
       const pageData = await res.json();
       setFrontmatter(pageData.data);
-      setContent(pageData.content);
     }
 
     fetchFrontmatter()
@@ -43,8 +40,7 @@ const App = ({ Component, pageProps }) => {
           </Head>
 
           <Layout frontmatter={frontmatter}>
-            {content && <MDXRemote {...content} />}
-            {!content && <Component {...pageProps} />}
+            <Component {...pageProps} />
           </Layout>
         </ShellProvider>
       </ThemeProvider>

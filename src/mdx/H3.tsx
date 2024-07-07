@@ -1,12 +1,15 @@
 import { JSX, useEffect, useState, useMemo } from "react";
 import { useStoredState } from "../hooks";
+import formatAsId from "../utils/formatAsId";
 
 const H3 = ( { children, style }: JSX.IntrinsicElements["h3"] ) => {
   const id = useMemo(() => {
     return (
       typeof children === 'string'
-      ? 'h3-' + children.replaceAll(/[ :[\]~<>+]+/g, '-').replaceAll(/[.|?!@#$%^&*()_=`'";]+/g, '').toLowerCase()
-      : `h3-${Math.floor(1000 * Math.random())}`
+      ? 'h3-' + formatAsId(children)
+      : Array.isArray(children)
+        ? typeof children[0] === 'string' ? 'h1-' + formatAsId(children[0]) : 'h3'
+        : 'h3'
     )
   }, [children]);
 
@@ -19,17 +22,12 @@ const H3 = ( { children, style }: JSX.IntrinsicElements["h3"] ) => {
     // Avoid if it's open (could already be open, or this would show next siblings when unrelated h1s/2s open)
     if (e?.detail?.headingLevel && !collapsed) { return }
 
-    const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
-    
-    for (const el of Array.from(siblings)) {
-      if (['h1', 'h2', 'h3', 'hr'].includes(el.tagName.toLowerCase())) {
-        break;
-      }
-      
+    const mySection = document.getElementById(`${id}-content`)
+    if (mySection) {
       if (collapsed) {
-        el.classList.add("hidden");
+        mySection.classList.add("hidden");
       } else {
-        el.classList.remove("hidden");
+        mySection.classList.remove("hidden")
       }
     }
 

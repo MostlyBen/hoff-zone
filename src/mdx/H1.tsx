@@ -1,12 +1,15 @@
 import { JSX, useEffect, useState, useMemo } from "react";
 import { useStoredState } from "../hooks";
+import formatAsId from "../utils/formatAsId";
 
 const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
   const id = useMemo(() => {
     return (
       typeof children === 'string'
-      ? 'h1-' + children.replaceAll(/[ :[\]~<>+]+/g, '-').replaceAll(/[.|?!@#$%^&*()_=`'";]+/g, '').toLowerCase()
-      : `h1-${Math.floor(1000 * Math.random())}`
+      ? 'h1-' + formatAsId(children)
+      : Array.isArray(children)
+        ? typeof children[0] === 'string' ? 'h1-' + formatAsId(children[0]) : 'h1'
+        : 'h1'
     )
   }, [children]);
 
@@ -14,17 +17,12 @@ const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
   const [showToggle, setShowToggle] = useState(false);
 
   useEffect(() => {
-    const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
-    
-    for (const el of Array.from(siblings)) {
-      if (['h1', 'hr'].includes(el.tagName.toLowerCase())) {
-        break;
-      }
-      
+    const mySection = document.getElementById(`${id}-content`)
+    if (mySection) {
       if (collapsed) {
-        el.classList.add("hidden");
+        mySection.classList.add("hidden");
       } else {
-        el.classList.remove("hidden");
+        mySection.classList.remove("hidden")
       }
     }
   
