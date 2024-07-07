@@ -33,11 +33,12 @@ const getPrompt = (pageData: object, userRequest?: string) => {
     prompt += userRequest + '\n'
   }
 
-  prompt += 'Respond in markdown formatting, using headings (starting at heading 3, `### `) as \
-  you please, and lay out student-friendly instructions, using to-do items (lines starting with \
+  prompt += 'Respond in markdown formatting, optionally using headings (starting at heading 3, `### `) to \
+  create sections in the instructions, and lay out student-friendly instructions, using to-do items (lines starting with \
   `- [ ] `) to give a simple step-by-step guide a high school student can follow to complete \
   the project. Respond with only headers and to-do items. Do not include any project titles or overviews. \
-  If you choose to include headers, only use them for sections of the to-do items, not as a title for the project.'
+  If you choose to include headers, only use them for sections of the to-do items, not as a title for the \
+  project or introduction to the instructions.'
 
   return prompt
 }

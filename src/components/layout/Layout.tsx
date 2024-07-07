@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../utils/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
+import { GenerateBtn } from '../generator';
 import { default as Lofi } from './Lofi';
 import { Frontmatter } from '../layout';
 
@@ -13,6 +14,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children, frontmatter }) => {
   const [consoleOpen, setConsoleOpen] = useState(true);
   const [lofiOpen, setLofiOpen] = useState(false);
+  const [showGenerate, setShowGenerate] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
 
@@ -26,6 +28,10 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
       inputRef.current.focus();
     }
   }, [consoleOpen]);
+
+  useEffect(() => {
+    setShowGenerate(window.location.href.includes('/sci/'))
+  }, [children])
 
   return (
     <div
@@ -63,7 +69,10 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
           ? <Frontmatter pageData={frontmatter} />
           : <></>
         : <></>}
+
         {children}
+        
+        {showGenerate && <GenerateBtn />}
       </main>
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
       <ThemeSwitcher />
