@@ -84,9 +84,14 @@ const sectionHeaderContent = (children, level:number) => {
   }
 
   if (thisSectionElements.length) {
-    toReturn.push(<section id={`${currentSection}-content`} key={`${currentSection}-content`}>
-      {thisSectionElements}
-    </section>)
+    toReturn.push(
+      <section
+        id={formatAsId(`h${level}-${currentSection}-content`)}
+        key={`${currentSection}-content`}
+      >
+        {thisSectionElements}
+      </section>
+    )
   }
 
   return toReturn
