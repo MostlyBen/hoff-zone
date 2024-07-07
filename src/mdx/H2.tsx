@@ -1,17 +1,33 @@
 import { JSX, useEffect, useState, useMemo } from "react";
 import { useStoredState } from "../hooks";
 import formatAsId from "../utils/formatAsId";
+import { GenerateBtn } from '../components/generator';
+import removeRegenerateText from "../utils/removeRegenerateText";
 
 const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
+  const showGenerate = useMemo(() => {
+    if (typeof children === 'string') {
+      return children.endsWith('^regenerate');
+    }
+    if (!Array.isArray(children)) {
+      return false;
+    }
+    const lastChild = children[children.length -1]
+    if (typeof lastChild === 'string') {
+      return lastChild.endsWith('^regenerate');
+    }
+    return false;
+  }, [children])
+
   const id = useMemo(() => {
     return (
       typeof children === 'string'
-      ? 'h2-' + formatAsId(children)
+      ? 'h2-' + formatAsId(children, showGenerate)
       : Array.isArray(children)
-        ? typeof children[0] === 'string' ? 'h2-' + formatAsId(children[0]) : 'h2'
+        ? typeof children[0] === 'string' ? 'h2-' + formatAsId(children[0], showGenerate) : 'h2'
         : 'h2'
     )
-  }, [children]);
+  }, [children, showGenerate]);
 
   const [collapsed, setCollapsed] = useStoredState(id, false);
   const [showToggle, setShowToggle] = useState(false);
@@ -48,7 +64,7 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     setCollapsed(collapsed ? null : true);
   }
   
-  return (
+  return (<>
       <h2
         id={id}
         style={typeof style === 'object'
@@ -74,9 +90,10 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
         </span>
       </button>
         <div style={{display: 'inline-block', width: '1.75em'}}/>
-        {children}
+        {removeRegenerateText(children)}
       </h2>
-  )
+      {(showGenerate && !collapsed) && <GenerateBtn />}
+  </>)
 }
 
 export default H2;

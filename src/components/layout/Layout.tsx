@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../utils/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
-import { GenerateBtn } from '../generator';
 import { default as Lofi } from './Lofi';
 import { Frontmatter } from '../layout';
 import formatAsId from '../../utils/formatAsId';
+import removeRegenerateText from '../../utils/removeRegenerateText';
 interface Props {
   // Literally so annoyed that I can't figure out what the heck these children are
   // The whole mess at the start of this file is a result of that
@@ -78,8 +78,8 @@ const sectionHeaderContent = (children, level:number) => {
 
     currentSection = headerLevel === level
       ? Array.isArray(child.props.children)
-        ? child.props.children[0]
-        : typeof child.props.children === 'string' ? child.props.children : `h${level}`
+        ? removeRegenerateText(child.props.children[0])
+        : typeof child.props.children === 'string' ? removeRegenerateText(child.props.children) : `h${level}`
       : null;
   }
 
@@ -102,7 +102,6 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
   const _children = children.type().props.children
   const [consoleOpen, setConsoleOpen] = useState(true);
   const [lofiOpen, setLofiOpen] = useState(false);
-  const [showGenerate, setShowGenerate] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
   const [processedChildren, setProcessedChildren] = useState(children);
@@ -126,10 +125,6 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
       inputRef.current.focus();
     }
   }, [consoleOpen]);
-
-  useEffect(() => {
-    setShowGenerate(window.location.href.includes('/sci/'))
-  }, [children])
 
   return (
     <div
@@ -170,7 +165,6 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
 
         {processedChildren}
         
-        {showGenerate && <GenerateBtn />}
       </main>
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
       <ThemeSwitcher />
