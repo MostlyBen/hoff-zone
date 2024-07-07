@@ -7,7 +7,7 @@ export const runtime = 'edge';
 const openai = new OpenAI({
   organization: process.env.NEXT_PUBLIC_OPENAI_ORGANIZATION,
   project: process.env.NEXT_PUBLIC_OPENAI_PROJECT,
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
   // dangerouslyAllowBrowser: true,
 })
 
