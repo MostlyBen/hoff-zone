@@ -43,18 +43,19 @@ const Frontmatter = ({ pageData }) => {
 
       <Link href="/" replace>{'<- Go Home'}</Link>
 
-      <H1 style={{margin: '0.25em 0'}}>{pageData.title}</H1>
+      {pageData.title && <H1 style={{margin: '0.25em 0'}}>{pageData.title}</H1>}
       <section
-        id={`h1-${formatAsId(pageData.title)}-content`}>
+        id={pageData.title ? `h1-${formatAsId(pageData.title)}-content` : 'h1-page-title'}>
 
         {Array.isArray(pageData.tags) &&
         pageData.tags.map((t: string, i: number) => <span className="tag" key={`tag-${i}`}>#{t}</span>)
         }
 
         {pageData['driving-question'] &&
-        <H2 style={{marginTop: '0.75em'}}>{pageData['driving-question']}</H2>
+          <H2 style={{marginTop: '0.75em'}}>{pageData['driving-question']}</H2>
         }
-        <section id={`h2-${formatAsId(pageData['driving-question'])}-content`}>
+
+        <section id={pageData['driving-question'] ? `h2-${formatAsId(pageData['driving-question'])}-content` : 'h2-project-info'}>
           {pageData.know && <GeneralReadout title="Know" content={pageData.know} />}
           {pageData.understand && <GeneralReadout title="Understand" content={pageData.understand} />}
           {pageData.do && <GeneralReadout title="Do" content={pageData.do} />}
