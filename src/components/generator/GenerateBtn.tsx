@@ -11,9 +11,10 @@ const GenerateBtn = () => {
         // Move this div to be by '## The Project'
         const projectEl = document.getElementById('h2-the-project');
         const regenerateEl = document.getElementById('regenerate-project')
-        
-        projectEl.after(regenerateEl);
-        document.body.removeEventListener('change', reposition);
+        if (projectEl && regenerateEl) {
+          projectEl.after(regenerateEl);
+          document.body.removeEventListener('change', reposition);
+        }
       }, 500) 
     }
     reposition()
