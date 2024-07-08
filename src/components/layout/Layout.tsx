@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, ReactNode } from 'react';
 import { useTheme } from '../../utils/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
@@ -6,6 +6,10 @@ import { default as Lofi } from './Lofi';
 import { Frontmatter } from '../layout';
 import formatAsId from '../../utils/formatAsId';
 import removeRegenerateText from '../../utils/removeRegenerateText';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+
+
 interface Props {
   // Literally so annoyed that I can't figure out what the heck these children are
   // The whole mess at the start of this file is a result of that
@@ -24,7 +28,7 @@ const checkIfHr = (element) => {
 const removeFrontmatter = (children:React.ReactNode[]) => {
   if (!Array.isArray(children)) { return children }
   if (!checkIfHr(children[0])) { return children }
-
+  
   let frontmatterEnd:number = 0
   for (let i:number = 0; i < children.length; i++) {
     if (i > 0 && checkIfHr(children[i])) {
@@ -32,13 +36,72 @@ const removeFrontmatter = (children:React.ReactNode[]) => {
       break;
     }
   }
-
+  
   return children.slice(frontmatterEnd)
+}
+
+
+const GeneratedContent:React.FC<{
+  id:string,
+  content:string,
+  original:ReactNode[]
+}> = ({ id, content, original }) => {
+  const [_content, setContent] = useState<MDXRemoteSerializeResult|null>(null);
+  const [showOriginal, setShowOriginal] = useState<boolean>(false);
+
+  useEffect(() => {
+    serialize(content).then(res => {
+      setContent(res);
+    });
+  }, [content])
+
+  if (!_content) {
+    return (
+      <section id={id} key={id}>
+        Loading content...
+      </section>
+    )
+  }
+
+  if (showOriginal) {
+  <section id={id}>
+    <button className='btn-small' onClick={() => setShowOriginal(false)}>Show Custom</button>
+    {original}
+  </section>
+  }
+
+  return (
+    <section id={id}>
+      <button className='btn-small mt-2' onClick={() => setShowOriginal(o => !o)}
+      >
+        {showOriginal ? 'show custom' : 'show original'}
+      </button>
+      {showOriginal ? original : <MDXRemote {..._content} />}
+    </section>
+  )
+}
+
+const addSecition = (id:string, content:ReactNode[], toReturn:ReactNode[]) => {
+  const _toReturn = [...toReturn]
+  const storedVersion = localStorage.getItem(window.location.pathname + '-' + id);
+  if (storedVersion) {
+    _toReturn.push(
+      <GeneratedContent id={id} content={storedVersion} original={content} key={id} />
+    )
+  } else {
+    _toReturn.push(
+      <section id={id} key={id}>
+        {content}
+      </section>
+    )
+  }
+
+  return _toReturn;
 }
 
 const sectionHeaderContent = (children, level:number) => {
   const _children = [...children];
-  const toReturn = [];
+  let toReturn = [];
   let thisSectionElements = [];
   let currentSection:string|null = null;
 
@@ -61,15 +124,11 @@ const sectionHeaderContent = (children, level:number) => {
 
     if (headerLevel <= level) {
       if (thisSectionElements.length) {
-        console.log("adding section:", currentSection)
-        toReturn.push(
-          <section
-            id={formatAsId(`h${level}-${currentSection}-content`)}
-            key={`${currentSection}-content`}
-          >
-            {thisSectionElements}
-          </section>
-        )
+        toReturn = addSecition(
+          formatAsId(`h${level}-${currentSection}-content`),
+          thisSectionElements,
+          toReturn
+        );
       }
 
       toReturn.push(child);
@@ -84,14 +143,11 @@ const sectionHeaderContent = (children, level:number) => {
   }
 
   if (thisSectionElements.length) {
-    toReturn.push(
-      <section
-        id={formatAsId(`h${level}-${currentSection}-content`)}
-        key={`${currentSection}-content`}
-      >
-        {thisSectionElements}
-      </section>
-    )
+    toReturn = addSecition(
+      formatAsId(`h${level}-${currentSection}-content`),
+      thisSectionElements,
+      toReturn
+    );
   }
 
   return toReturn
@@ -111,14 +167,18 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
     return () => document.removeEventListener('onLofiOpen', () => setLofiOpen(false));
   }, []);
 
-  useEffect(() => {
+  const updateProcessedChildren = () => {
     let newChildren = removeFrontmatter(_children);
     if (Array.isArray(newChildren)) {
       newChildren = sectionHeaderContent([...newChildren], 3);
       newChildren = sectionHeaderContent([...newChildren], 2);
       newChildren = sectionHeaderContent([...newChildren], 1);
     }
-    setProcessedChildren(newChildren)
+    setProcessedChildren(newChildren);
+  }
+
+  useEffect(() => {
+    updateProcessedChildren();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [children])
 

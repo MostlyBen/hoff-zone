@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { GeneratedOptions } from "./";
+import { /* GeneratedOptions, */ GenerateInput } from "./";
 
 const GenerateBtn = () => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
@@ -33,7 +33,7 @@ const GenerateBtn = () => {
       regenerate
     </button>
 
-    {showOptions && <GeneratedOptions onClose={() => setShowOptions(false)} />}
+    {showOptions && <GenerateInput onClose={() => setShowOptions(false)} />}
 
     </>)
 }
