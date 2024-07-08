@@ -19,7 +19,6 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <link rel="manifest" href="/manifest.json" />
 
           <meta name="theme-color" content="#D79921" />
           <meta name="description" content="The Hoff Zone" />
