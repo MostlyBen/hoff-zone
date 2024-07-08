@@ -142,6 +142,7 @@ const sectionHeaderContent = (children, level:number) => {
 }
 
 const Wrapper = ({ children }) => {
+  console.log("Wrapper children:", children)
   const [processedChildren, setProcessedChildren] = useState(children);
 
   if (!Array.isArray(children)) return (<>{children}</>)
