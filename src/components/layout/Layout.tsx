@@ -99,7 +99,7 @@ const sectionHeaderContent = (children, level:number) => {
 
 const Layout: React.FC<Props> = ({ children, frontmatter }) => {
   // Why do I have to do children.type()? Idk. Idek what children.type is
-  const _children = children.type().props.children
+  const _children = children.type().props.children ?? children.type() ?? children;
   const [consoleOpen, setConsoleOpen] = useState(true);
   const [lofiOpen, setLofiOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -113,9 +113,11 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
 
   useEffect(() => {
     let newChildren = removeFrontmatter(_children);
-    newChildren = sectionHeaderContent([...newChildren], 3);
-    newChildren = sectionHeaderContent([...newChildren], 2);
-    newChildren = sectionHeaderContent([...newChildren], 1);
+    if (Array.isArray(newChildren)) {
+      newChildren = sectionHeaderContent([...newChildren], 3);
+      newChildren = sectionHeaderContent([...newChildren], 2);
+      newChildren = sectionHeaderContent([...newChildren], 1);
+    }
     setProcessedChildren(newChildren)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [children])
