@@ -94,11 +94,21 @@ const sectionHeaderContent = (children, level:number) => {
   let currentSection:string|null = null;
 
   for (const child of _children) {
+    let childType;
+
+    if (child.type) {
+      try {
+        childType =
+        "_payload" in child.type
+          ? child.type._payload.value.name // Lazy
+          : child.type.name; // Non-lazy
+      } catch (err) {}
+    }
     let headerLevel = 0;
-    if (typeof child.type == 'object' && child.type['_payload']['value']['name'] === 'H1') { headerLevel = 1 }
-    if (typeof child.type == 'object' && child.type['_payload']['value']['name'] === 'H2') { headerLevel = 2 }
-    if (typeof child.type == 'object' && child.type['_payload']['value']['name'] === 'H3') { headerLevel = 3 }
-    if (typeof child.type == 'object' && child.type['_payload']['value']['name'] === 'HR') { headerLevel = -1 }
+    if (childType === 'H1') { headerLevel = 1 }
+    if (childType === 'H2') { headerLevel = 2 }
+    if (childType === 'H3') { headerLevel = 3 }
+    if (childType === 'HR') { headerLevel = -1 }
 
     // Other Elements
     if (headerLevel > level || headerLevel === 0) {
@@ -142,7 +152,6 @@ const sectionHeaderContent = (children, level:number) => {
 }
 
 const Wrapper = ({ children }) => {
-  console.log("Wrapper children:", children)
   const [processedChildren, setProcessedChildren] = useState(children);
 
   if (!Array.isArray(children)) return (<>{children}</>)
