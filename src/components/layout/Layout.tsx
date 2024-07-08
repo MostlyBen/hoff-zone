@@ -82,6 +82,7 @@ const GeneratedContent:React.FC<{
 }
 
 const addSecition = (id:string, content:ReactNode[], toReturn:ReactNode[]) => {
+  console.log("Adding section:", id)
   const _toReturn = [...toReturn]
   const storedVersion = localStorage.getItem(window.location.pathname + '-' + id);
   if (storedVersion) {
