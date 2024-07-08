@@ -1,11 +1,11 @@
-import { headers } from "next/headers";
+"use client"
+
+import { usePathname } from "next/navigation";
 import { Frontmatter } from "components/layout";
-import MDXComponent from "../../mdx/ClientMDXRemote";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 const SciLayout = async ({ children }) => {
-  const headerList = headers();
-  const currentPath = headerList.get("x-current-path")
+  const currentPath = usePathname();
   
   const res = await fetch(process.env.URL + `/api/frontmatter?path=${currentPath}`)
   
