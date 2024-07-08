@@ -7,7 +7,7 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 const SciLayout = async ({ children }) => {
   const currentPath = usePathname();
   
-  const res = await fetch(process.env.URL + `/api/frontmatter?path=${currentPath}`)
+  const res = await fetch(`/api/frontmatter?path=${currentPath}`)
   
   const data:{
     data: object,
