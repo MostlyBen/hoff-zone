@@ -1,0 +1,41 @@
+import { Metadata } from 'next';
+import Content from './home.mdx';
+
+export const metadata: Metadata = {
+  title: 'Hoff.Zone',
+  description: "I hate school",
+  themeColor: "#D79921",
+  icons: {
+    icon: "/favicon-16x16.png",
+    shortcut: "/favicon-96x96.png",
+    apple: "/apple-icon.png",
+    other: [
+      {rel: "android-icon", url: "android-icon-36x36.png", sizes: "36x36"},
+      {rel: "android-icon", url: "android-icon-48x48.png", sizes: "48x48"},
+      {rel: "android-icon", url: "android-icon-72x72.png", sizes: "72x72"},
+      {rel: "android-icon", url: "android-icon-96x96.png", sizes: "96x96"},
+      {rel: "android-icon", url: "android-icon-144x144.png", sizes: "144x144"},
+      {rel: "android-icon", url: "android-icon-192x192.png", sizes: "192x192"},
+      {rel: "apple-icon", url: "apple-icon-57x57.png", sizes: "57x57"},
+      {rel: "apple-icon", url: "apple-icon-60x60.png", sizes: "60x60"},
+      {rel: "apple-icon", url: "apple-icon-72x72.png", sizes: "72x72"},
+      {rel: "apple-icon", url: "apple-icon-76x76.png", sizes: "76x76"},
+      {rel: "apple-icon", url: "apple-icon-114x114.png", sizes: "114x114"},
+      {rel: "apple-icon", url: "apple-icon-120x120.png", sizes: "120x120"},
+      {rel: "apple-icon", url: "apple-icon-144x144.png", sizes: "144x144"},
+      {rel: "apple-icon", url: "apple-icon-152x152.png", sizes: "152x152"},
+      {rel: "apple-icon", url: "apple-icon-180x180.png", sizes: "180x180"},
+      {rel: "apple-icon-precomposed", url: "apple-icon-precomposed.png"},
+      {rel: "favicon", url: "favicon-16x16.png", sizes: "16x16"},
+      {rel: "favicon", url: "favicon-32x32.png", sizes: "32x32"},
+      {rel: "favicon", url: "favicon-96x96.png", sizes: "96x96"},
+      {rel: "favicon", url: "mx-icon-70x70.png", sizes: "70x70"},
+      {rel: "favicon", url: "mx-icon-150x150.png", sizes: "150x150"},
+      {rel: "favicon", url: "mx-icon-310x310.png", sizes: "310x310"},
+    ]
+  },
+}
+
+export default function Page() {
+  return <Content />
+}

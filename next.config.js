@@ -1,20 +1,10 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+  experimental: {
+    appDir: true,
+  },
+  pageExtensions: ["ts", "tsx", "mdx"],
 };
 
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-    providerImportSource: '@mdx-js/react',
-  },
-});
-
-module.exports = nextConfig;
-
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-});
+const withMDX = require("./mdx-loader")();
+module.exports = withMDX(nextConfig);

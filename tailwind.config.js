@@ -1,20 +1,12 @@
-const config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/pages/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'media',
   theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-    },
     extend: {},
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
-
-module.exports = config;

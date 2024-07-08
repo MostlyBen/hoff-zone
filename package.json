@@ -1,55 +1,40 @@
 {
-  "name": "hoff-zone",
-  "version": "0.2.3",
+  "name": "next-mdx-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "beeinger <sulecki.maciek@gmail.com>",
   "license": "MIT",
-  "author": {
-    "name": "Ben Hoff",
-    "url": "https://hoff.zone",
-    "email": "benthehoff@gmail.com"
-  },
   "scripts": {
-    "start": "next start",
-    "build": "next build",
     "dev": "next dev",
-    "export": "next export",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prettify": "prettier --write ."
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.34",
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.3",
+    "@mdx-js/loader": "^2.3.0",
+    "@next/mdx": "^13.4.4",
     "ai": "^3.2.16",
-    "axios": "^1.6.2",
+    "axios": "^1.7.2",
     "cowsay-browser": "^1.1.8",
-    "date-fns": "^3.0.6",
     "gray-matter": "^4.0.3",
-    "next": "^14.0.4",
+    "next": "^13.4.4",
     "next-mdx-remote": "^5.0.0",
     "openai": "^4.52.3",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-icons": "^4.12.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.0.4",
-    "@types/node": "^20.10.5",
-    "@types/react": "^18.2.45",
-    "@typescript-eslint/eslint-plugin": "^6.15.0",
-    "@typescript-eslint/parser": "^6.15.0",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8",
-    "eslint-config-next": "^14.0.4",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "husky": "^8.0.3",
-    "postcss": "^8.4.32",
-    "prettier": "^3.1.1",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5"
-  },
-  "engines": {
-    "node": ">=18.17.0"
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/mdx": "^2.0.5",
+    "@types/node": "20.2.5",
+    "@types/react": "18.2.8",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "tailwindcss": "^3.3.2",
+    "typescript": "5.1.3"
   }
 }
