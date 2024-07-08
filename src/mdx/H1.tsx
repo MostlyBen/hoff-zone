@@ -24,6 +24,18 @@ const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
       } else {
         mySection.classList.remove("hidden")
       }
+    } else {
+      const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
+      for (const el of Array.from(siblings)) {
+        if (['h1', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
+          break;
+        }
+        if (collapsed) {
+          el.classList.add("hidden")
+        } else {
+          el.classList.remove("hidden")
+        }
+      }
     }
   
     if (!collapsed) {
