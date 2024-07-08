@@ -95,6 +95,7 @@ const sectionHeaderContent = (children, level:number) => {
 
   for (const child of _children) {
     console.log("Child:", child)
+    console.log("Straight child type:", child.type)
     let childType;
 
     if (child.type) {
