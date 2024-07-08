@@ -1,8 +1,8 @@
 {
-  "name": "next-mdx-blog",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "beeinger <sulecki.maciek@gmail.com>",
+  "name": "Hoff.Zone",
+  "version": "0.3.0",
+  "main": "page.tsx",
+  "author": "Ben Hoff",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
