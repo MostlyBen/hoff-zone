@@ -1,10 +1,9 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import splitFrontmatterFromContent from '../../../utils/splitFrontmatterFromContent';
 import path from 'path';
 
-export async function GET (req:NextApiRequest) {
+export async function GET (req:NextRequest) {
   const { searchParams } = new URL(req.url);
   const filePath = searchParams.get('path');
   const mdxFilePath = path.join(process.cwd(), 'app', `${filePath}`, 'page.mdx');

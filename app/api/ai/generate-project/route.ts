@@ -1,6 +1,6 @@
 // import { NextApiRequest, NextApiResponse } from 'next';
 import { OpenAI } from 'openai';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
@@ -47,7 +47,7 @@ const getPrompt = (pageData: object, userRequest?: string) => {
   return prompt
 }
 
-export async function POST(req:Request) {
+export async function POST(req:NextRequest) {
   if (req.method !== 'POST') {
     throw new Error("Must post to /api/ai/generate-project")
   }
