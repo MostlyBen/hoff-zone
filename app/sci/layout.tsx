@@ -13,18 +13,12 @@ const SciLayout = ({ children }) => {
   const currentPath = usePathname();
 
   const udpateFrontmatter = async () => {
-    console.log("updating frontmatter")
-
     const res = await fetch(`/api/frontmatter?path=${currentPath}`);
-
-    console.log("Response:", res)
 
     const data:{
       data: object,
       content: MDXRemoteSerializeResult,
     } = await res.json();
-
-    console.log("Response data:", data)
 
     setFrontmatter(data.data);
     setContent(data.content);
@@ -34,8 +28,6 @@ const SciLayout = ({ children }) => {
     udpateFrontmatter();
   }, [children])
 
-  useEffect(() => {console.log("Frontmatter:", content)}, [content])
-    
   if (!frontmatter) {
     return (
       <>{children}</>
