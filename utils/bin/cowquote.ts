@@ -1,4 +1,4 @@
-import * as cow from 'cowsay-browser';
+import { cowsay } from 'cowsayjs';
 import { getQuote } from '../';
 
 export const cowquote = async (args?: string[]): Promise<string> => {
@@ -6,9 +6,9 @@ export const cowquote = async (args?: string[]): Promise<string> => {
 
   if (args.length < 1 || args[0] === '') {
     const quote = (await getQuote()).quote;
-    return cow.say({ text: quote });
+    return cowsay(quote);
   } else {
     output = args.join(' ');
-    return cow.say({ text: output });
+    return cowsay(output);
   }
 };
