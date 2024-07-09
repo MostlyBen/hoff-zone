@@ -1,9 +1,9 @@
 'use client'
 
-import { useTheme } from '../../utils/themeProvider';
+import { useTheme } from '../../utils/providers/themeProvider';
 import { h1 as H1, h2 as H2, h3 as H3 } from '../../mdx'
 import Link from 'next/link';
-import formatAsId from "../../utils/formatAsId";
+import { formatAsId } from "../../utils";
 
 const Banner = ({ src, position }) => {
   const { theme } = useTheme();

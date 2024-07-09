@@ -2,9 +2,9 @@
 
 import { JSX, useEffect, useState, useMemo } from "react";
 import { useStoredState } from "../hooks";
-import formatAsId from "../utils/formatAsId";
+import { formatAsId } from "../utils";
 import { GenerateBtn } from '../components/generator';
-import removeRegenerateText from "../utils/removeRegenerateText";
+import removeInlineTag from "../utils/data/removeInlineTag";
 import { usePathname } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
@@ -124,7 +124,7 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
         </span>
       </button>
         <div style={{display: 'inline-block', width: '1.75em'}}/>
-        {removeRegenerateText(children)}
+        {removeInlineTag(children)}
       </h2>
 
       {(showGenerate && !collapsed) && <GenerateBtn forHeader={id} />}

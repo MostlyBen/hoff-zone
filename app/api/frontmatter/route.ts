@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import splitFrontmatterFromContent from '../../../utils/splitFrontmatterFromContent';
+import splitFrontmatterFromContent from '../../../utils/data/splitFrontmatterFromContent';
 import path from 'path';
 
 export async function GET (req:NextRequest) {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useTheme } from "../utils/themeProvider";
+import { useTheme } from "../utils/providers/themeProvider";
 
 const HR = ({ style }: JSX.IntrinsicElements["hr"]) => {
   const { theme } = useTheme();

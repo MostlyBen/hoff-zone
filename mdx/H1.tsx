@@ -2,7 +2,7 @@
 
 import { JSX, useEffect, useState, useMemo } from "react";
 import { useStoredState } from "../hooks";
-import formatAsId from "../utils/formatAsId";
+import { formatAsId } from "../utils";
 
 const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
   const id = useMemo(() => {

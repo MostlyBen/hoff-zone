@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { commandExists } from '../../utils/commandExists';
-import { useShell } from '../../utils/shellProvider';
-import { handleTabCompletion } from '../../utils/tabCompletion';
-import { useTheme } from '../../utils/themeProvider';
+import { commandExists } from '../../utils/console/commandExists';
+import { useShell } from '../../utils/providers/shellProvider';
+import { handleTabCompletion } from '../../utils/console/tabCompletion';
+import { useTheme } from '../../utils/providers/themeProvider';
 import { Ps1 } from './';
 
 const Input = ({ inputRef, containerRef }) => {

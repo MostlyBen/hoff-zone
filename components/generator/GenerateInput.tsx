@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import { useTheme } from "../../utils/themeProvider";
+import { useTheme } from "../../utils/providers/themeProvider";
 import { GeneratedOptions } from "./";
 import { usePathname } from "next/navigation";
 

@@ -2,7 +2,7 @@
 
 import { JSX } from "react";
 import Link from "next/link";
-import { useTheme } from "../utils/themeProvider";
+import { useTheme } from "../utils/providers/themeProvider";
 
 const Anchor = ( props: JSX.IntrinsicElements["a"]) => {
   const { theme } = useTheme();

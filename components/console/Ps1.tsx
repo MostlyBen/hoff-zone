@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useTheme } from '../../utils/themeProvider';
+import { useTheme } from '../../utils/providers/themeProvider';
 
 const Ps1 = () => {
   const [hostname, setHostname] = useState('');

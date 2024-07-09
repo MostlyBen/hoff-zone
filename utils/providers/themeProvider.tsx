@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import Themes from '../themes.json';
-import { Theme } from '../interfaces/theme';
-import config from '../theme-config.json';
+import Themes from '../../themes.json';
+import { Theme } from '../../interfaces/theme';
+import config from '../../theme-config.json';
 
 const constructThemeStyles = (theme: Theme) => {
   return `

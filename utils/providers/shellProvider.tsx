@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { History } from '../interfaces/history';
-import * as bin from './bin';
-import * as hidden from './hidden';
+import { History } from '../../interfaces/history';
+import * as bin from '../bin';
+import * as hidden from '../hidden';
 import { useTheme } from './themeProvider';
 
 const isTrackingEnabled = process.env.NEXT_PUBLIC_ENABLE_TRACKING === 'true';

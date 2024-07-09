@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
 import { History, Input } from './';
-import { ShellProvider, useShell } from '../../utils/shellProvider';
-import { useTheme } from '../../utils/themeProvider';
+import { ShellProvider, useShell } from '../../utils/providers/shellProvider';
+import { useTheme } from '../../utils/providers/themeProvider';
 import config from '../../theme-config.json';
 
 interface ConsoleProps {

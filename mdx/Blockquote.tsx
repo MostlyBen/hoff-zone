@@ -1,8 +1,8 @@
 'use client'
 
 import { JSX } from "react";
-import formatAsId from "../utils/formatAsId";
-import { useTheme } from "../utils/themeProvider";
+import { formatAsId } from "../utils";
+import { useTheme } from "../utils/providers/themeProvider";
 
 const Blockquote = ( { children }: JSX.IntrinsicElements["blockquote"] ) => {
   const { theme } = useTheme();

@@ -1,5 +1,5 @@
-import * as bin from './bin';
-import * as hidden from './hidden';
+import * as bin from '../bin';
+import * as hidden from '../hidden';
 
 const allCommands = {...bin, ...hidden}
 

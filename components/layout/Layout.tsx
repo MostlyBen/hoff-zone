@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, ReactNode } from 'react';
-import { useTheme } from '../../utils/themeProvider';
+import { useTheme } from '../../utils/providers/themeProvider';
 import { Console } from '../console';
 // import { ThemeSwitcher } from '../input';
 import { default as Lofi } from './Lofi';

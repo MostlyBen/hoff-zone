@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import formatAsId from "../utils/formatAsId";
+import { formatAsId } from "../utils";
 
 const H4 = ( { children, style }: JSX.IntrinsicElements["h4"] ) => {
 

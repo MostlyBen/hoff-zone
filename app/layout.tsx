@@ -11,7 +11,7 @@ const CascadiaCode = localFont({
   variable: '--font-cascadia-code'
 })
 
-import { ThemeProvider } from "utils/themeProvider";
+import { ThemeProvider } from "utils/providers/themeProvider";
 import { Layout } from "components/layout";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
