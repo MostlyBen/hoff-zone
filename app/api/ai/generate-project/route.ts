@@ -44,7 +44,7 @@ const getPrompt = (pageData: object, userRequest?: string) => {
   If you choose to include headers, only use them for sections of the to-do items, not as a title for the \
   project or introduction to the instructions.';
 
-  return prompt
+  return prompt;
 }
 
 export async function POST(req:NextRequest) {
@@ -52,15 +52,19 @@ export async function POST(req:NextRequest) {
     throw new Error("Must post to /api/ai/generate-project")
   }
 
-  const input = await req.json();
-
-  const prompt = getPrompt(input.project_data, input.user_request);
-  const response = await openai.chat.completions.create({
+  try {
+    const input = await req.json();
+    
+    const prompt = getPrompt(input.project_data, input.user_request);
+    const response = await openai.chat.completions.create({
       model: process.env.NEXT_PUBLIC_OPENAI_MODEL,
       messages: [{ role: "user", content: prompt }],
-  });
-
-  const responseMessage = response.choices[0].message.content
-  return NextResponse.json({ output: responseMessage }, { status: 200 });
+    });
+    
+    const responseMessage = response.choices[0].message.content
+    return NextResponse.json({ output: responseMessage }, { status: 200 });
+  } catch (err) {
+    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+  }
 
 }

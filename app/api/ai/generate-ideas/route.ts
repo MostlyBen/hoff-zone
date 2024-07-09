@@ -41,22 +41,27 @@ const getPrompt = (pageData: object, userRequest?: string) => {
   prompt += 'Do not include backticks (`) around your response. And ensure you do NOT include a comma after the\
   last item in the array.';
 
-  return prompt
+  return prompt;
 }
 
 export async function POST(req:NextRequest) {
   if (req.method !== 'POST') {
-    throw new Error("Must post to /api/ai/generate-ideas")
+    throw new Error("Must post to /api/ai/generate-ideas");
   }
 
-  const input = await req.json();
-
-  const prompt = getPrompt(input.project_data, input.user_request);
-  const response = await openai.chat.completions.create({
+  try {
+    const input = await req.json();
+    
+    const prompt = getPrompt(input.project_data, input.user_request);
+    const response = await openai.chat.completions.create({
       model: process.env.NEXT_PUBLIC_OPENAI_MODEL,
       messages: [{ role: "user", content: prompt }],
-  });
+    });
+    
+    const responseMessage = response.choices[0].message.content;
+    return NextResponse.json({ output: responseMessage }, { status: 200 });
 
-  const responseMessage = response.choices[0].message.content;
-  return NextResponse.json({ output: responseMessage }, { status: 200 });
+  } catch (err) {
+    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 });
+  }
 }
