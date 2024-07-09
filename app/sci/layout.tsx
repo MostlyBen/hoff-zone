@@ -28,7 +28,7 @@ const SciLayout = ({ children }) => {
     setFrontmatter(null);
     setContent(null);
     udpateFrontmatter();
-  }, [children])
+  }, [children, currentPath])
 
   if (!frontmatter) {
     return (
