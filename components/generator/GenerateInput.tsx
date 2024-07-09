@@ -10,11 +10,16 @@ interface IdeaPayload {
   user_request?: string
 }
 
-const GenerateInput = ({ onClose }) => {
+const GenerateInput = (
+  { onClose, forHeader }:
+  { onClose: () => void, forHeader: string }
+) => {
+
   const [awaitingResponse, setAwaitingResponse] = useState<boolean>(false);
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [userInput, setUserInput] = useState<string>('');
   const [options, setOptions] = useState<string[]|null>(null);
+  const [error, setError] = useState<string|null>(null);
   const pathName = usePathname();
 
   const { theme } = useTheme();
@@ -32,6 +37,7 @@ const GenerateInput = ({ onClose }) => {
     });
 
     const responseMessage = await res.json();
+
     try {
       const newOptions = JSON.parse(responseMessage.output)
       console.log("Response options:", newOptions);
@@ -43,11 +49,13 @@ const GenerateInput = ({ onClose }) => {
     } catch (err) {
       console.warn("Error generating options:", err)
       console.warn("Response was:", responseMessage.output)
+      setError('Something went wrong. Try again.');
     }
 
     setAwaitingResponse(false);
 
   }
+  
   const handleSubmit = () => {
     if (awaitingResponse) { return }
     setAwaitingResponse(true);
@@ -66,22 +74,31 @@ const GenerateInput = ({ onClose }) => {
         <label htmlFor="request-input">Is there anything you want the project to be about?</label>
         <div className="flex row">
           <input
-            className="grow"
+            className={`grow mr-2`}
             id="request-input"
             placeholder="(Optional) A topic for your project"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
+            onKeyDown={ (e) => { if (e.key === 'Enter') handleSubmit() } }
             style={{
               backgroundColor: theme.white,
               color: theme.black,
               padding: "0.5em 1em"
             }}
           />
-          <button onClick={handleSubmit}>Generate</button>
+          <button
+            className={`${awaitingResponse ? 'disabled' : ''}`}
+            onClick={handleSubmit}
+          >
+            Generate
+          </button>
         </div>
+
+        {error && <div style={{color: theme.red}}>* {error}</div>}
 
         {showOptions && <GeneratedOptions
           options={options}
+          forHeader={forHeader}
           awaitingResponse={awaitingResponse}
           setAwaitingResponse={setAwaitingResponse}
         />}

@@ -3,19 +3,23 @@
 import React from "react"
 import { usePathname } from "next/navigation"
 
-interface Props {
+interface OptionsProps {
   options: string[];
+  forHeader: string;
   awaitingResponse: boolean;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  setAwaitingResponse: Function;
+  setAwaitingResponse: (value: boolean) => void;
 }
 
-const OptionButton:React.FC<{
-  option: string,
-  awaitingResponse: boolean,
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  setAwaitingResponse: Function,
-}> = ({ option, awaitingResponse, setAwaitingResponse }) => {
+interface ButtonProps {
+  option: string;
+  forHeader: string;
+  awaitingResponse: boolean;
+  setAwaitingResponse: (value: boolean) => void;
+}
+
+const OptionButton:React.FC<ButtonProps> = (
+  { option, forHeader, awaitingResponse, setAwaitingResponse }
+) => {
   const asPath = usePathname();
 
   const generateProject = async () => {
@@ -39,26 +43,49 @@ const OptionButton:React.FC<{
 
   const handleClickOption = () => {
     generateProject().then(res => {
-      console.log("New project:", res);
-      localStorage.setItem(window.location.pathname + '-' + 'h2-the-project-content', res);
+      localStorage.setItem(
+        window.location.pathname
+          + '-'
+          + forHeader
+            ? forHeader + '-content'
+            : 'h2-the-project-content',
+        res
+      );
       window.location.reload();
     })
   }
 
   return (
     <div>
-      <button onClick={handleClickOption}>{option}</button>
+      <button
+        className={`mb-2${awaitingResponse ? ' disabled' : ''}`}
+        onClick={handleClickOption}
+      >
+        {option}
+      </button>
     </div>
   )
 }
 
-const GeneratedOptions:React.FC<Props> = ({ options, awaitingResponse, setAwaitingResponse }) => {
+const GeneratedOptions:React.FC<OptionsProps> = (
+  { options, awaitingResponse, setAwaitingResponse, forHeader }
+) => {
 
   return (
     <div>
         Project options
         <br />
-        {options.map((o, i) => <OptionButton option={o} key={`option-${i}`} awaitingResponse={awaitingResponse} setAwaitingResponse={setAwaitingResponse} />)}
+        {options.map((o, i) => {
+          return (
+            <OptionButton
+              option={o}
+              key={`option-${i}`}
+              forHeader={forHeader}
+              awaitingResponse={awaitingResponse}
+              setAwaitingResponse={setAwaitingResponse}
+            />
+          )
+        })}
 
     </div>
   )
