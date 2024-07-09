@@ -95,9 +95,7 @@ const sectionHeaderContent = (children, level:number) => {
 
   for (const child of _children) {
     console.log("Child:", child)
-    console.log("Straight child type:", child.type)
     let childType;
-
     if (child.type) {
       try {
         childType =
@@ -106,7 +104,6 @@ const sectionHeaderContent = (children, level:number) => {
           : child.type.name; // Non-lazy
       } catch (err) {}
     }
-    console.log("Child type:", childType)
     let headerLevel = 0;
     if (childType === 'H1') { headerLevel = 1 }
     if (childType === 'H2') { headerLevel = 2 }
