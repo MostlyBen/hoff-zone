@@ -11,7 +11,7 @@ const splitFrontmatterFromContent = async (filePath:fs.PathLike) => {
     return { data, content: serializedContent };
   }
 
-  return {data: {}, content: ''};
+  return {data: {}, content: null};
 }
 
 export default splitFrontmatterFromContent

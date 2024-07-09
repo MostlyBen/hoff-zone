@@ -7,4 +7,3 @@ export { default as h4 } from './H4';
 export { default as hr } from './HR';
 export { default as li } from './LI';
 export { default as p } from './P';
-export { default as wrapper } from './Wrapper';

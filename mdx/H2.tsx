@@ -5,8 +5,19 @@ import { useStoredState } from "../hooks";
 import formatAsId from "../utils/formatAsId";
 import { GenerateBtn } from '../components/generator';
 import removeRegenerateText from "../utils/removeRegenerateText";
+import { usePathname } from "next/navigation";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { a, blockquote, h1, h2, h3, h4, hr, li, p } from './';
 
 const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
+  const pathName = usePathname();
+  const [replacementContent, setReplacementContent]
+    = useState<MDXRemoteSerializeResult|null>(null);
+  const [readyForReplacement, setReadyForReplacement] = useState<boolean>(false);
+  const [showOriginal, setShowOriginal] = useState<boolean>(false);
+
   const showGenerate = useMemo(() => {
     if (typeof children === 'string') {
       return children.endsWith('^regenerate');
@@ -40,24 +51,16 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     // Avoid if it's open (could already be open, or this would show next siblings when unrelated h1s open)
     if (e?.detail?.headingLevel && !collapsed) { return }
 
-    const mySection = document.getElementById(`${id}-content`)
-    if (mySection) {
-      if (collapsed) {
-        mySection.classList.add("hidden");
-      } else {
-        mySection.classList.remove("hidden")
+    const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
+    for (const el of Array.from(siblings)) {
+      if (['h1', 'h2', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
+        break;
       }
-    } else {
-      const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
-      for (const el of Array.from(siblings)) {
-        if (['h1', 'h2', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
-          break;
-        }
-        if (collapsed) {
-          el.classList.add("hidden")
-        } else {
-          el.classList.remove("hidden")
-        }
+
+      if (collapsed) {
+        el.classList.add("hidden")
+      } else {
+        el.classList.remove("hidden")
       }
     }
 
@@ -66,6 +69,23 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
       document.dispatchEvent(toggleEvent);
     }
   }
+
+  useEffect(() => {
+    const myReplacement = localStorage.getItem(`${pathName}-${id}-content`);
+    serialize(myReplacement).then(res => setReplacementContent(res));
+
+    if (myReplacement) {
+    const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
+    for (const el of Array.from(siblings)) {
+      if (['h1', 'h2', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
+        break;
+      }
+        el.classList.add("locally-replaced");
+      }
+      setReadyForReplacement(true);
+    }
+
+  }, []);
 
   useEffect(() => {
     updateShownElements();
@@ -106,7 +126,33 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
         <div style={{display: 'inline-block', width: '1.75em'}}/>
         {removeRegenerateText(children)}
       </h2>
-      {(showGenerate && !collapsed) && <GenerateBtn />}
+
+      {(showGenerate && !collapsed) && <GenerateBtn forHeader={id} />}
+
+      {showOriginal &&
+        <button
+          className="btn-small"
+          onClick={() => setShowOriginal(false)}
+        >
+          show custom
+        </button>
+      }
+
+      {(replacementContent && !collapsed && readyForReplacement && !showOriginal) &&
+        <>
+        <style>{`.locally-replaced { display: none }`}</style>
+        <button
+          className="mt-2 btn-small"
+          onClick={() => setShowOriginal(true)}
+        >
+          show original
+        </button>
+        <MDXRemote
+          components={{ a, blockquote, h1, h2, h3, h4, hr, li, p }}
+          {...replacementContent}
+        />
+        </>
+      }
   </>)
 }
 

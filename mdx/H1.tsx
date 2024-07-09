@@ -19,24 +19,15 @@ const H1 = ( { children, style }: JSX.IntrinsicElements["h1"] ) => {
   const [showToggle, setShowToggle] = useState(false);
 
   useEffect(() => {
-    const mySection = document.getElementById(`${id}-content`)
-    if (mySection) {
-      if (collapsed) {
-        mySection.classList.add("hidden");
-      } else {
-        mySection.classList.remove("hidden")
+    const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
+    for (const el of Array.from(siblings)) {
+      if (['h1', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
+        break;
       }
-    } else {
-      const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
-      for (const el of Array.from(siblings)) {
-        if (['h1', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
-          break;
-        }
-        if (collapsed) {
-          el.classList.add("hidden")
-        } else {
-          el.classList.remove("hidden")
-        }
+      if (collapsed) {
+        el.classList.add("hidden")
+      } else {
+        el.classList.remove("hidden")
       }
     }
   

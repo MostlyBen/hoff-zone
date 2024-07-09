@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { GenerateInput } from "./";
 
-const GenerateBtn = () => {
+const GenerateBtn = ({ forHeader }: {forHeader?: string}) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const GenerateBtn = () => {
       setTimeout(() => {
 
         // Move this div to be by '## The Project'
-        const projectEl = document.getElementById('h2-the-project');
+        const projectEl = document.getElementById(forHeader ?? 'h2-the-project');
         const regenerateEl = document.getElementById('regenerate-project')
         if (projectEl && regenerateEl) {
           projectEl.after(regenerateEl);
@@ -28,7 +28,7 @@ const GenerateBtn = () => {
 
   return (<>
     <button
-      className="btn-small"
+      className="btn-small mr-2"
       id="regenerate-project"
       onClick={() => setShowOptions(o => !o)}
     >

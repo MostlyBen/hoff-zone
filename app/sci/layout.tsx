@@ -1,23 +1,56 @@
 "use client"
 
+import { useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import { Frontmatter } from "components/layout";
+import { MDXRemote } from 'next-mdx-remote';
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { a, blockquote, h1, h2, h3, h4, hr, li, p } from '../../mdx';
 
-const SciLayout = async ({ children }) => {
+const SciLayout = ({ children }) => {
+  const [frontmatter, setFrontmatter] = useState<object|null>(null)
+  const [content, setContent] = useState<MDXRemoteSerializeResult|null>(null)
   const currentPath = usePathname();
-  
-  const res = await fetch(`/api/frontmatter?path=${currentPath}`)
-  
-  const data:{
-    data: object,
-    content: MDXRemoteSerializeResult,
-  } = await res.json()
+
+  const udpateFrontmatter = async () => {
+    console.log("updating frontmatter")
+
+    const res = await fetch(`/api/frontmatter?path=${currentPath}`);
+
+    console.log("Response:", res)
+
+    const data:{
+      data: object,
+      content: MDXRemoteSerializeResult,
+    } = await res.json();
+
+    console.log("Response data:", data)
+
+    setFrontmatter(data.data);
+    setContent(data.content);
+  }
+
+  useEffect(() => {
+    udpateFrontmatter();
+  }, [children])
+
+  useEffect(() => {console.log("Frontmatter:", content)}, [content])
+    
+  if (!frontmatter) {
+    return (
+      <>{children}</>
+    )
+  }
 
   return (
     <>
-      <Frontmatter pageData={data.data} />
-      {children}
+      <Frontmatter pageData={frontmatter} />
+      {content
+        ? <MDXRemote
+            components={{ a, blockquote, h1, h2, h3, h4, hr, li, p }}
+            {...content}
+          />
+        : children}
     </>
   )
 }

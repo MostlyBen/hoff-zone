@@ -23,25 +23,16 @@ const H3 = ( { children, style }: JSX.IntrinsicElements["h3"] ) => {
     if (e?.detail?.headingLevel && e.detail.headingLevel == 3) { return }
     // Avoid if it's open (could already be open, or this would show next siblings when unrelated h1s/2s open)
     if (e?.detail?.headingLevel && !collapsed) { return }
-
-    const mySection = document.getElementById(`${id}-content`)
-    if (mySection) {
-      if (collapsed) {
-        mySection.classList.add("hidden");
-      } else {
-        mySection.classList.remove("hidden")
+    
+    const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
+    for (const el of Array.from(siblings)) {
+      if (['h1', 'h2', 'h3', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
+        break;
       }
-    } else {
-      const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
-      for (const el of Array.from(siblings)) {
-        if (['h1', 'h2', 'h3', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
-          break;
-        }
-        if (collapsed) {
-          el.classList.add("hidden")
-        } else {
-          el.classList.remove("hidden")
-        }
+      if (collapsed) {
+        el.classList.add("hidden")
+      } else {
+        el.classList.remove("hidden")
       }
     }
 
