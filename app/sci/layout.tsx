@@ -25,6 +25,8 @@ const SciLayout = ({ children }) => {
   }
 
   useEffect(() => {
+    setFrontmatter(null);
+    setContent(null);
     udpateFrontmatter();
   }, [children])
 
