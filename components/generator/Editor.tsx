@@ -13,7 +13,7 @@ const Editor:React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
   const [value, setValue] = useState<string>(initialValue);
   const { theme } = useTheme();
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
   }
 
@@ -39,7 +39,7 @@ const Editor:React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
       >
         <div>
           <textarea
-            onChange={handleChange}
+            onChange={e => handleChange(e)}
             value={value}
             style={{
               background: 'transparent',
