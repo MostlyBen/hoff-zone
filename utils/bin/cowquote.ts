@@ -1,5 +1,5 @@
 import * as cow from 'cowsay-browser';
-import { getQuote } from '../../api';
+import getQuote from '../getQuote';
 
 export const cowquote = async (args?: string[]): Promise<string> => {
   let output = '';
