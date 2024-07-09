@@ -16,7 +16,6 @@
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.4.4",
     "ai": "^3.2.16",
-    "axios": "^1.7.2",
     "cowsay-browser": "^1.1.8",
     "gray-matter": "^4.0.3",
     "next": "^14.2.4",
