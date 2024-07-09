@@ -3,7 +3,7 @@
 import { JSX, useEffect, useState, useMemo } from "react";
 import { useStoredState } from "../hooks";
 import { formatAsId } from "../utils";
-import { GenerateBtn } from '../components/generator';
+import { GenerateBtn, Editor } from '../components/generator';
 import removeInlineTag from "../utils/data/removeInlineTag";
 import { usePathname } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote";
@@ -17,6 +17,7 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     = useState<MDXRemoteSerializeResult|null>(null);
   const [readyForReplacement, setReadyForReplacement] = useState<boolean>(false);
   const [showOriginal, setShowOriginal] = useState<boolean>(false);
+  const [showEdit, setShowEdit] = useState<boolean>(false);
 
   const showGenerate = useMemo(() => {
     if (typeof children === 'string') {
@@ -87,6 +88,13 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
 
   }, []);
 
+  const handleCloseEditor = (newContent?:string) => {
+    if (newContent) {
+      serialize(newContent).then(res => setReplacementContent(res));
+    }
+    setShowEdit(false);
+  }
+
   useEffect(() => {
     updateShownElements();
     document.addEventListener("onAnyCollapseOpen", updateShownElements);
@@ -142,11 +150,27 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
         <>
         <style>{`.locally-replaced { display: none }`}</style>
         <button
-          className="mt-2 btn-small"
+          className="mt-2 mr-2 btn-small"
           onClick={() => setShowOriginal(true)}
         >
           show original
         </button>
+
+        <button
+          className="mt-2 btn-small"
+          onClick={() => setShowEdit(true)}
+        >
+          edit
+        </button>
+
+        {showEdit &&
+          <Editor
+            initialValue={localStorage.getItem(`${pathName}-${id}-content`)}
+            storedAt={`${pathName}-${id}-content`}
+            onClose={handleCloseEditor}
+          />
+        }
+        
         <MDXRemote
           components={{ a, blockquote, h1, h2, h3, h4, hr, li, p }}
           {...replacementContent}

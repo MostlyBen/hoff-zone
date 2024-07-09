@@ -67,7 +67,7 @@
 }
 
 .modal-container > .modal-content {
-  max-width: min(500px, 90vw);
+  max-width: min(800px, 90vw);
   border-radius: 8px;
   padding: 1em 2em;
   position: relative;
