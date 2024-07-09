@@ -11,6 +11,10 @@
   font-size: 0.9375rem;
 }
 
+html, body {
+  padding: 0 !important;
+}
+
 html {
   font-family: 'CascadiaCode', monospace;
 }
@@ -28,12 +32,17 @@ blockquote > p {
 }
 
 html,
-body,
+body {
+  overflow: hidden;
+}
+
 body > div:first-child,
 div#__next,
 div#__next > div {
   height: 100%;
   overflow: auto;
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 ::-webkit-scrollbar {
