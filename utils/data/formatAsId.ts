@@ -3,7 +3,7 @@ const formatAsId = (text:string, removeShowGenerate?:boolean) => {
   if (removeShowGenerate) {
     _text = _text.replace('^editable', '')
   }
-  return _text.replaceAll(/[ :[\]~<>+/]+/g, '-').replaceAll(/[.|?!@#$%^&*()_=`'";]+/g, '').toLowerCase()
+  return _text.replaceAll(/[ :[\]~<>+/<>]+/g, '-').replaceAll(/[,.|?!@#$%^&*()_=`'";]+/g, '').toLowerCase()
 }
 
 export default formatAsId
