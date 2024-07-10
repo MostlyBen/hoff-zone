@@ -1,52 +1,16 @@
 "use client"
 
 // TODO: render markdown on un-focus
-// + auto-detect links
 
-import { useEffect, useState, useMemo } from 'react';
-import { MDXRemote } from 'next-mdx-remote';
+import { useState, useMemo } from 'react';
 import { useTheme } from 'utils/providers/themeProvider';
 import { useStoredState } from 'hooks';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import config from '../../theme-config.json';
-import * as MDXComponents from "../../mdx";
-
-interface PreviewProps {
-  content: string;
-  onEdit: () => void;
-}
+import JournalPreview from './JournalPreview';
 
 interface JournalProps {
   journalId: string;
   onClose: () => void;
-}
-
-const JournalPreview:React.FC<PreviewProps> = ({ content, onEdit }) => {
-  const [serializedContent, setSerializedContent]
-    = useState<MDXRemoteSerializeResult|null>(null);
-
-  useEffect(() => {
-    serialize(content).then(res => setSerializedContent(res));
-  }, [content])
-
-  return (
-    <div
-      className='h-full w-full px-2'
-      onClick={(e:any) => {
-        if (e.target.classList[0] !== 'todo-check') {
-          onEdit();
-        }
-      }}
-    >
-      {serializedContent &&
-        <MDXRemote
-          components={MDXComponents}
-          {...serializedContent}
-        />
-      }
-    </div>
-  )
 }
 
 const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
