@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, ReactNode } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../utils/providers/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
@@ -16,9 +16,8 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({ children, frontmatter }) => {
-  // Why do I have to do children.type()? Idk. Idek what children.type is
-  const [consoleOpen, setConsoleOpen] = useState(false);
-  const [lofiOpen, setLofiOpen] = useState(false);
+  const [consoleOpen, setConsoleOpen] = useState<boolean>(false);
+  const [lofiOpen, setLofiOpen] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
 
