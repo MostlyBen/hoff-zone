@@ -35,7 +35,7 @@ export const goto = (_args: string[], {router}) => {
 
 export const sci = (_args: string[], {router}) => {
   const moduleNum = _args[0]
-  if (!['11', '12', '13', '20'].includes(moduleNum)) {
+  if (!['11', '12', '13', '14', '15', '16', '17', '18', '19', '20'].includes(moduleNum)) {
     return sciHelp
   }
 
