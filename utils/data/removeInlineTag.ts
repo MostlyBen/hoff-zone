@@ -1,7 +1,7 @@
-import { ReactNode, ReactElement, LazyExoticComponent } from "react"
+import { ReactNode, ReactElement } from "react"
 
 const removeInlineTag = (children:
-  string | ReactNode | ReactElement | LazyExoticComponent<any>
+  string | ReactNode | ReactElement
 ) => {
   if (typeof children === 'string') {
     return children.replace('^regenerate', '')
