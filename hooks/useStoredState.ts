@@ -1,15 +1,37 @@
-import { useEffect, useState } from 'react';
+import {  Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-const useStoredState = (stateName: string, defaultValue: any) => {
+type StoredState<T> = [T, Dispatch<SetStateAction<T>>];
+
+function useStoredState<T>(stateName: string, defaultValue:T): StoredState<T> {
   const [value, setValue] = useState(defaultValue);
 
-  useEffect(() => {
-    const storedValue = window.localStorage.getItem(window.location.pathname + '-' + stateName);
+  const updateFromStorage = (key:string, force?:boolean) => {
+    const storedValue = window.localStorage.getItem(window.location.pathname + '-' + key);
     if (storedValue) {
-      setValue(
-        JSON.parse(storedValue)
-      )
+      try {
+        setValue(JSON.parse(storedValue) as T);
+      } catch (err) {
+        setValue(storedValue as T);
+      }
+    } else if (force) {
+      setValue(null);
+    }
+  }
+
+  useEffect(() => {
+    updateFromStorage(stateName);
+    window.addEventListener("storage", e => {
+      if (e.key === window.location.pathname + '-' + stateName) {
+        updateFromStorage(stateName)
+      }
+    });
+
+    return () => {
+      window.removeEventListener("storage", e => {
+        if (e.key === window.location.pathname + '-' + stateName) {
+          updateFromStorage(stateName)
+        }
+      })
     }
   }, [stateName])
 
