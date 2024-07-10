@@ -43,14 +43,10 @@ const OptionButton:React.FC<ButtonProps> = (
 
   const handleClickOption = () => {
     generateProject().then(res => {
-      localStorage.setItem(
-        window.location.pathname
-          + '-'
-          + forHeader
-            ? forHeader + '-content'
-            : 'h2-the-project-content',
-        res
-      );
+      let key = forHeader
+                ? window.location.pathname + '-' + forHeader + '-content'
+                : window.location.pathname + '-' + 'h2-the-project-content'
+      localStorage.setItem(key, res);
       window.location.reload();
     })
   }
@@ -72,8 +68,8 @@ const GeneratedOptions:React.FC<OptionsProps> = (
 ) => {
 
   return (
-    <div>
-        Project options
+    <div className="mt-4">
+        project options
         <br />
         {options.map((o, i) => {
           return (
