@@ -1,5 +1,7 @@
 'use client'
 
+// TODO: auto-detect links
+
 import { JSX } from "react";
 import { formatAsId } from "../utils";
 import { useTheme } from "../utils/providers/themeProvider";

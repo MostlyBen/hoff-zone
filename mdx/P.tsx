@@ -1,5 +1,7 @@
 import { JSX } from "react";
 
+// TODO: audo-detect links
+
 const Tag = ( { children }: JSX.IntrinsicElements["p"] ) => {
   return (
     <span

@@ -1,5 +1,8 @@
 'use client'
 
+// TODO: add types
+// TODO: auto-detect links
+
 import { useEffect, useState } from "react";
 
 const getChildText = (children) => {
@@ -76,8 +79,8 @@ const ChecklistItem = ({ children }) => {
       onClick={() => handleChecked(!isChecked)}
     >
       {isChecked
-        ? <span>[<span style={{color: "var(--blue)"}}>x</span>]</span>
-        : "[ ]"
+        ? <span className="todo-check">[<span className="todo-check" style={{color: "var(--blue)"}}>x</span>]</span>
+        : <span className="todo-check">[ ]</span>
       }
     </button>
     
