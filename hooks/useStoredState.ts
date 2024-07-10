@@ -5,8 +5,8 @@ import {  Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 type StoredState<T> = [T, Dispatch<SetStateAction<T>>];
 
-function useStoredState<T>(stateName: string, defaultValue:T): StoredState<T> {
-  const [value, setValue] = useState(defaultValue);
+function useStoredState<T>(stateName: string, defaultValue?:T): StoredState<T> {
+  const [value, setValue] = useState(defaultValue ?? null);
 
   const updateFromStorage = (key:string, force?:boolean) => {
     const storedValue = window.localStorage.getItem(window.location.pathname + '-' + key);
