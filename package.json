@@ -12,28 +12,28 @@
     "prettify": "prettier --write ."
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.34",
-    "@mdx-js/loader": "^2.3.0",
-    "@next/mdx": "^13.4.4",
-    "ai": "^3.2.16",
+    "@ai-sdk/openai": "^0.0.36",
+    "@mdx-js/loader": "^3.0.1",
+    "@next/mdx": "^14.2.5",
+    "ai": "^3.2.19",
     "cowsayjs": "^2.0.0",
     "gray-matter": "^4.0.3",
-    "next": "^14.2.4",
+    "next": "^14.2.5",
     "next-mdx-remote": "^5.0.0",
-    "openai": "^4.52.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "openai": "^4.52.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9",
-    "@types/mdx": "^2.0.5",
-    "@types/node": "20.2.5",
-    "@types/react": "18.2.8",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
-    "tailwindcss": "^3.3.2",
-    "typescript": "5.1.3"
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "20.14.10",
+    "@types/react": "18.3.3",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwindcss": "^3.4.4",
+    "typescript": "5.5.3"
   }
 }
