@@ -1,7 +1,8 @@
-import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import { History, Input } from './';
 import { ShellProvider, useShell } from '../../utils/providers/shellProvider';
+import { usePathname } from 'next/navigation';
+import { Journal } from "../journal";
 import { useTheme } from '../../utils/providers/themeProvider';
 import config from '../../theme-config.json';
 
@@ -25,10 +26,6 @@ const Console: React.FC<ConsoleProps> = ({ inputRef }) => {
 
   return (
     <>
-      <Head>
-        <title>Hoff Zone</title>
-      </Head>
-
       <div
         className="overflow-hidden h-full rounded console-content"
         onClick={focusInput}
@@ -49,9 +46,27 @@ const Console: React.FC<ConsoleProps> = ({ inputRef }) => {
 };
 
 const ConsoleWithProvider: React.FC<ConsoleProps> = ({ inputRef }) => {
+  const pathname = usePathname();
+  const [showJournal, setShowJournal] = useState<boolean>(false);
+
+  React.useEffect(() => {
+    document.addEventListener('onShowJournal', () => setShowJournal(true))
+    return () => document.removeEventListener('onShowJournal', () => setShowJournal(true))
+  }, [])
+
+  React.useEffect(() => {
+    setShowJournal(false);
+    if (pathname.startsWith('/sci')) {
+      setShowJournal(true);
+    }
+  }, [pathname])
+
   return (
     <ShellProvider>
-      <Console inputRef={inputRef} />
+      {showJournal
+        ? <Journal journalId={pathname} onClose={() => setShowJournal(false)} />
+        : <Console inputRef={inputRef} />
+      }
     </ShellProvider>
   )
 

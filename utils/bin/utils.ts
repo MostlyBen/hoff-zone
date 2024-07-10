@@ -7,6 +7,12 @@ export const help = async (_args: string[]): Promise<string> => {
   return `Available commands:\n${commands}\n\n[tab]\t trigger completion.\n[ctrl+l] clear terminal.\n[ctrl+c] cancel command.`;
 };
 
+export const journal = (_args?: string[]) => {
+  const openEvent = new CustomEvent("onShowJournal");
+  document.dispatchEvent(openEvent);
+  return 'opening journal...'
+}
+
 export const date = async (_args: string[]): Promise<string> => {
   return new Date().toString();
 };
