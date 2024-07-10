@@ -1,3 +1,6 @@
+// TODO: make it so state updates when key is removed from localStorage
+// (it currently only updates when the key's value is changed)
+
 import {  Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 type StoredState<T> = [T, Dispatch<SetStateAction<T>>];
