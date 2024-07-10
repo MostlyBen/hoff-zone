@@ -3,10 +3,9 @@
 import { useState, useRef, useEffect, ReactNode } from 'react';
 import { useTheme } from '../../utils/providers/themeProvider';
 import { Console } from '../console';
-// import { ThemeSwitcher } from '../input';
+import { ThemeSwitcher } from '../input';
 import { default as Lofi } from './Lofi';
 import { Frontmatter } from '../layout';
-
 
 interface Props {
   // Literally so annoyed that I can't figure out what the heck these children are
@@ -76,7 +75,7 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
         
       </main>
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
-      {/* <ThemeSwitcher /> */}
+      <ThemeSwitcher />
     </div>
   );
 };
