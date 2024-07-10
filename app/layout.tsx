@@ -16,9 +16,7 @@ import siteMeta from './metadata.json';
 import { ThemeProvider } from "utils/providers/themeProvider";
 import { Layout } from "components/layout";
 
-
 export const metadata: Metadata = siteMeta;
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
