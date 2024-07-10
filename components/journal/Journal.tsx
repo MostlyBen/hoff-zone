@@ -1,6 +1,9 @@
 "use client"
 
-import { useState, useEffect, useMemo, useRef } from 'react';
+// TODO: render markdown on un-focus
+// + auto-detect links
+
+import { useMemo } from 'react';
 import { useTheme } from 'utils/providers/themeProvider';
 import config from '../../theme-config.json';
 import { useStoredState } from 'hooks';
