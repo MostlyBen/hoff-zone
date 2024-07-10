@@ -15,6 +15,7 @@ const Ps1 = () => {
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        maxWidth: '172px',
     }}>
       <span
         style={{
