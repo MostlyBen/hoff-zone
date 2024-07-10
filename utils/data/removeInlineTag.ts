@@ -1,10 +1,12 @@
+// TODO: match any tags, not just editable
+
 import { ReactNode, ReactElement } from "react"
 
 const removeInlineTag = (children:
   string | ReactNode | ReactElement
 ) => {
   if (typeof children === 'string') {
-    return children.replace('^regenerate', '')
+    return children.replace('^editable', '')
   }
 
   if (!Array.isArray(children)) {

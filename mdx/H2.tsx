@@ -21,14 +21,14 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
 
   const showGenerate = useMemo(() => {
     if (typeof children === 'string') {
-      return children.endsWith('^regenerate');
+      return children.endsWith('^editable');
     }
     if (!Array.isArray(children)) {
       return false;
     }
     const lastChild = children[children.length -1]
     if (typeof lastChild === 'string') {
-      return lastChild.endsWith('^regenerate');
+      return lastChild.endsWith('^editable');
     }
     return false;
   }, [children])
