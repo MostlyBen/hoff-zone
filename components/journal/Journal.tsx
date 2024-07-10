@@ -51,7 +51,7 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
         autoFocus={true}
       />
 
-      <div>⌃ + x: close</div>
+      <div>[ctrl + x]: close</div>
 
     </div>
   )
