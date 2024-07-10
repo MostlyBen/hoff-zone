@@ -34,14 +34,16 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
       }}
     >
       <textarea
-        className="grow overflow-y-auto"
+        className="grow overflow-y-auto p-2"
         placeholder='put notes here...'
         style={{
           background: 'transparent',
+          backdropFilter: 'brightness(0.8)',
           color: theme.foreground,
           outline: 'none',
           border: 'none',
           resize: 'none',
+          borderRadius: "0.25em"
         }}
         value={content}
         onChange={(e) => setContent(e.target.value)}
