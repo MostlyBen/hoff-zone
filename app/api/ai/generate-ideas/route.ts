@@ -5,8 +5,8 @@ import { NextRequest, NextResponse } from 'next/server';
 export const runtime = 'edge';
 
 const openai = new OpenAI({
-  organization: process.env.NEXT_PUBLIC_OPENAI_ORGANIZATION,
-  project: process.env.NEXT_PUBLIC_OPENAI_PROJECT,
+  organization: process.env.OPENAI_ORGANIZATION,
+  project: process.env.OPENAI_PROJECT,
   apiKey: process.env.OPENAI_API_KEY,
   // dangerouslyAllowBrowser: true,
 })
@@ -54,7 +54,7 @@ export async function POST(req:NextRequest) {
     
     const prompt = getPrompt(input.project_data, input.user_request);
     const response = await openai.chat.completions.create({
-      model: process.env.NEXT_PUBLIC_OPENAI_MODEL,
+      model: process.env.OPENAI_MODEL,
       messages: [{ role: "user", content: prompt }],
     });
     
