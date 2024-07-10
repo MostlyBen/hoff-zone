@@ -30,15 +30,9 @@ const SciLayout = ({ children }) => {
     udpateFrontmatter();
   }, [children, currentPath])
 
-  if (!frontmatter) {
-    return (
-      <>{children}</>
-    )
-  }
-
   return (
     <>
-      <Frontmatter pageData={frontmatter} />
+      {frontmatter && <Frontmatter pageData={frontmatter} />}
       {content
         ? <MDXRemote
             components={{ a, blockquote, h1, h2, h3, h4, hr, li, p }}
