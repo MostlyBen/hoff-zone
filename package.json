@@ -1,6 +1,6 @@
 {
   "name": "hoff-zone",
-  "version": "0.3.22",
+  "version": "0.3.23",
   "main": "page.tsx",
   "author": "Ben Hoff",
   "license": "MIT",
