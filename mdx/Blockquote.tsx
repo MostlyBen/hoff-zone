@@ -1,6 +1,6 @@
 'use client'
 
-// TODO: auto-detect links
+// TODO: actually render links
 
 import { JSX } from "react";
 import { formatAsId } from "../utils";
