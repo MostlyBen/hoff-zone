@@ -1,7 +1,5 @@
 "use client"
 
-// TODO: render markdown on un-focus
-
 import { useState, useMemo } from 'react';
 import { useTheme } from 'utils/providers/themeProvider';
 import { useStoredState } from 'hooks';
