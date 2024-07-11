@@ -43,8 +43,9 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     )
   }, [children, showGenerate]);
 
-  const [collapsed, setCollapsed] = useStoredState(id, false);
-  const [showToggle, setShowToggle] = useState(false);
+  const [collapsed, setCollapsed] = useStoredState<boolean>(id, false);
+  const [showToggle, setShowToggle] = useState<boolean>(false);
+  const [avoidHideToggle, setAvoidHideToggle] = useState<boolean>(false);
 
   const updateShownElements = (e?: CustomEventInit) => {
     // Avoid for other h2s or h3s
@@ -102,6 +103,28 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [collapsed, id])
 
+  useEffect(() => {
+    const handleAnyMouseDown = (e: MouseEvent) => {
+      let el = e.target as HTMLElement
+      if (el.id !== id) {
+        setShowToggle(false);
+        setAvoidHideToggle(false);
+      }
+    }
+
+    if (avoidHideToggle) {
+      document.addEventListener("click", handleAnyMouseDown);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleAnyMouseDown);
+    }
+  }, [avoidHideToggle])
+
+  const handlePointerOut = () => {
+    if (!avoidHideToggle) { setShowToggle(false); }
+  }
+
   const handleClickExpand = () => {
     setCollapsed(collapsed ? null : true);
   }
@@ -114,8 +137,9 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
           : {textIndent: '-0.8em', position: 'relative'}
         }
         className="relative"
-        onPointerEnter={() => setShowToggle(true)}
-        onPointerLeave={() => setShowToggle(false)}
+        onPointerDown={() => setAvoidHideToggle(true)}
+        onPointerOver={() => setShowToggle(true)}
+        onPointerOut={handlePointerOut}
       >
         <button
         className="remove-btn-styling"
