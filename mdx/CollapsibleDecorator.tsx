@@ -11,8 +11,8 @@ const indentAdjust = {
 }
 
 const arrowPos = {
-  1: {left: '-1em'},
-  2: {left: '-1em'},
+  1: {left: '-0.75em'},
+  2: {left: '-0.825em'},
   3: {left: '-1em'},
   4: {left: '-1.25em', top: '-0.25em'},
   5: {left: '-1.5em', top: '-0.5em'},
