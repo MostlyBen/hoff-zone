@@ -71,7 +71,12 @@ const GenerateInput = (
           border: `2px solid ${theme.yellow}`,
         }}
       >
-        <label htmlFor="request-input">Is there anything you want the project to be about?</label>
+        <label
+          htmlFor="request-input"
+          style={{marginLeft: '1.75em'}}
+        >
+          Is there anything you want the project to be about?
+        </label>
         <div className="flex row">
           <input
             className={`grow mr-2`}
