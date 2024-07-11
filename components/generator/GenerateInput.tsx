@@ -104,7 +104,10 @@ const GenerateInput = (
         />}
       </div>
 
-      <div className="modal-bg" onClick={onClose} />
+      <div
+        className="modal-bg"
+        onClick={() => { if (!awaitingResponse) onClose() }}
+      />
     </div>
   )
 }
