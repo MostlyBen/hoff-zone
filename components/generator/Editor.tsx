@@ -22,6 +22,10 @@ const Editor:React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
       localStorage.setItem(storedAt, value);
     }
     onClose(value);
+    
+    if (!value) {
+      window.location.reload();
+    }
   }
 
   const handleCancel = () => {
