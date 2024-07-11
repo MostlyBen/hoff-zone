@@ -87,6 +87,34 @@
   -webkit-backdrop-filter: blur(5px);
 }
 
+textarea {
+  caret-color: var(--cursorColor);
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  position: relative;
+}
+
+th:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--foreground);
+  opacity: 0.15;
+}
+
+th, td {
+  border: 1px solid var(--cursorColor);
+  padding: 0.5em;
+}
+
 @media screen and (max-width: 1200px) {
   .main-container {
     padding: 0.5rem 4rem 20rem 4rem;
