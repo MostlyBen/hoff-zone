@@ -8,6 +8,31 @@ export const help = async (_args: string[]): Promise<string> => {
 };
 
 export const journal = (_args?: string[]) => {
+  console.log("Args:", _args)
+  if (_args.includes('-h')) {
+    return `Flags:
+  -h: shows this help
+  -a: [true/false] avoid auto-opening journal`;
+  }
+
+  if (_args.includes('-a')) {
+    if (!_args[1]) {
+      if (localStorage.getItem('avoidJournalAutoOpen')) {
+        return `true (avoids auto-open)`;
+      } else {
+        return `false (will auto-open)`;
+      }
+    }
+
+    const value = _args[1] === 'true';
+    if (value) {
+      localStorage.setItem('avoidJournalAutoOpen', 'true');
+      return `Journal will NOT auto-open`
+    } else {
+      localStorage.removeItem('avoidJournalAutoOpen');
+      return `Journal will auto-open`
+    }
+  }
   const openEvent = new CustomEvent("onShowJournal");
   document.dispatchEvent(openEvent);
   return 'opening journal...'

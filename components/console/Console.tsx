@@ -56,7 +56,7 @@ const ConsoleWithProvider: React.FC<ConsoleProps> = ({ inputRef }) => {
 
   React.useEffect(() => {
     setShowJournal(false);
-    if (pathname.startsWith('/sci')) {
+    if (pathname.startsWith('/sci') && !localStorage.getItem('avoidJournalAutoOpen')) {
       setShowJournal(true);
     }
   }, [pathname])
