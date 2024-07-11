@@ -21,6 +21,7 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
   const [showPreview, setShowPreview] = useState<boolean>(false);
 
   const handleKeyDown = (e:React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Tab') e.preventDefault();
     if (e.ctrlKey && e.key === "x") {
       onClose();
     }
