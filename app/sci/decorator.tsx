@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Frontmatter } from "components/layout";
 import { MDXRemote } from 'next-mdx-remote';
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import { a, blockquote, h1, h2, h3, h4, hr, li, p } from '../../mdx';
+import * as MDXComponents from '../../mdx';
 
 const SciDecorator = ({ children }) => {
   const [frontmatter, setFrontmatter] = useState<object|null>(null)
@@ -36,7 +36,7 @@ const SciDecorator = ({ children }) => {
       {frontmatter && <Frontmatter pageData={frontmatter} />}
       {content
         ? <MDXRemote
-            components={{ a, blockquote, h1, h2, h3, h4, hr, li, p }}
+            components={MDXComponents}
             {...content}
           />
         : children}
