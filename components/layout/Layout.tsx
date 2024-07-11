@@ -17,8 +17,6 @@ interface Props {
   frontmatter?: object;
 }
 
-type LayoutEvent = { value: any }
-
 const Layout: React.FC<Props> = ({ children, frontmatter }) => {
   const [consoleOpen, setConsoleOpen] = useState<boolean>(false);
   const [lofiOpen, setLofiOpen] = useState<boolean>(false);

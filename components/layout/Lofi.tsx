@@ -10,6 +10,7 @@ const options = [
   "https://www.youtube.com/embed/ZmdEBzCqL6o",
   "https://www.youtube.com/embed/u4DXqKV0Wtk",
 ]
+
 const Lofi = ({ onClose }) => {
   const choice:number = Math.floor( Math.random() * options.length )
 
