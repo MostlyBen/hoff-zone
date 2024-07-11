@@ -6,6 +6,8 @@ import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
 import { default as Lofi } from './Lofi';
 import { Frontmatter } from '../layout';
+import { useStoredState } from 'hooks';
+import todoBorderStyle from './todoBorderStyle';
 
 interface Props {
   // Literally so annoyed that I can't figure out what the heck these children are
@@ -15,15 +17,25 @@ interface Props {
   frontmatter?: object;
 }
 
+type LayoutEvent = { value: any }
+
 const Layout: React.FC<Props> = ({ children, frontmatter }) => {
   const [consoleOpen, setConsoleOpen] = useState<boolean>(false);
   const [lofiOpen, setLofiOpen] = useState<boolean>(false);
+  const [showTodoBorders, setShowTodoBorders] = useStoredState('showTodoBorders', false, false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
 
   useEffect(() => {
     document.addEventListener('onLofiOpen', () => setLofiOpen(true));
-    return () => document.removeEventListener('onLofiOpen', () => setLofiOpen(false));
+    document.addEventListener('onShowTodoBorders', () => { setShowTodoBorders(true) });
+    document.addEventListener('onHideTodoBorders', () => { setShowTodoBorders(false) });
+    
+    return () => {
+      document.removeEventListener('onLofiOpen', () => setLofiOpen(false));
+      document.removeEventListener('onShowTodoBorders', () => { setShowTodoBorders(true) });
+      document.removeEventListener('onHideTodoBorders', () => { setShowTodoBorders(false) });
+    }
   }, []);
 
   useEffect(() => {
@@ -32,7 +44,8 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
     }
   }, [consoleOpen]);
 
-  return (
+  return (<>
+    {showTodoBorders && <style>{todoBorderStyle}</style>}
     <div
       className={`min-w-max text-xs md:min-w-full md:text-base flex flex-row flex-col-sm bg-cover`}
       style={{
@@ -76,7 +89,7 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
       <ThemeSwitcher />
     </div>
-  );
+    </>);
 };
 
 export default Layout;

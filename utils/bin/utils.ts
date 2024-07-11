@@ -1,5 +1,8 @@
 import packageJson from '../../package.json';
 import * as bin from './index';
+interface LayoutEvent {
+  value: any;
+}
 
 export const help = async (_args: string[]): Promise<string> => {
   const commands = Object.keys(bin).sort().join(', ');
@@ -36,6 +39,21 @@ export const journal = (_args?: string[]) => {
   const openEvent = new CustomEvent("onShowJournal");
   document.dispatchEvent(openEvent);
   return 'opening journal...'
+}
+
+export const todo = async (_args: string[]): Promise<string> => {
+  if (_args[0] !== 'set') {
+    return `Shows or hides a border around todo items
+Usage:
+- todo set [true/false]`
+  }
+  if (_args[1] === 'true') {
+    document.dispatchEvent(new CustomEvent("onShowTodoBorders"));
+    return "Showing todo borders...";
+  } else {
+    document.dispatchEvent(new CustomEvent("onHideTodoBorders"));
+    return "Hiding todo borders...";
+  }
 }
 
 export const date = async (_args: string[]): Promise<string> => {

@@ -5,11 +5,12 @@ import {  Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 type StoredState<T> = [T, Dispatch<SetStateAction<T>>];
 
-function useStoredState<T>(stateName: string, defaultValue?:T): StoredState<T> {
+function useStoredState<T>(stateName: string, defaultValue?:T, pathSpecific:boolean = true): StoredState<T> {
   const [value, setValue] = useState(defaultValue ?? null);
+  const key = pathSpecific ? window.location.pathname + '-' + stateName : stateName
 
-  const updateFromStorage = (key:string, force?:boolean) => {
-    const storedValue = window.localStorage.getItem(window.location.pathname + '-' + key);
+  const updateFromStorage = (_key:string, force?:boolean) => {
+    const storedValue = window.localStorage.getItem(_key);
     if (storedValue) {
       try {
         setValue(JSON.parse(storedValue) as T);
@@ -24,14 +25,14 @@ function useStoredState<T>(stateName: string, defaultValue?:T): StoredState<T> {
   useEffect(() => {
     updateFromStorage(stateName);
     window.addEventListener("storage", e => {
-      if (e.key === window.location.pathname + '-' + stateName) {
+      if (e.key === key) {
         updateFromStorage(stateName)
       }
     });
 
     return () => {
       window.removeEventListener("storage", e => {
-        if (e.key === window.location.pathname + '-' + stateName) {
+        if (e.key === key) {
           updateFromStorage(stateName)
         }
       })
@@ -41,9 +42,9 @@ function useStoredState<T>(stateName: string, defaultValue?:T): StoredState<T> {
   const updateValue = (newValue: any) => {
     setValue(newValue);
     if (newValue !== null) {
-      window.localStorage.setItem(window.location.pathname + '-' + stateName, JSON.stringify(newValue));
+      window.localStorage.setItem(key, JSON.stringify(newValue));
     } else {
-      window.localStorage.removeItem(window.location.pathname + '-' + stateName)
+      window.localStorage.removeItem(key)
     }
   }
 
