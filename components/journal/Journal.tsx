@@ -64,7 +64,15 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
               autoFocus={true}
               onBlur={() => { if (content) setShowPreview(true) }}
             />
-            <div>[ctrl + x]: close</div>
+            <div>
+              <button
+                className="remove-btn-styling"
+                style={{textDecoration: 'underline'}}
+                onClick={onClose}
+              >
+                [ctrl + x]: close
+              </button>
+            </div>
           </>
       }
 
