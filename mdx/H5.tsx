@@ -5,14 +5,14 @@ import CollapsibleDecorator from "./CollapsibleDecorator";
 import { formatAsId } from "../utils";
 import removeInlineTags from "../utils/data/removeInlineTags";
 
-const H4 = ( { children, style }: JSX.IntrinsicElements["h4"] ) => {
+const H5 = ( { children, style }: JSX.IntrinsicElements["h5"] ) => {
   const id = useMemo(() => {
     return (
       typeof children === 'string'
-      ? 'h4-' + formatAsId(children)
+      ? 'h5-' + formatAsId(children)
       : Array.isArray(children)
-        ? typeof children[0] === 'string' ? 'h4-' + formatAsId(children[0]) : 'h4'
-        : 'h4'
+        ? typeof children[0] === 'string' ? 'h5-' + formatAsId(children[0]) : 'h5'
+        : 'h5'
     )
   }, [children]);
 
@@ -31,7 +31,7 @@ const H4 = ( { children, style }: JSX.IntrinsicElements["h4"] ) => {
   return (
     <CollapsibleDecorator
       id={id}
-      level={4}
+      level={5}
       style={style}
       defaultCollapsed={defaultCollapsed}
     >
@@ -40,4 +40,4 @@ const H4 = ( { children, style }: JSX.IntrinsicElements["h4"] ) => {
   )
 }
 
-export default H4;
+export default H5;

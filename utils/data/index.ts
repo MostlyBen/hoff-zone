@@ -1,7 +1,7 @@
 import formatAsId from "./formatAsId";
-import removeInlineTag from "./removeInlineTag";
+import removeInlineTags from "./removeInlineTags";
 
 export {
   formatAsId,
-  removeInlineTag,
+  removeInlineTags,
 }
