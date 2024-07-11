@@ -62,30 +62,35 @@ h1 {
   font-size: 3em;
   line-height: 1.2;
   margin-top: 1.5em;
+  margin-bottom: 1rem;
 }
 
 h2 {
   font-size: 2.25em;
   line-height: 1.2;
   margin-top: 1em;
+  margin-bottom: 1rem;
 }
 
 h3 {
   font-size: 1.75em;
   line-height: 1.2;
   margin-top: 1em;
+  margin-bottom: 1rem;
 }
 
 h4 {
   font-size: 1.25em;
   line-height: 1.2;
   margin-top: 1em;
+  margin-bottom: 1rem;
 }
 
 h5 {
   font-size: 1em;
   line-height: 1.2;
   margin-top: 0.5em;
+  margin-bottom: 1rem;
 }
 
 hr {
