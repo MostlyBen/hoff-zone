@@ -45,7 +45,7 @@ export const todo = async (_args: string[]): Promise<string> => {
   if (_args[0] !== 'set') {
     return `Shows or hides a border around todo items
 Usage:
-- todo set [true/false]`
+  todo set [true/false]`
   }
   if (_args[1] === 'true') {
     document.dispatchEvent(new CustomEvent("onShowTodoBorders"));
