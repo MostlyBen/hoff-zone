@@ -13,7 +13,7 @@ const todoBorderStyle = ".checklist-item:not(.checklist-item > span > ul > .chec
   margin-bottom: 0 !important;\
 }\
 \
-.checklist-item.is-checked:after {\
+.checklist-item.is-checked:not(.checklist-item > span > ul > .checklist-item):after {\
   content: '';\
   background: var(--highlight);\
   opacity: 0.33;\
