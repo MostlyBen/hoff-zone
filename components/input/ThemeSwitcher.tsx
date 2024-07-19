@@ -49,7 +49,7 @@ const ThemeSwitcher = () => {
         background: theme.background,
         maxHeight: '420px',
         overflowY: 'auto',
-        border: `1px solid ${theme.secondary}`,
+        border: `1px solid ${theme.primary}`,
         color: theme.primary,
         zIndex: 1000,
       }}
@@ -71,7 +71,7 @@ const ThemeSwitcher = () => {
         id="theme-button"
         style={{
           padding: '12px',
-          border: `1px solid ${theme.secondary}`,
+          border: `1px solid ${theme.primary}`,
           color: theme.primary,
           background: theme.background,
           zIndex: 1,
