@@ -1,4 +1,4 @@
-const todoBorderStyle = ".checklist-item:not(.checklist-item > span > .checklist-item) {\
+const todoBorderStyle = ".checklist-item:not(.checklist-item > span > ul > .checklist-item) {\
   border: 1px solid var(--cursorColor);\
   border-radius: 8px;\
   padding: 1em;\
@@ -9,7 +9,7 @@ const todoBorderStyle = ".checklist-item:not(.checklist-item > span > .checklist
 .checklist-item > span > ul {\
   margin-bottom: 0;\
 }\
-.checklist-item > span > .checklist-item {\
+.checklist-item > span > ul > .checklist-item {\
   margin-bottom: 0 !important;\
 }\
 \
