@@ -79,7 +79,7 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     setShowEdit(false);
   }
   
-  return (
+  return (<>
     <CollapsibleDecorator id={id} level={2} style={style} defaultCollapsed={defaultCollapsed}>
       
       {removeInlineTags(children)}
@@ -98,38 +98,38 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
 
         {(replacementContent && readyForReplacement && !showOriginal) &&
           <>
-          <style>{`.locally-replaced { display: none }`}</style>
-          <button
-            className="mt-2 mr-2 btn-small"
-            onClick={() => setShowOriginal(true)}
-          >
-            show original
-          </button>
+            <style>{`.locally-replaced { display: none }`}</style>
+            <button
+              className="mt-2 mr-2 btn-small"
+              onClick={() => setShowOriginal(true)}
+            >
+              show original
+            </button>
 
-          <button
-            className="mt-2 btn-small"
-            onClick={() => setShowEdit(true)}
-          >
-            edit
-          </button>
+            <button
+              className="mt-2 btn-small"
+              onClick={() => setShowEdit(true)}
+            >
+              edit
+            </button>
 
-          {showEdit &&
-            <Editor
-              initialValue={localStorage.getItem(`${pathName}-${id}-content`)}
-              storedAt={`${pathName}-${id}-content`}
-              onClose={handleCloseEditor}
-            />
-          }
-          
-          <MDXRemote
-            components={MDXComponents}
-            {...replacementContent}
-          />
+            {showEdit &&
+              <Editor
+                initialValue={localStorage.getItem(`${pathName}-${id}-content`)}
+                storedAt={`${pathName}-${id}-content`}
+                onClose={handleCloseEditor}
+              />
+            }
           </>
         }
       </div>
-  </CollapsibleDecorator>
-  )
+    </CollapsibleDecorator>
+    
+    {(replacementContent && readyForReplacement && !showOriginal) && <MDXRemote
+      components={MDXComponents}
+      {...replacementContent}
+    />}
+  </>)
 }
 
 export default H2;
