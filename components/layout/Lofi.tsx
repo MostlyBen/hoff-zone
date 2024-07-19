@@ -18,7 +18,7 @@ const Lofi = ({ onClose }) => {
     <div style={{
       background: "var(--background)",
       padding: "8px",
-      border: "1px solid var(--green)",
+      border: "1px solid var(--blue)",
       borderRadius: "8px",
       position: "absolute",
       bottom: "16px",

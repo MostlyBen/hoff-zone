@@ -49,7 +49,7 @@ const ThemeSwitcher = () => {
         background: theme.background,
         maxHeight: '420px',
         overflowY: 'auto',
-        border: `1px solid ${theme.green}`,
+        border: `1px solid ${theme.blue}`,
         color: theme.yellow,
         zIndex: 1000,
       }}
@@ -71,9 +71,11 @@ const ThemeSwitcher = () => {
         id="theme-button"
         style={{
           padding: '12px',
-          border: `1px solid ${theme.green}`,
+          border: `1px solid ${theme.blue}`,
           color: theme.yellow,
           background: theme.background,
+          zIndex: 1,
+          position: 'relative',
         }}
         onClick={() => setShowThemes(!showThemes)}
       >{theme.name}</button>
