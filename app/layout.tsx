@@ -12,6 +12,8 @@ const CascadiaCode = localFont({
 })
 
 import { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import siteMeta from './metadata.json';
 import { ThemeProvider } from "utils/providers/themeProvider";
 import { Layout } from "components/layout";
@@ -24,6 +26,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning={true}>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+        <Analytics />
+        <SpeedInsights />
         <ThemeProvider>
           <Layout>
             {children}

@@ -15,6 +15,8 @@
     "@ai-sdk/openai": "^0.0.36",
     "@mdx-js/loader": "^3.0.1",
     "@next/mdx": "^14.2.5",
+    "@vercel/analytics": "^1.3.1",
+    "@vercel/speed-insights": "^1.0.12",
     "ai": "^3.2.19",
     "cowsayjs": "^2.0.0",
     "gray-matter": "^4.0.3",
