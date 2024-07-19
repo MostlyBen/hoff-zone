@@ -1077,8 +1077,9 @@
     "background": "#373b3e",
     "foreground": "#bec8d1",
     "error": "#e12885",
-    "tertiary": "#137a7f",
-    "secondary": "#e12885"
+    "primary": "#86cecb",
+    "secondary": "#e12885",
+    "tertiary": "#137a7f"
   },
   {
     "name": "Novel",
