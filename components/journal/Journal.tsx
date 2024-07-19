@@ -17,7 +17,7 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
     return `journal-${journalId}`
   }, [journalId]);
 
-  const [content, setContent] = useStoredState<string>(journalPath, '');
+  const [content, setContent] = useStoredState<string>(journalPath, '', false);
   const [showPreview, setShowPreview] = useState<boolean>(false);
 
   const handleKeyDown = (e:React.KeyboardEvent<HTMLTextAreaElement>) => {
