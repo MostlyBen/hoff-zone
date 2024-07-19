@@ -1,8 +1,5 @@
 import packageJson from '../../package.json';
 import * as bin from './index';
-interface LayoutEvent {
-  value: any;
-}
 
 export const help = async (_args: string[]): Promise<string> => {
   const commands = Object.keys(bin).sort().join(', ');
