@@ -40,7 +40,7 @@
   opacity: 0.2;
   z-index: 0;
   border-radius: 4px;
-  background-color: var(--cyan);
+  background-color: var(--blue);
 }
 
 .module-banner {
