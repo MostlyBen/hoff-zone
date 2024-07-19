@@ -1,5 +1,6 @@
 import packageJson from '../../package.json';
 import * as bin from './index';
+import { getScore } from 'utils/data';
 
 export const help = async (_args: string[]): Promise<string> => {
   const commands = Object.keys(bin).sort().join(', ');
@@ -57,6 +58,10 @@ export const date = async (_args: string[]): Promise<string> => {
   return new Date().toString();
 };
 
+export const score = (_args?: string[]): string => {
+  return `Score: ${getScore()}`;
+};
+
 export const banner = (_args?: string[]): string => {
   return `
 ██╗  ██╗ ██████╗ ███████╗███████╗
@@ -72,6 +77,8 @@ export const banner = (_args?: string[]): string => {
  ███╔╝  ██║   ██║██║╚██╗██║██╔══╝  
 ███████╗╚██████╔╝██║ ╚████║███████╗
 ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝ v${packageJson.version}
+
+Score: ${getScore()}
 
 Type 'help' to see list of available commands.
 `;
