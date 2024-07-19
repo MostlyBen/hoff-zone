@@ -27,21 +27,21 @@ function useStoredState<T>(stateName: string, defaultValue?:T, pathSpecific:bool
   }
 
   useEffect(() => {
-    updateFromStorage(stateName);
+    updateFromStorage(key);
     window.addEventListener("storage", e => {
       if (e.key === key) {
-        updateFromStorage(stateName)
+        updateFromStorage(key)
       }
     });
 
     return () => {
       window.removeEventListener("storage", e => {
         if (e.key === key) {
-          updateFromStorage(stateName)
+          updateFromStorage(key)
         }
       })
     }
-  }, [stateName])
+  }, [key])
 
   const updateValue = (newValue: any) => {
     setValue(newValue);
