@@ -23,6 +23,7 @@ const Lofi = ({ onClose }) => {
       position: "absolute",
       bottom: "16px",
       right: "16px",
+      zIndex: 200,
     }}>
       <button onClick={onClose} style={{
         padding: "4px",
