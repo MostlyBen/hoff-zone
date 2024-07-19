@@ -68,7 +68,7 @@ const GenerateInput = (
         className="modal-content"
         style={{
           background: theme.background,
-          border: `2px solid ${theme.yellow}`,
+          border: `2px solid ${theme.primary}`,
         }}
       >
         <label
@@ -99,7 +99,7 @@ const GenerateInput = (
           </button>
         </div>
 
-        {error && <div style={{color: theme.red}}>* {error}</div>}
+        {error && <div style={{color: theme.error}}>* {error}</div>}
 
         {showOptions && <GeneratedOptions
           options={options}

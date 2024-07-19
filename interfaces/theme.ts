@@ -1,15 +1,13 @@
 export interface Theme {
   name: string;
+  primary: string;
+  secondary: string;
+  tertiary: string;
   foreground: string;
   background: string;
-  cursorColor: string;
+  highlight: string;
   black: string;
   white: string;
-  red: string;
-  green: string;
-  yellow: string;
-  blue: string;
-  purple: string;
-  cyan: string;
+  error: string;
   font?: string;
 }

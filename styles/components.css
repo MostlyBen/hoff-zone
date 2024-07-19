@@ -40,7 +40,7 @@
   opacity: 0.2;
   z-index: 0;
   border-radius: 4px;
-  background-color: var(--blue);
+  background-color: var(--secondary);
 }
 
 .module-banner {
@@ -88,7 +88,7 @@
 }
 
 textarea {
-  caret-color: var(--cursorColor);
+  caret-color: var(--highlight);
 }
 
 table {
@@ -111,7 +111,7 @@ th:after {
 }
 
 th, td {
-  border: 1px solid var(--cursorColor);
+  border: 1px solid var(--highlight);
   padding: 0.5em;
 }
 

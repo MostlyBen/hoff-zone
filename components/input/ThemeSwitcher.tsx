@@ -49,8 +49,8 @@ const ThemeSwitcher = () => {
         background: theme.background,
         maxHeight: '420px',
         overflowY: 'auto',
-        border: `1px solid ${theme.blue}`,
-        color: theme.yellow,
+        border: `1px solid ${theme.secondary}`,
+        color: theme.primary,
         zIndex: 1000,
       }}
     >
@@ -71,8 +71,8 @@ const ThemeSwitcher = () => {
         id="theme-button"
         style={{
           padding: '12px',
-          border: `1px solid ${theme.blue}`,
-          color: theme.yellow,
+          border: `1px solid ${theme.secondary}`,
+          color: theme.primary,
           background: theme.background,
           zIndex: 1,
           position: 'relative',

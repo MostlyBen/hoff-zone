@@ -18,7 +18,7 @@ const Lofi = ({ onClose }) => {
     <div style={{
       background: "var(--background)",
       padding: "8px",
-      border: "1px solid var(--blue)",
+      border: "1px solid var(--secondary)",
       borderRadius: "8px",
       position: "absolute",
       bottom: "16px",
@@ -29,7 +29,7 @@ const Lofi = ({ onClose }) => {
         padding: "4px",
         border: "none",
         borderRadius: "4px",
-        color: "var(--green)",
+        color: "var(--tertiary)",
         backgroundColor: "var(--background)",
         position: "absolute",
         top: "4px",

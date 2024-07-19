@@ -83,7 +83,7 @@ const ChecklistItem = ({ children }) => {
         onClick={() => handleChecked(!isChecked)}
       >
         {isChecked
-          ? <span className="todo-check">[<span className="todo-check" style={{color: "var(--blue)"}}>x</span>]</span>
+          ? <span className="todo-check">[<span className="todo-check" style={{color: "var(--secondary)"}}>x</span>]</span>
           : <span className="todo-check">[ ]</span>
         }
       </button>

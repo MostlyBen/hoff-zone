@@ -17,7 +17,7 @@ const Anchor = ( props: JSX.IntrinsicElements["a"]) => {
             style={{
               fontSize: 'inherit',
               paddingLeft: '0.125rem',
-              color: theme.blue,
+              color: theme.secondary,
               transform: 'scale(0.8) translateY(-0.1rem)'
             }}
           >open_in_new</span>

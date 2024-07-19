@@ -62,12 +62,12 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
         ? <button
             className="absolute btn hide block-md"
             onClick={() => setConsoleOpen(false)}
-            style={{bottom: '16px', right: '16px', borderColor: theme.cursorColor}}
+            style={{bottom: '16px', right: '16px', borderColor: theme.highlight}}
           >/\</button>
         :<button
         className="absolute btn hide block-md"
         onClick={() => setConsoleOpen(true)}
-        style={{bottom: '16px', right: '16px', borderColor: theme.cursorColor}}
+        style={{bottom: '16px', right: '16px', borderColor: theme.highlight}}
       >\/</button>
         }
       </div>

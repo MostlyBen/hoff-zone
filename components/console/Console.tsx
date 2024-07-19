@@ -30,7 +30,7 @@ const Console: React.FC<ConsoleProps> = ({ inputRef }) => {
         className="overflow-hidden h-full rounded console-content"
         onClick={focusInput}
         style={{
-          borderColor: theme.yellow,
+          borderColor: theme.primary,
           padding: config.border ? 18 : 8,
           borderWidth: config.border ? 2 : 0,
         }}

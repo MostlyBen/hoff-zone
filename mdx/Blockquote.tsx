@@ -17,7 +17,7 @@ const Blockquote = ( { children }: JSX.IntrinsicElements["blockquote"] ) => {
           ? typeof children[0] === 'string' ? 'blockquote-' + formatAsId(children[0]) : 'blockquote'
           : 'blockquote'}
       style={{
-        borderLeft: `2px solid ${theme.yellow}`,
+        borderLeft: `2px solid ${theme.primary}`,
         padding: '0.5em 0.5em 0.5em 1em',
         background: theme.foreground + '15',
         color: theme.foreground,

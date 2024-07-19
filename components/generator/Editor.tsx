@@ -38,7 +38,7 @@ const Editor:React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
         className="modal-content"
         style={{
           background: theme.background,
-          border: `2px solid ${theme.cursorColor}`
+          border: `2px solid ${theme.highlight}`
         }}
       >
         <div>

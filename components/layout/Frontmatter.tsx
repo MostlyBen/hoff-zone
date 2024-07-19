@@ -15,7 +15,7 @@ const Banner = ({ src, position }) => {
       style={{
         backgroundImage: `url(${src})`,
         backgroundPosition: position,
-        border: `2px solid ${theme.yellow}`,
+        border: `2px solid ${theme.primary}`,
         marginBottom: '1.5em',
       }}
     />
@@ -64,7 +64,7 @@ const Frontmatter = ({ pageData }) => {
         </section>
 
       </section>
-      <hr className='divider' style={{border: `1px solid ${theme.yellow}`}} />
+      <hr className='divider' style={{border: `1px solid ${theme.primary}`}} />
     </div>
   )
 }

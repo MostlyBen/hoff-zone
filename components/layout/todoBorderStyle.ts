@@ -1,5 +1,5 @@
 const todoBorderStyle = ".checklist-item:not(.checklist-item > span > ul > .checklist-item) {\
-  border: 1px solid var(--cursorColor);\
+  border: 1px solid var(--highlight);\
   border-radius: 8px;\
   padding: 1em;\
   margin: 1.5em 0;\
@@ -15,7 +15,7 @@ const todoBorderStyle = ".checklist-item:not(.checklist-item > span > ul > .chec
 \
 .checklist-item.is-checked:after {\
   content: '';\
-  background: var(--cursorColor);\
+  background: var(--highlight);\
   opacity: 0.33;\
   position: absolute;\
   top: 0;\

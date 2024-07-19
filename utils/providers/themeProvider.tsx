@@ -9,15 +9,15 @@ const constructThemeStyles = (theme: Theme) => {
   return `
     :root {
       --black: ${theme.black};
-      --blue: ${theme.blue};
-      --red: ${theme.red};
-      --yellow: ${theme.yellow};
-      --green: ${theme.green};
+      --secondary: ${theme.secondary};
+      --error: ${theme.error};
+      --primary: ${theme.primary};
+      --tertiary: ${theme.tertiary};
       --cyan: ${theme.cyan};
       --white: ${theme.white};
       --foreground: ${theme.foreground};
       --background: ${theme.background};
-      --cursorColor: ${theme.cursorColor};
+      --highlight: ${theme.highlight};
       --theme-font: ${theme.font ?? "'CascadiaCode', monospace"}
     }
   `;
@@ -60,7 +60,7 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
     setStyles( constructThemeStyles(Themes[index]) );
 
     const themeMeta = document.querySelector('meta[name="theme-color"]')
-    if (themeMeta) { themeMeta.setAttribute('content', Themes[index].yellow) }
+    if (themeMeta) { themeMeta.setAttribute('content', Themes[index].primary) }
 
     localStorage.setItem('theme', name);
 

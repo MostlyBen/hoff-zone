@@ -31,7 +31,7 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
     <div
       className="overflow-hidden h-full rounded console-content flex flex-col gap-2"
       style={{
-        borderColor: theme.yellow,
+        borderColor: theme.primary,
         padding: config.border ? 18 : 8,
         borderWidth: config.border ? 2 : 0,
       }}

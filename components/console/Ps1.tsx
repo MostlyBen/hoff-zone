@@ -19,7 +19,7 @@ const Ps1 = () => {
     }}>
       <span
         style={{
-          color: theme.yellow,
+          color: theme.primary,
         }}
       >
         guest
@@ -33,7 +33,7 @@ const Ps1 = () => {
       </span>
       <span
         style={{
-          color: theme.green,
+          color: theme.tertiary,
         }}
       >
         {hostname}
