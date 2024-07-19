@@ -72,28 +72,33 @@ const ChecklistItem = ({ children }) => {
     setIsChecked(checked);
   }
 
-  return (<li style={{margin: "0.5rem 0"}}>
-    <button
-      className="inline-block"
-      style={{padding: 0, border: 'none'}}
-      onClick={() => handleChecked(!isChecked)}
+  return (
+    <li
+    className={`checklist-item${isChecked ? ' is-checked' : ''}`}
+      style={{margin: "0.5rem 0"}}
     >
-      {isChecked
-        ? <span className="todo-check">[<span className="todo-check" style={{color: "var(--blue)"}}>x</span>]</span>
-        : <span className="todo-check">[ ]</span>
-      }
-    </button>
-    
-    <span>{
-      typeof children == 'string'
-      ? children.slice(3)
-      : children.map((child, index) => {
-          return (index === 0)
-          ? child.length > 4 ? child.slice(3) : ' '
-          : child
-        })
-    }</span>
-  </li>)
+      <button
+        className="inline-block"
+        style={{padding: 0, border: 'none'}}
+        onClick={() => handleChecked(!isChecked)}
+      >
+        {isChecked
+          ? <span className="todo-check">[<span className="todo-check" style={{color: "var(--blue)"}}>x</span>]</span>
+          : <span className="todo-check">[ ]</span>
+        }
+      </button>
+      
+      <span>{
+        typeof children == 'string'
+        ? children.slice(3)
+        : children.map((child, index) => {
+            return (index === 0)
+            ? child.length > 4 ? child.slice(3) : ' '
+            : child
+          })
+      }</span>
+    </li>
+  )
 }
 
 
