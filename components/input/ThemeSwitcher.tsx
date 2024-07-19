@@ -11,6 +11,8 @@ const ThemeButton = ({ themeName, onClick }) => {
       style={{
         padding: '12px',
         border: 'none',
+        position: 'relative',
+        zIndex: 1000,
       }}
     >{themeName}</button>
   )
