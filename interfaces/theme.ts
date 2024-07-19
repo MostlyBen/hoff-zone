@@ -10,4 +10,5 @@ export interface Theme {
   white: string;
   error: string;
   font?: string;
+  student?: boolean;
 }

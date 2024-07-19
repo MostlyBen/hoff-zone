@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import Themes from '../../themes.json';
 import { Theme } from '../../interfaces/theme';
+import Themes from '../../themes.json';
+const ThemeList = Themes as Theme[];
 import config from '../../theme-config.json';
 
 const constructThemeStyles = (theme: Theme) => {
@@ -13,7 +14,6 @@ const constructThemeStyles = (theme: Theme) => {
       --error: ${theme.error};
       --primary: ${theme.primary};
       --tertiary: ${theme.tertiary};
-      --cyan: ${theme.cyan};
       --white: ${theme.white};
       --foreground: ${theme.foreground};
       --background: ${theme.background};
@@ -37,7 +37,7 @@ interface Props {
 export const useTheme = () => React.useContext(ThemeContext);
 
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const [theme, _setTheme] = useState<Theme>(Themes[0]);
+  const [theme, _setTheme] = useState<Theme>(ThemeList[0]);
   const [styles, setStyles] = useState<string>('');
 
   useEffect(() => {
@@ -55,9 +55,9 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
       return `Theme '${name}' not found. Try 'theme ls' to see the list of available themes.`;
     }
 
-    _setTheme(Themes[index]);
+    _setTheme(ThemeList[index]);
 
-    setStyles( constructThemeStyles(Themes[index]) );
+    setStyles( constructThemeStyles(ThemeList[index]) );
 
     const themeMeta = document.querySelector('meta[name="theme-color"]')
     if (themeMeta) { themeMeta.setAttribute('content', Themes[index].primary) }

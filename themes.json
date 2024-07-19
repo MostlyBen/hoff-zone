@@ -1077,7 +1077,6 @@
     "background": "#373b3e",
     "foreground": "#bec8d1",
     "error": "#e12885",
-    "cyan": "#86cecb",
     "tertiary": "#137a7f",
     "secondary": "#e12885"
   },
