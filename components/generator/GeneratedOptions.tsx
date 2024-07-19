@@ -52,7 +52,7 @@ const OptionButton:React.FC<ButtonProps> = (
   }
 
   return (
-    <div>
+    <div className="flex">
       <button
         className={`mb-2${awaitingResponse ? ' disabled' : ''}`}
         onClick={handleClickOption}
@@ -69,7 +69,7 @@ const GeneratedOptions:React.FC<OptionsProps> = (
 
   return (
     <div className="mt-4">
-        project options
+        <span style={{marginLeft: "2em"}}>project options</span>
         <br />
         {options.map((o, i) => {
           return (
