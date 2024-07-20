@@ -17,9 +17,16 @@ interface PreviewProps {
 const JournalPreview:React.FC<PreviewProps> = ({ content, onEdit }) => {
   const [serializedContent, setSerializedContent]
     = useState<MDXRemoteSerializeResult|null>(null);
+  const [errorSerializing, setErrorSerializing] = useState<boolean>(false);
 
   useEffect(() => {
-    serialize(content).then(res => setSerializedContent(res));
+    try {
+      serialize(content).then(res => setSerializedContent(res));
+      setErrorSerializing(false);
+    } catch (err) {
+      setErrorSerializing(true);
+      console.warn("Could not serialize user-input journal content:", content);
+    }
   }, [content])
 
   return (
@@ -31,7 +38,9 @@ const JournalPreview:React.FC<PreviewProps> = ({ content, onEdit }) => {
         }
       }}
     >
-      {serializedContent &&
+      {errorSerializing && <div>{content}</div>}
+
+      {serializedContent && !errorSerializing &&
         <MDXRemote
           components={MDXComponents}
           {...serializedContent}
