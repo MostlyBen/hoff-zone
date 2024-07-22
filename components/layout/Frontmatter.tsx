@@ -1,12 +1,8 @@
-'use client'
-
-import { useTheme } from '../../utils/providers/themeProvider';
 import { h1 as H1, h2 as H2, h3 as H3 } from '../../mdx'
 import Link from 'next/link';
 import { formatAsId } from "../../utils";
 
 const Banner = ({ src, position }) => {
-  const { theme } = useTheme();
 
   return (
     <div
@@ -15,7 +11,7 @@ const Banner = ({ src, position }) => {
       style={{
         backgroundImage: `url(${src})`,
         backgroundPosition: position,
-        border: `2px solid ${theme.primary}`,
+        border: `2px solid var(--primary)`,
         marginBottom: '1.5em',
       }}
     />
@@ -37,7 +33,6 @@ const GeneralReadout = ({ title, content }) => {
 }
 
 const Frontmatter = ({ pageData }) => {
-  const { theme } = useTheme();
 
   return (
     <div className="module-frontmatter" style={!pageData.banner ? {paddingTop: '2em'} : {}}>
@@ -64,7 +59,7 @@ const Frontmatter = ({ pageData }) => {
         </section>
 
       </section>
-      <hr className='divider' style={{border: `1px solid ${theme.primary}`}} />
+      <hr className='divider' style={{border: `1px solid var(--primary)`}} />
     </div>
   )
 }

@@ -5,19 +5,16 @@ import { useTheme } from '../../utils/providers/themeProvider';
 import { Console } from '../console';
 import { ThemeSwitcher } from '../input';
 import { default as Lofi } from './Lofi';
-import { Frontmatter } from '../layout';
 import { useStoredState } from 'hooks';
 import todoBorderStyle from './todoBorderStyle';
 
 interface Props {
-  // Literally so annoyed that I can't figure out what the heck these children are
-  // The whole mess at the start of this file is a result of that
+  // Literally so annoyed that I can't figure out what type these children are
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children: any;
-  frontmatter?: object;
 }
 
-const Layout: React.FC<Props> = ({ children, frontmatter }) => {
+const Layout: React.FC<Props> = ({ children }) => {
   const [consoleOpen, setConsoleOpen] = useState<boolean>(false);
   const [lofiOpen, setLofiOpen] = useState<boolean>(false);
   const [showTodoBorders, setShowTodoBorders] = useStoredState('showTodoBorders', false, false);
@@ -75,15 +72,9 @@ const Layout: React.FC<Props> = ({ children, frontmatter }) => {
       <main
         className="main-container flex-grow relative"
       >
-        {frontmatter
-        ? Object.keys(frontmatter).length
-          ? <Frontmatter pageData={frontmatter} />
-          : <></>
-        : <></>}
-
         {children}
-        
       </main>
+      
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
       <ThemeSwitcher />
     </div>
