@@ -23,6 +23,10 @@ const getPrompt = (pageData: object, userRequest?: string) => {
   be very sad. The project should be significant enough that it takes a high school student \
   at least 12 hours of work to complete.\n';
 
+  prompt += 'When possible, the project ideas should include unique depth like finding & working \
+  with a community partner, creating or doing something for the community, working with the local\
+  museum, or other meaningful aspects like those.\n';
+
   prompt += 'It is imperative that your project ideas always push students toward learning \
   established, well-supported scientific ideas and never promote misinformation or pseudo-science.\n';
 
