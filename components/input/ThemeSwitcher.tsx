@@ -19,7 +19,7 @@ const ThemeButton = ({ themeName, onClick }) => {
 }
   
 
-const ThemeSwitcher = ({ includeCheckin = true }: { includeCheckin: boolean }) => {
+const ThemeSwitcher = ({ includeCheckin = true }: { includeCheckin?: boolean }) => {
   const { theme, setTheme } = useTheme();
   const [showThemes, setShowThemes] = useState(false);
 
