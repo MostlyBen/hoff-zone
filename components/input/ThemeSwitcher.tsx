@@ -64,6 +64,10 @@ const ThemeSwitcher = ({ includeCheckin = true }: { includeCheckin?: boolean }) 
         position: 'absolute',
         right: '24px',
         bottom: '24px',
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '4px',
+        alignItems: 'center',
       }}
       >
 
@@ -78,8 +82,6 @@ const ThemeSwitcher = ({ includeCheckin = true }: { includeCheckin?: boolean }) 
           color: theme.primary,
           background: theme.background,
           fontSize: '22.5px',
-          transform: 'translateY(6.5px)',
-          marginRight: '4px',
         }}
       >
         task
