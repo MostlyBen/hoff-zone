@@ -23,6 +23,10 @@ export const metadata: Metadata = siteMeta;
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${CascadiaCode.variable}`} suppressHydrationWarning={true}>
+      <head>
+        <script async src="https://tally.so/widgets/embed.js"></script>
+      </head>
+
       <body suppressHydrationWarning={true}>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />

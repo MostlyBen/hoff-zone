@@ -19,7 +19,7 @@ const ThemeButton = ({ themeName, onClick }) => {
 }
   
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ includeCheckin = true }: { includeCheckin: boolean }) => {
   const { theme, setTheme } = useTheme();
   const [showThemes, setShowThemes] = useState(false);
 
@@ -66,6 +66,24 @@ const ThemeSwitcher = () => {
         bottom: '24px',
       }}
       >
+
+      {includeCheckin && <button
+        className="material-icons"
+        data-tally-open="wv4vW4"
+        data-tally-emoji-text="👋"
+        data-tally-emoji-animation="wave"
+        data-tally-auto-close="2000"
+        style={{
+          border: `1px solid ${theme.primary}`,
+          color: theme.primary,
+          background: theme.background,
+          fontSize: '22.5px',
+          transform: 'translateY(6.5px)',
+          marginRight: '4px',
+        }}
+      >
+        task
+      </button>}
 
       <button
         id="theme-button"

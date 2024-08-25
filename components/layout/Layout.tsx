@@ -25,7 +25,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     document.addEventListener('onLofiOpen', () => setLofiOpen(true));
     document.addEventListener('onShowTodoBorders', () => { setShowTodoBorders(true) });
     document.addEventListener('onHideTodoBorders', () => { setShowTodoBorders(false) });
-    
+
     return () => {
       document.removeEventListener('onLofiOpen', () => setLofiOpen(false));
       document.removeEventListener('onShowTodoBorders', () => { setShowTodoBorders(true) });
@@ -74,8 +74,9 @@ const Layout: React.FC<Props> = ({ children }) => {
       >
         {children}
       </main>
-      
+
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
+
       <ThemeSwitcher />
     </div>
     </>);
