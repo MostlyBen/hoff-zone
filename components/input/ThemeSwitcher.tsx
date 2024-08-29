@@ -81,6 +81,7 @@ const ThemeSwitcher = ({ includeCheckin = true }: { includeCheckin?: boolean }) 
           border: `1px solid ${theme.primary}`,
           color: theme.primary,
           background: theme.background,
+          zIndex: 1,
           fontSize: '22.5px',
         }}
       >
