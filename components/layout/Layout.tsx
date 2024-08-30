@@ -3,11 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../utils/providers/themeProvider';
 import { Console } from '../console';
-import { ThemeSwitcher } from '../input';
+import { BottomButtons } from '../input';
 import { default as Lofi } from './Lofi';
 import { useStoredState } from 'hooks';
 import todoBorderStyle from './todoBorderStyle';
-
+console.log("BottomButtons:", BottomButtons)
 interface Props {
   // Literally so annoyed that I can't figure out what type these children are
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -77,7 +77,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
 
-      <ThemeSwitcher />
+      <BottomButtons />
     </div>
     </>);
 };
