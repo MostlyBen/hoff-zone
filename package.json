@@ -19,6 +19,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "ai": "^3.2.19",
     "cowsayjs": "^2.0.0",
+    "eslint": "^9.9.1",
     "gray-matter": "^4.0.3",
     "next": "^14.2.5",
     "next-mdx-remote": "^5.0.0",
