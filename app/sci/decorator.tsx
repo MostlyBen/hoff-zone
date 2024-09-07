@@ -8,14 +8,14 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import * as MDXComponents from '../../mdx';
 
 const SciDecorator = ({ children }) => {
-  const [frontmatter, setFrontmatter] = useState<object|null>(null)
-  const [content, setContent] = useState<MDXRemoteSerializeResult|null>(null)
+  const [frontmatter, setFrontmatter] = useState<object | null>(null)
+  const [content, setContent] = useState<MDXRemoteSerializeResult | null>(null)
   const currentPath = usePathname();
 
-  const udpateFrontmatter = async () => {
+  const updateFrontmatter = async () => {
     const res = await fetch(`/api/frontmatter?path=${currentPath}`);
 
-    const data:{
+    const data: {
       data: object,
       content: MDXRemoteSerializeResult,
     } = await res.json();
@@ -28,7 +28,7 @@ const SciDecorator = ({ children }) => {
     document.title = currentPath;
     setFrontmatter(null);
     setContent(null);
-    udpateFrontmatter();
+    updateFrontmatter();
   }, [children, currentPath])
 
   return (
@@ -36,9 +36,9 @@ const SciDecorator = ({ children }) => {
       {frontmatter && <Frontmatter pageData={frontmatter} />}
       {content
         ? <MDXRemote
-            components={MDXComponents}
-            {...content}
-          />
+          components={MDXComponents}
+          {...content}
+        />
         : children}
     </>
   )
