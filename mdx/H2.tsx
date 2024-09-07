@@ -11,10 +11,10 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import * as MDXComponents from './';
 import CollapsibleDecorator from "./CollapsibleDecorator";
 
-const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
+const H2 = ({ children, style }: JSX.IntrinsicElements["h2"]) => {
   const pathName = usePathname();
   const [replacementContent, setReplacementContent]
-    = useState<MDXRemoteSerializeResult|null>(null);
+    = useState<MDXRemoteSerializeResult | null>(null);
   const [readyForReplacement, setReadyForReplacement] = useState<boolean>(false);
   const [showOriginal, setShowOriginal] = useState<boolean>(false);
   const [showEdit, setShowEdit] = useState<boolean>(false);
@@ -26,7 +26,7 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     if (!Array.isArray(children)) {
       return false;
     }
-    const lastChild = children[children.length -1]
+    const lastChild = children[children.length - 1]
     if (typeof lastChild === 'string') {
       return lastChild.endsWith('^editable');
     }
@@ -36,22 +36,22 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
   const defaultCollapsed = useMemo(() => {
     return (
       typeof children === 'string'
-      ? children.includes('^collapsed')
-      : Array.isArray(children)
-        ? typeof children[children.length - 1] === 'string'
-          ? children[children.length - 1].includes('^collapsed')
+        ? children.includes('^collapsed')
+        : Array.isArray(children)
+          ? typeof children[children.length - 1] === 'string'
+            ? children[children.length - 1].includes('^collapsed')
+            : null
           : null
-        : null
     )
   }, [children])
 
   const id = useMemo(() => {
     return (
       typeof children === 'string'
-      ? 'h2-' + formatAsId(children, showGenerate)
-      : Array.isArray(children)
-        ? typeof children[0] === 'string' ? 'h2-' + formatAsId(children[0], showGenerate) : 'h2'
-        : 'h2'
+        ? 'h2-' + formatAsId(children, showGenerate)
+        : Array.isArray(children)
+          ? typeof children[0] === 'string' ? 'h2-' + formatAsId(children[0], showGenerate) : 'h2'
+          : 'h2'
     )
   }, [children, showGenerate]);
 
@@ -60,11 +60,11 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
     serialize(myReplacement).then(res => setReplacementContent(res));
 
     if (myReplacement) {
-    const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
-    for (const el of Array.from(siblings)) {
-      if (['h1', 'h2', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
-        break;
-      }
+      const siblings = document.querySelectorAll<HTMLElement>(`#${id} ~ *`);
+      for (const el of Array.from(siblings)) {
+        if (['h1', 'h2', 'hr'].includes(el.tagName.toLocaleLowerCase())) {
+          break;
+        }
         el.classList.add("locally-replaced");
       }
       setReadyForReplacement(true);
@@ -72,19 +72,19 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
 
   }, []);
 
-  const handleCloseEditor = (newContent?:string) => {
+  const handleCloseEditor = (newContent?: string) => {
     if (newContent) {
       serialize(newContent).then(res => setReplacementContent(res));
     }
     setShowEdit(false);
   }
-  
+
   return (<>
     <CollapsibleDecorator id={id} level={2} style={style} defaultCollapsed={defaultCollapsed}>
-      
+
       {removeInlineTags(children)}
 
-      <div style={{marginLeft: '1.8em'}}>
+      <div style={{ marginLeft: '1.8em' }}>
         {(showGenerate) && <GenerateBtn forHeader={id} />}
 
         {showOriginal &&
@@ -124,7 +124,7 @@ const H2 = ( { children, style }: JSX.IntrinsicElements["h2"] ) => {
         }
       </div>
     </CollapsibleDecorator>
-    
+
     {(replacementContent && readyForReplacement && !showOriginal) && <MDXRemote
       components={MDXComponents}
       {...replacementContent}

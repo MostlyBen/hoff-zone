@@ -9,11 +9,11 @@ const HR = ({ style }: JSX.IntrinsicElements["hr"]) => {
     <hr
       style={
         typeof style === 'object'
-        ? {
+          ? {
             border: `1px solid ${theme.primary}`,
             ...style
-          } 
-        : { border: `1px solid ${theme.primary}` }}
+          }
+          : { border: `1px solid ${theme.primary}` }}
     />
   );
 }

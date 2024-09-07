@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { GenerateInput } from "./";
 
-const GenerateBtn = ({ forHeader }: {forHeader?: string}) => {
+const GenerateBtn = ({ forHeader }: { forHeader?: string }) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
 
 
@@ -18,7 +18,7 @@ const GenerateBtn = ({ forHeader }: {forHeader?: string}) => {
 
     {showOptions && <GenerateInput forHeader={forHeader} onClose={() => setShowOptions(false)} />}
 
-    </>)
+  </>)
 }
 
 export default GenerateBtn

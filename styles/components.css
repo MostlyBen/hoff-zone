@@ -72,7 +72,7 @@
   border-radius: 8px;
   padding: 1em 2em;
   position: relative;
-  z-index: 11
+  z-index: 11;
 }
 
 .modal-container > .modal-bg {
@@ -110,7 +110,8 @@ th:after {
   opacity: 0.15;
 }
 
-th, td {
+th,
+td {
   border: 1px solid var(--highlight);
   padding: 0.5em;
 }
@@ -141,7 +142,7 @@ th, td {
   }
 
   .main-container {
-    padding: 82px 1.85rem 20rem 1.85rem;;
+    padding: 82px 1.85rem 20rem 1.85rem;
   }
 
   .flex-col-sm {
@@ -158,3 +159,4 @@ th, td {
     overflow-y: hidden !important;
   }
 }
+

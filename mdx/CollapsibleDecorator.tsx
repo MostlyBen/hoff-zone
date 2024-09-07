@@ -11,11 +11,11 @@ const indentAdjust = {
 }
 
 const arrowPos = {
-  1: {left: '-0.75em'},
-  2: {left: '-0.825em'},
-  3: {left: '-1em'},
-  4: {left: '-1.25em', top: '-0.25em'},
-  5: {left: '-1.5em', top: '-0.5em'},
+  1: { left: '-0.75em' },
+  2: { left: '-0.825em' },
+  3: { left: '-1em' },
+  4: { left: '-1.25em', top: '-0.25em' },
+  5: { left: '-1.5em', top: '-0.5em' },
 }
 
 interface Props {
@@ -27,7 +27,7 @@ interface Props {
   defaultCollapsed?: boolean;
 }
 
-const CollapsibleDecorator = ( { id, level, asElement, children, style, defaultCollapsed }: Props ) => {
+const CollapsibleDecorator = ({ id, level, asElement, children, style, defaultCollapsed }: Props) => {
   const TagName = asElement ?? `h${level}` as keyof JSX.IntrinsicElements;
   const [collapsed, setCollapsed] = useStoredState<boolean>(id, defaultCollapsed);
   const [showToggle, setShowToggle] = useState<boolean>(false);
@@ -51,9 +51,9 @@ const CollapsibleDecorator = ( { id, level, asElement, children, style, defaultC
         el.classList.remove("hidden")
       }
     }
-  
+
     if (!collapsed) {
-      const toggleEvent = new CustomEvent("onAnyCollapseOpen", {detail: {headingLevel: 1}});
+      const toggleEvent = new CustomEvent("onAnyCollapseOpen", { detail: { headingLevel: 1 } });
       document.dispatchEvent(toggleEvent);
     }
   }, [collapsed, id])
@@ -83,20 +83,20 @@ const CollapsibleDecorator = ( { id, level, asElement, children, style, defaultC
   const handleClickExpand = () => {
     setCollapsed(collapsed ? null : true);
   }
-  
+
   return (
-      <TagName
-        id={id}
-        style={typeof style === 'object'
-          ? {...style, textIndent: indentAdjust[level]}
-          : {textIndent: indentAdjust[level]}
-        }
-        className="relative"
-        onPointerDown={() => setAvoidHideToggle(true)}
-        onPointerOver={() => setShowToggle(true)}
-        onPointerOut={handlePointerOut}
-      >
-        <button
+    <TagName
+      id={id}
+      style={typeof style === 'object'
+        ? { ...style, textIndent: indentAdjust[level] }
+        : { textIndent: indentAdjust[level] }
+      }
+      className="relative"
+      onPointerDown={() => setAvoidHideToggle(true)}
+      onPointerOver={() => setShowToggle(true)}
+      onPointerOut={handlePointerOut}
+    >
+      <button
         className="remove-btn-styling"
         onClick={handleClickExpand}
         style={{
@@ -105,13 +105,13 @@ const CollapsibleDecorator = ( { id, level, asElement, children, style, defaultC
           ...arrowPos[level]
         }}
       >
-        <span className="material-icons" style={{lineHeight: 1.2}}>
+        <span className="material-icons" style={{ lineHeight: 1.2 }}>
           {collapsed ? 'chevron_right' : 'expand_more'}
         </span>
       </button>
-        <div style={{display: 'inline-block', width: '1.75em'}}/>
-        {children}
-      </TagName>
+      <div style={{ display: 'inline-block', width: '1.75em' }} />
+      {children}
+    </TagName>
   )
 }
 

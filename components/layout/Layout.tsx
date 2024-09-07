@@ -56,16 +56,16 @@ const Layout: React.FC<Props> = ({ children }) => {
         <Console inputRef={inputRef} />
 
         {consoleOpen
-        ? <button
+          ? <button
             className="absolute btn hide block-md"
             onClick={() => setConsoleOpen(false)}
-            style={{bottom: '16px', right: '16px', borderColor: theme.highlight}}
+            style={{ bottom: '16px', right: '16px', borderColor: theme.highlight }}
           >/\</button>
-        :<button
-        className="absolute btn hide block-md"
-        onClick={() => setConsoleOpen(true)}
-        style={{bottom: '16px', right: '16px', borderColor: theme.highlight}}
-      >\/</button>
+          : <button
+            className="absolute btn hide block-md"
+            onClick={() => setConsoleOpen(true)}
+            style={{ bottom: '16px', right: '16px', borderColor: theme.highlight }}
+          >\/</button>
         }
       </div>
 
@@ -79,7 +79,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
       <BottomButtons />
     </div>
-    </>);
+  </>);
 };
 
 export default Layout;

@@ -33,7 +33,7 @@ const getPrompt = (pageData: object, userRequest?: string) => {
   if (userRequest) {
     prompt += 'As much as possible without sacrificing academic rigor or the project\'s relation \
     to the standards, you should try to meet this student\'s request:\n';
-    
+
     prompt += userRequest + '\n';
   }
 
@@ -47,20 +47,20 @@ const getPrompt = (pageData: object, userRequest?: string) => {
   return prompt;
 }
 
-export async function POST(req:NextRequest) {
+export async function POST(req: NextRequest) {
   if (req.method !== 'POST') {
     throw new Error("Must post to /api/ai/generate-project")
   }
 
   try {
     const input = await req.json();
-    
+
     const prompt = getPrompt(input.project_data, input.user_request);
     const response = await openai.chat.completions.create({
       model: process.env.OPENAI_MODEL,
       messages: [{ role: "user", content: prompt }],
     });
-    
+
     const responseMessage = response.choices[0].message.content
     return NextResponse.json({ output: responseMessage }, { status: 200 });
   } catch (err) {

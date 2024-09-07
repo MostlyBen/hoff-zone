@@ -17,7 +17,7 @@ interface ButtonProps {
   setAwaitingResponse: (value: boolean) => void;
 }
 
-const OptionButton:React.FC<ButtonProps> = (
+const OptionButton: React.FC<ButtonProps> = (
   { option, forHeader, awaitingResponse, setAwaitingResponse }
 ) => {
   const asPath = usePathname();
@@ -25,7 +25,7 @@ const OptionButton:React.FC<ButtonProps> = (
   const generateProject = async () => {
     if (awaitingResponse) { return }
     setAwaitingResponse(true);
-    
+
     const pageReq = await fetch(`/api/frontmatter?path=${asPath}`);
     const pageData = await pageReq.json();
 
@@ -44,8 +44,8 @@ const OptionButton:React.FC<ButtonProps> = (
   const handleClickOption = () => {
     generateProject().then(res => {
       let key = forHeader
-                ? window.location.pathname + '-' + forHeader + '-content'
-                : window.location.pathname + '-' + 'h2-the-project-content'
+        ? window.location.pathname + '-' + forHeader + '-content'
+        : window.location.pathname + '-' + 'h2-the-project-content'
       localStorage.setItem(key, res);
       window.location.reload();
     })
@@ -63,25 +63,25 @@ const OptionButton:React.FC<ButtonProps> = (
   )
 }
 
-const GeneratedOptions:React.FC<OptionsProps> = (
+const GeneratedOptions: React.FC<OptionsProps> = (
   { options, awaitingResponse, setAwaitingResponse, forHeader }
 ) => {
 
   return (
     <div className="mt-4">
-        <span style={{marginLeft: "2em"}}>project options</span>
-        <br />
-        {options.map((o, i) => {
-          return (
-            <OptionButton
-              option={o}
-              key={`option-${i}`}
-              forHeader={forHeader}
-              awaitingResponse={awaitingResponse}
-              setAwaitingResponse={setAwaitingResponse}
-            />
-          )
-        })}
+      <span style={{ marginLeft: "2em" }}>project options</span>
+      <br />
+      {options.map((o, i) => {
+        return (
+          <OptionButton
+            option={o}
+            key={`option-${i}`}
+            forHeader={forHeader}
+            awaitingResponse={awaitingResponse}
+            setAwaitingResponse={setAwaitingResponse}
+          />
+        )
+      })}
 
     </div>
   )

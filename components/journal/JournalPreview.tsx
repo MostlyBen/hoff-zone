@@ -14,9 +14,9 @@ interface PreviewProps {
   onEdit: () => void;
 }
 
-const JournalPreview:React.FC<PreviewProps> = ({ content, onEdit }) => {
+const JournalPreview: React.FC<PreviewProps> = ({ content, onEdit }) => {
   const [serializedContent, setSerializedContent]
-    = useState<MDXRemoteSerializeResult|null>(null);
+    = useState<MDXRemoteSerializeResult | null>(null);
   const [errorSerializing, setErrorSerializing] = useState<boolean>(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const JournalPreview:React.FC<PreviewProps> = ({ content, onEdit }) => {
   return (
     <div
       className='h-full w-full pl-4 pr-2'
-      onClick={(e:any) => {
+      onClick={(e: any) => {
         if (!['todo-check', 'material-icons'].includes(e.target.classList[0])) {
           onEdit();
         }

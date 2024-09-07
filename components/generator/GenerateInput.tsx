@@ -12,23 +12,23 @@ interface IdeaPayload {
 
 const GenerateInput = (
   { onClose, forHeader }:
-  { onClose: () => void, forHeader: string }
+    { onClose: () => void, forHeader: string }
 ) => {
 
   const [awaitingResponse, setAwaitingResponse] = useState<boolean>(false);
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [userInput, setUserInput] = useState<string>('');
-  const [options, setOptions] = useState<string[]|null>(null);
-  const [error, setError] = useState<string|null>(null);
+  const [options, setOptions] = useState<string[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const pathName = usePathname();
 
   const { theme } = useTheme();
 
-  const generateOptions = async (topic:string) => {
+  const generateOptions = async (topic: string) => {
     const pageReq = await fetch(`/api/frontmatter?path=${pathName}`);
     const pageData = await pageReq.json();
 
-    const payload:IdeaPayload = { project_data: pageData.data }
+    const payload: IdeaPayload = { project_data: pageData.data }
     if (topic) payload.user_request = topic;
 
     const res = await fetch(`/api/ai/generate-ideas`, {
@@ -55,7 +55,7 @@ const GenerateInput = (
     setAwaitingResponse(false);
 
   }
-  
+
   const handleSubmit = () => {
     if (awaitingResponse) { return }
     setAwaitingResponse(true);
@@ -73,7 +73,7 @@ const GenerateInput = (
       >
         <label
           htmlFor="request-input"
-          style={{marginLeft: '1.75em'}}
+          style={{ marginLeft: '1.75em' }}
         >
           Is there anything you want the project to be about?
         </label>
@@ -84,7 +84,7 @@ const GenerateInput = (
             placeholder="(Optional) A topic for your project"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
-            onKeyDown={ (e) => { if (e.key === 'Enter') handleSubmit() } }
+            onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit() }}
             style={{
               backgroundColor: theme.white,
               color: theme.black,
@@ -99,7 +99,7 @@ const GenerateInput = (
           </button>
         </div>
 
-        {error && <div style={{color: theme.error}}>* {error}</div>}
+        {error && <div style={{ color: theme.error }}>* {error}</div>}
 
         {showOptions && <GeneratedOptions
           options={options}

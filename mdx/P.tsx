@@ -1,7 +1,7 @@
 import { JSX } from "react";
 import A from "./A";
 
-const Tag = ( { children }: JSX.IntrinsicElements["p"] ) => {
+const Tag = ({ children }: JSX.IntrinsicElements["p"]) => {
   return (
     <span
       className="tag"
@@ -11,12 +11,12 @@ const Tag = ( { children }: JSX.IntrinsicElements["p"] ) => {
   )
 }
 
-const P = ( { children, style }: JSX.IntrinsicElements["p"] ) => {
+const P = ({ children, style }: JSX.IntrinsicElements["p"]) => {
 
   if (typeof children === 'string') {
     const parts = children
-                  .replaceAll(/https?:.*(?=\s|$)/g, (m) => {return `$$LINK$$${m}`})
-                  .split(/(#\S+)/g)
+      .replaceAll(/https?:.*(?=\s|$)/g, (m) => { return `$$LINK$$${m}` })
+      .split(/(#\S+)/g)
     return (
       <p style={style}>
         {parts.map((part, index) => {

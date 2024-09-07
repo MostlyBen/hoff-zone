@@ -96,12 +96,12 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
         setHistory('');
         break;
       default: {
-        const allCommands = {...bin, ...hidden};
+        const allCommands = { ...bin, ...hidden };
         if (Object.keys(allCommands).indexOf(cmd) === -1) {
           setHistory(`Command not found: ${cmd}. Try 'help' to get started.`);
         } else {
           try {
-            const output = await allCommands[cmd](args, {router: router});
+            const output = await allCommands[cmd](args, { router: router });
 
             if (output !== 'cancel') {
               setHistory(output);
@@ -113,7 +113,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
         }
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [command, setHistory, clearHistory]);
 
   useEffect(() => {

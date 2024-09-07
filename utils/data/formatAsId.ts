@@ -1,4 +1,4 @@
-const formatAsId = (text:string, removeShowGenerate?:boolean) => {
+const formatAsId = (text: string, removeShowGenerate?: boolean) => {
   let _text = text;
   if (removeShowGenerate) {
     _text = _text.replace('^editable', '')

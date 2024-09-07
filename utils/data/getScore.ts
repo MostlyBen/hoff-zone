@@ -13,7 +13,7 @@ const getScore = (): number => {
         total += itemsObject[page].length;
       }
     }
-  
+
     return total;
 
   } catch (err) {

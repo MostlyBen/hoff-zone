@@ -1,14 +1,18 @@
 h1:hover {
   /* Same as .glitch */
   position: relative;
-  text-shadow: 0.05em 0 0 var(--secondary), -0.03em -0.04em 0 var(--error),
+  text-shadow:
+    0.05em 0 0 var(--secondary),
+    -0.03em -0.04em 0 var(--error),
     0.025em 0.04em 0 var(--primary);
   animation: glitch 1000ms infinite;
 }
 
 .glitch {
   position: relative;
-  text-shadow: 0.05em 0 0 var(--secondary), -0.03em -0.04em 0 var(--error),
+  text-shadow:
+    0.05em 0 0 var(--secondary),
+    -0.03em -0.04em 0 var(--error),
     0.025em 0.04em 0 var(--primary);
   animation: glitch 1000ms infinite;
 }
@@ -35,31 +39,45 @@ h1:hover {
 
 @keyframes glitch {
   0% {
-    text-shadow: 0.05em 0 0 var(--secondary), -0.03em -0.04em 0 var(--error),
+    text-shadow:
+      0.05em 0 0 var(--secondary),
+      -0.03em -0.04em 0 var(--error),
       0.025em 0.04em 0 var(--primary);
   }
   15% {
-    text-shadow: 0.05em 0 0 var(--secondary), -0.03em -0.04em 0 var(--error),
+    text-shadow:
+      0.05em 0 0 var(--secondary),
+      -0.03em -0.04em 0 var(--error),
       0.025em 0.04em 0 var(--primary);
   }
   16% {
-    text-shadow: -0.05em -0.025em 0 var(--secondary), 0.025em 0.035em 0 var(--error),
+    text-shadow:
+      -0.05em -0.025em 0 var(--secondary),
+      0.025em 0.035em 0 var(--error),
       -0.05em -0.05em 0 var(--primary);
   }
   49% {
-    text-shadow: -0.05em -0.025em 0 var(--secondary), 0.025em 0.035em 0 var(--error),
+    text-shadow:
+      -0.05em -0.025em 0 var(--secondary),
+      0.025em 0.035em 0 var(--error),
       -0.05em -0.05em 0 var(--primary);
   }
   50% {
-    text-shadow: 0.05em 0.035em 0 var(--secondary), 0.03em 0 0 var(--error),
+    text-shadow:
+      0.05em 0.035em 0 var(--secondary),
+      0.03em 0 0 var(--error),
       0 -0.04em 0 var(--primary);
   }
   99% {
-    text-shadow: 0.05em 0.035em 0 var(--secondary), 0.03em 0 0 var(--error),
+    text-shadow:
+      0.05em 0.035em 0 var(--secondary),
+      0.03em 0 0 var(--error),
       0 -0.04em 0 var(--primary);
   }
   100% {
-    text-shadow: -0.05em 0 0 var(--secondary), -0.025em -0.04em 0 var(--error),
+    text-shadow:
+      -0.05em 0 0 var(--secondary),
+      -0.025em -0.04em 0 var(--error),
       -0.04em -0.025em 0 var(--primary);
   }
 }

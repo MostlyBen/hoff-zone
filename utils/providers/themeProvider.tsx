@@ -57,7 +57,7 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 
     _setTheme(ThemeList[index]);
 
-    setStyles( constructThemeStyles(ThemeList[index]) );
+    setStyles(constructThemeStyles(ThemeList[index]));
 
     const themeMeta = document.querySelector('meta[name="theme-color"]')
     if (themeMeta) { themeMeta.setAttribute('content', Themes[index].primary) }

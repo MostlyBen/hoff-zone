@@ -12,7 +12,7 @@ const options = [
 ]
 
 const Lofi = ({ onClose }) => {
-  const choice:number = Math.floor( Math.random() * options.length )
+  const choice: number = Math.floor(Math.random() * options.length)
 
   return (
     <div style={{
@@ -35,15 +35,15 @@ const Lofi = ({ onClose }) => {
         top: "4px",
         right: "4px",
         lineHeight: "1",
-      }}><span className="material-icons" style={{lineHeight: '1'}}>close</span></button>
+      }}><span className="material-icons" style={{ lineHeight: '1' }}>close</span></button>
 
-    <iframe
-      width="420"
-      height="236"
-      src={options[choice]}
-      title="Lofi Youtube Video"
-      referrerPolicy="strict-origin-when-cross-origin"
-    />
+      <iframe
+        width="420"
+        height="236"
+        src={options[choice]}
+        title="Lofi Youtube Video"
+        referrerPolicy="strict-origin-when-cross-origin"
+      />
 
     </div>
   )

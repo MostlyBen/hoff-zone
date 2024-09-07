@@ -11,7 +11,8 @@
   font-size: 0.9375rem;
 }
 
-html, body {
+html,
+body {
   padding: 0 !important;
 }
 
@@ -127,16 +128,18 @@ ol {
   margin-left: 2em !important;
 }
 
-ol > li, li > span > ul {
+ol > li,
+li > span > ul {
   margin-left: 2.33em;
 }
 
-li > span > ul, li > span > ol {
+li > span > ul,
+li > span > ol {
   margin-bottom: 1.25em;
 }
 
 ul > li.bullet-list-item::before {
-  content: "-";
+  content: '-';
   margin-left: 0.5em;
   margin-right: 1.25em;
 }
@@ -146,3 +149,4 @@ ul > li.bullet-list-item::before {
   padding: inherit;
   background: inherit;
 }
+

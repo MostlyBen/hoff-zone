@@ -16,7 +16,7 @@ const Ps1 = () => {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         maxWidth: '172px',
-    }}>
+      }}>
       <span
         style={{
           color: theme.primary,

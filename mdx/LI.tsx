@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from "react";
 
-const getChildText = (children) => {
+const getChildText = (children: any) => {
   // Return text if that's all it is
   if (typeof children === 'string') return children;
   // If it's an array, loop through the children
@@ -13,7 +13,7 @@ const getChildText = (children) => {
     let text = '';
     for (const i in children) {
       // Add each child text, if that's what it is
-      if (typeof children[i] === 'string' ) {
+      if (typeof children[i] === 'string') {
         text += children[i];
       } else {
         // If it's not a string, use recursion to get the text
@@ -32,15 +32,15 @@ const getChildText = (children) => {
 
 const ChecklistItem = ({ children }) => {
   const [isChecked, setIsChecked]
-    = useState(
-        Array.isArray(children)
+    = useState<boolean>(
+      Array.isArray(children)
         ? children[0].startsWith("[x]")
         : children.startsWith("[x]")
-      );
+    );
 
   const [text, setText] = useState('');
-  
-  
+
+
   useEffect(() => {
     let _text = '';
     if (typeof children == 'string') _text = children.slice(3);
@@ -60,10 +60,10 @@ const ChecklistItem = ({ children }) => {
     }
   }, [children])
 
-  const handleChecked = (checked) => {
+  const handleChecked = (checked: boolean) => {
     const _checkedItems = JSON.parse(localStorage?.getItem("checkedItems") || "{}");
 
-    _checkedItems[window.location.pathname] = _checkedItems[window.location.pathname].filter(item => item !== text);
+    _checkedItems[window.location.pathname] = _checkedItems[window.location.pathname].filter((item: string) => item !== text);
     if (checked) {
       _checkedItems[window.location.pathname].push(text);
     }
@@ -74,27 +74,27 @@ const ChecklistItem = ({ children }) => {
 
   return (
     <li
-    className={`checklist-item${isChecked ? ' is-checked' : ''}`}
-      style={{margin: "0.5rem 0"}}
+      className={`checklist-item${isChecked ? ' is-checked' : ''}`}
+      style={{ margin: "0.5rem 0" }}
     >
       <button
         className="inline-block"
-        style={{padding: 0, border: 'none'}}
+        style={{ padding: 0, border: 'none' }}
         onClick={() => handleChecked(!isChecked)}
       >
         {isChecked
-          ? <span className="todo-check">[<span className="todo-check" style={{color: "var(--secondary)"}}>x</span>]</span>
+          ? <span className="todo-check">[<span className="todo-check" style={{ color: "var(--secondary)" }}>x</span>]</span>
           : <span className="todo-check">[ ]</span>
         }
       </button>
-      
+
       <span>{
         typeof children == 'string'
-        ? children.slice(3)
-        : children.map((child, index) => {
+          ? children.slice(3)
+          : children.map((child: any, index: number) => {
             return (index === 0)
-            ? child.length > 4 ? child.slice(3) : ' '
-            : child
+              ? child.length > 4 ? child.slice(3) : ' '
+              : child
           })
       }</span>
     </li>
@@ -105,7 +105,7 @@ const ChecklistItem = ({ children }) => {
 const LI = ({ children, style }: JSX.IntrinsicElements["li"]) => {
   let isChecklistItem = false;
 
-  if (typeof children === 'string')  {
+  if (typeof children === 'string') {
     isChecklistItem = children.startsWith("[ ]") || children.startsWith("[x]");
   }
   if (Array.isArray(children)) {
@@ -121,8 +121,8 @@ const LI = ({ children, style }: JSX.IntrinsicElements["li"]) => {
       className="bullet-list-item list-decimal"
       style={
         typeof style === 'object'
-        ? {margin: "0.5rem 0", ...style}
-        : {margin: "0.5rem 0"}}
+          ? { margin: "0.5rem 0", ...style }
+          : { margin: "0.5rem 0" }}
     >{children}</li>
   )
 }

@@ -11,7 +11,7 @@ interface JournalProps {
   onClose: () => void;
 }
 
-const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
+const Journal: React.FC<JournalProps> = ({ journalId, onClose }) => {
   const { theme } = useTheme();
   const journalPath = useMemo(() => {
     return `journal-${journalId}`
@@ -20,7 +20,7 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
   const [content, setContent] = useStoredState<string>(journalPath, '', false);
   const [showPreview, setShowPreview] = useState<boolean>(false);
 
-  const handleKeyDown = (e:React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Tab') e.preventDefault();
     if (e.ctrlKey && e.key === "x") {
       onClose();
@@ -40,40 +40,40 @@ const Journal:React.FC<JournalProps> = ({ journalId, onClose }) => {
       {showPreview
         ? <JournalPreview content={content} onEdit={() => setShowPreview(false)} />
         : <>
-            <textarea
-              className="grow overflow-y-auto p-2"
-              placeholder='put notes here...'
-              style={{
-                background: 'transparent',
-                backdropFilter: 'brightness(0.8)',
-                color: theme.foreground,
-                outline: 'none',
-                border: 'none',
-                resize: 'none',
-                borderRadius: "0.25em"
-              }}
-              value={content}
-              onChange={(e) => {
-                setContent(
-                  e.target.value
+          <textarea
+            className="grow overflow-y-auto p-2"
+            placeholder='put notes here...'
+            style={{
+              background: 'transparent',
+              backdropFilter: 'brightness(0.8)',
+              color: theme.foreground,
+              outline: 'none',
+              border: 'none',
+              resize: 'none',
+              borderRadius: "0.25em"
+            }}
+            value={content}
+            onChange={(e) => {
+              setContent(
+                e.target.value
                   .replaceAll('<', '(') // Caret brackets break `serialize`
                   .replaceAll('>', ')')
-                )
-              }}
-              onKeyDown={handleKeyDown}
-              autoFocus={true}
-              onBlur={() => { if (content) setShowPreview(true) }}
-            />
-            <div>
-              <button
-                className="remove-btn-styling"
-                style={{textDecoration: 'underline'}}
-                onClick={onClose}
-              >
-                [ctrl + x]: close
-              </button>
-            </div>
-          </>
+              )
+            }}
+            onKeyDown={handleKeyDown}
+            autoFocus={true}
+            onBlur={() => { if (content) setShowPreview(true) }}
+          />
+          <div>
+            <button
+              className="remove-btn-styling"
+              style={{ textDecoration: 'underline' }}
+              onClick={onClose}
+            >
+              [ctrl + x]: close
+            </button>
+          </div>
+        </>
       }
 
     </div>

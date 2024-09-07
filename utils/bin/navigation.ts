@@ -19,12 +19,12 @@ export const home = (_args: string[], { router }) => {
   }
 }
 
-export const goto = (_args: string[], {router}) => {
+export const goto = (_args: string[], { router }) => {
   if (_args.length === 0) return gotoHelp;
 
   let pathname = _args.join('/');
   if (!pathname.startsWith('/')) pathname = '/' + pathname;
-  
+
   if (window.location.pathname !== pathname) {
     router.push(pathname);
     return `Going to ${pathname}`;
@@ -33,7 +33,7 @@ export const goto = (_args: string[], {router}) => {
   }
 }
 
-export const sci = (_args: string[], {router}) => {
+export const sci = (_args: string[], { router }) => {
   const moduleNum = _args[0]
   if (!['11', '12', '13', '14', '15', '16', '17', '18', '19', '20'].includes(moduleNum)) {
     return sciHelp

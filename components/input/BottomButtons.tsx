@@ -19,7 +19,7 @@ const BottomButtons = ({ includeCheckin = true }: { includeCheckin?: boolean }) 
       {includeCheckin && <CheckInButton />}
       <ThemeSwitcher />
     </div>
-   )
+  )
 }
 
 export default BottomButtons
