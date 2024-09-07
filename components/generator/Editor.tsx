@@ -5,11 +5,11 @@ import { useTheme } from "utils/providers/themeProvider"
 
 interface Props {
   initialValue: string;
-  onClose: (arg0?:string) => void;
+  onClose: (arg0?: string) => void;
   storedAt?: string;
 }
 
-const Editor:React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
+const Editor: React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
   const [value, setValue] = useState<string>(initialValue);
   const { theme } = useTheme();
 
@@ -22,7 +22,7 @@ const Editor:React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
       localStorage.setItem(storedAt, value);
     }
     onClose(value);
-    
+
     if (!value) {
       window.location.reload();
     }
@@ -62,7 +62,7 @@ const Editor:React.FC<Props> = ({ initialValue, onClose, storedAt }) => {
           <button onClick={handleCancel}>cancel</button>
           <button onClick={handleSave}>save</button>
         </div>
-        
+
       </div>
 
       <div className="modal-bg" onClick={() => onClose()} />
