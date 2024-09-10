@@ -1,5 +1,5 @@
 [
-  {
+    {
     "name": "3024Night",
     "black": "#090300",
     "error": "#db2d20",
@@ -1212,6 +1212,19 @@
     "foreground": "#f1f1f1",
     "background": "#212121",
     "highlight": "#f1f1f1"
+  },
+  { 
+    "name": "pinkypie",
+    "student": true,
+    "black": "#211A1D",
+    "error": "#A22076",
+    "tertiary": "#EE4866",
+    "primary": "#ea9999",
+    "secondary": "#F47D84",
+    "white": "#F7D8DF",
+    "foreground": "#EACACB",
+    "background": "#DB5A6B",
+    "highlight": "#f899e3"
   },
   {
     "name": "Pnevma",
