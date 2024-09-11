@@ -169,6 +169,7 @@
   },
   {
     "name": "Blurpple",
+    "student": true,
     "black": "#B80765",
     "error": "#A72F6F",
     "tertiary": "#D48FB4",
