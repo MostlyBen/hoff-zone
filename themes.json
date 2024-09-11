@@ -168,6 +168,18 @@
     "highlight": "#d9e6f2"
   },
   {
+    "name": "Blurpple",
+    "black": "#B80765",
+    "error": "#A72F6F",
+    "tertiary": "#D48FB4",
+    "primary": "#6D0B3F",
+    "secondary": "#614856",
+    "white": "#9E8FC7",
+    "foreground": "#7858D2",
+    "background": "#230C61",
+    "highlight": "#7F61D2"
+  },
+  {
     "name": "Borland",
     "black": "#4f4f4f",
     "error": "#ff6c60",
