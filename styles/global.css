@@ -107,9 +107,10 @@ li {
   line-height: 1.2;
 }
 
+pre,
 code {
-  background-color: black;
-  color: white;
+  background-color: var(--black);
+  color: var(--white);
   padding: 0 4px;
   border-radius: 4px;
 }
@@ -149,4 +150,3 @@ ul > li.bullet-list-item::before {
   padding: inherit;
   background: inherit;
 }
-
