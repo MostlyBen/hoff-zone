@@ -1,5 +1,5 @@
 [
-    {
+      {
     "name": "3024Night",
     "black": "#090300",
     "error": "#db2d20",
@@ -166,6 +166,19 @@
     "foreground": "#d9e6f2",
     "background": "#0d1926",
     "highlight": "#d9e6f2"
+  },
+  {
+    "name" : "blue",
+    "student": true,
+    "black": "#08022e",
+    "error": "#120469",
+    "tertiary": "#524b80",
+    "primary": "#807e8f",
+    "secondary": "#7b74a6",
+    "white": "#d5d3e0",
+    "foreground": "#807e8f",
+    "background": "#2a283d",
+    "highlight": "#b2ace3"
   },
   {
     "name": "Blurpple",
