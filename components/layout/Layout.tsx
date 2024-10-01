@@ -20,7 +20,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   const [showTodoBorders, setShowTodoBorders] = useStoredState('showTodoBorders', false, false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
-  const isEmbedded = window.self !== window.top;
+  const isEmbedded: boolean = window ? window.self !== window.top : false;
 
   useEffect(() => {
     document.addEventListener('onLofiOpen', () => setLofiOpen(true));
