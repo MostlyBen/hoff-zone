@@ -20,6 +20,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   const [showTodoBorders, setShowTodoBorders] = useStoredState('showTodoBorders', false, false);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
+  const isEmbedded = window.self !== window.top;
 
   useEffect(() => {
     document.addEventListener('onLofiOpen', () => setLofiOpen(true));
@@ -48,7 +49,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         background: theme.background,
       }}
     >
-      <div
+      {!isEmbedded && <div
         className={`p-2 console-container h-100p relative${consoleOpen ? '' : ' minimized'}`}
         style={{
         }}
@@ -68,6 +69,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           >\/</button>
         }
       </div>
+      }
 
       <main
         className="main-container flex-grow relative"
@@ -77,7 +79,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
       {lofiOpen && <Lofi onClose={() => setLofiOpen(false)} />}
 
-      <BottomButtons />
+      {!isEmbedded && <BottomButtons />}
     </div>
   </>);
 };
