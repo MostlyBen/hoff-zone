@@ -5,7 +5,7 @@ const CheckInButton = () => {
 
   return (
     <button
-      className="material-icons"
+      className="material-icons checkin-btn-padding"
       data-tally-open="wv4vW4"
       data-tally-emoji-text="👋"
       data-tally-emoji-animation="wave"

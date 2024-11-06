@@ -141,6 +141,12 @@ td {
     max-height: 74px;
   }
 
+  @media screen and (max-width: 767px) {
+    .checkin-btn-padding {
+      padding: 8px;
+    }
+  }
+
   .main-container {
     padding: 82px 1.85rem 20rem 1.85rem;
   }
