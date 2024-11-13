@@ -62,16 +62,30 @@ const Journal: React.FC<JournalProps> = ({ journalId, onClose }) => {
             }}
             onKeyDown={handleKeyDown}
             autoFocus={true}
-            onBlur={() => { if (content) setShowPreview(true) }}
           />
           <div>
             <button
-              className="remove-btn-styling"
+              className="remove-btn-styling mr-4"
               style={{ textDecoration: 'underline' }}
               onClick={onClose}
             >
               [ctrl + x]: close
             </button>
+            {showPreview
+              ? <button
+                className="remove-btn-styling"
+                style={{ textDecoration: 'underline' }}
+                onClick={() => setShowPreview(false)}
+              >
+                edit
+              </button>
+              : content && <button
+                className="remove-btn-styling"
+                style={{ textDecoration: 'underline' }}
+                onClick={() => setShowPreview(true)}
+              >
+                stop editing
+              </button>}
           </div>
         </>
       }
