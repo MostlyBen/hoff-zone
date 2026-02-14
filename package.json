@@ -5,8 +5,8 @@
   "author": "Ben Hoff",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
     "prettify": "prettier --write ."
@@ -21,8 +21,8 @@
     "cowsayjs": "^2.0.0",
     "eslint": "^9.9.1",
     "gray-matter": "^4.0.3",
-    "next": "14.2.35",
-    "next-mdx-remote": "^5.0.0",
+    "next": "16.1.6",
+    "next-mdx-remote": "^6.0.0",
     "openai": "^4.52.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

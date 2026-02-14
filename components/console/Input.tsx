@@ -112,9 +112,9 @@ const Input = ({ inputRef, containerRef }) => {
         onChange={(event) => setValue(event.target.value)}
         autoFocus
         onKeyDown={onSubmit}
-        autoComplete="off"
-        autoCorrect="off"
-        autoCapitalize="off"
+        autoComplete="none"
+        autoCorrect="none"
+        autoCapitalize="none"
       />
     </div>
   );
